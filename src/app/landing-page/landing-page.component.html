@@ -1,2 +1,18 @@
-<p>landing-page works!</p>
+
 <app-navbar></app-navbar>
+<div class="title-container">
+    <h2>Frontend Developer</h2>
+    <h1>Steven Schulze</h1>
+    <div class="title-buttons">
+        <button class="first-button" (mouseenter)="startScroll('check')" (mouseleave)="stopScroll('check')">
+            <div class="scroll-container">
+                <div class="scroll-text" #checkText>Check my work</div>
+            </div>
+        </button>
+        <button class="second-button" (mouseenter)="startScroll('contact')" (mouseleave)="stopScroll('contact')">
+            <div class="scroll-container">
+                <div class="scroll-text" #contactText>Contact me</div>
+            </div>
+        </button>
+    </div>
+</div>

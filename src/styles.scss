@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+}
+
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('assets/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Karla';
+  src: url('assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: -2px;
+}

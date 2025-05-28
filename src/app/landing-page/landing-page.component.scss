@@ -1,0 +1,69 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: linear-gradient(to top right, #1c1c1c 45%, #08463b);
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 251px 0 37px;
+    > h1 {
+        font-size: 128px;
+        color: #d9d9d9;
+        font-family: 'Karla';
+    }
+    > h2 {
+        font-size: 40px;
+        color: #d9d9d9;
+        font-family: 'Fira Code';
+    }
+}
+
+.title-buttons {
+  display: flex;
+  gap: 48px;
+  width: 363px;
+  height: 48px;
+
+    .first-button {
+        width: 172px;
+    }
+
+    .second-button {
+        width: 143px;
+    }
+
+    button {
+        height: 48px;
+        border: 1px solid #fff;
+        border-radius: 100px;
+        background: none;
+        padding: 0;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+
+        .scroll-container {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scroll-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            transition: transform 0.4s ease-out;
+            font-family: 'Karla';
+        }   
+    }
+}
+
