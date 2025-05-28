@@ -1,8 +1,9 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-image: linear-gradient(to top right, #1c1c1c 45%, #08463b);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(to top right, #1c1c1c 45%, #08463b);
+    align-items: center;
 }
 
 .title-container {
@@ -16,11 +17,13 @@
         color: #d9d9d9;
         font-family: 'Karla';
         margin-bottom: 40px;
+        font-weight: 700;
     }
     > h2 {
         font-size: 40px;
         color: #d9d9d9;
         font-family: 'Fira Code';
+        font-weight: 400;
     }
 }
 
@@ -69,6 +72,8 @@
             white-space: nowrap;
             transition: transform 0.4s ease-out;
             font-family: 'Karla';
+            line-height: 120%;
+            font-weight: 400;
         }   
     }
 }
