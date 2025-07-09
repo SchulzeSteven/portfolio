@@ -1,26 +1,33 @@
 :host {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    max-width: 1440px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1440px;
+}
+
+.nav-content {
+  display: flex;
+  gap: 24px;
+  flex-direction: row;
+  align-items: center;
 }
 
 .navbar-container {
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 96px;
-    max-width: 1440px;
-    width: 100%;
-    height: 98px;
-    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 96px;
+  max-width: 1440px;
+  width: 100%;
+  height: 98px;
+  display: flex;
 }
 
 .internal-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
 
   > a {
     color: #ffffff;
@@ -29,7 +36,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 100%;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
     cursor: pointer;
   }
 
@@ -51,21 +58,95 @@
 }
 
 .nav-links-container {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 }
 
-.logo-container {
-    position: relative;
-    height: 70px;
-    width: 180px;
-    display: flex
-;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
+/* 🔽 Sprachumschalter hier hinzufügen */
+.navbar-button {
+  display: flex;
+  align-items: center;
 
-    > img {
-        height: 100px;
+  .toggle-container {
+    display: flex;
+    width: 84px;
+    height: 28px;
+    border: 1px solid #3DCFB6;
+    border-radius: 100px;
+
+    &:hover {
+      border: 1px solid #FFFFFF;
+
+      .inactive-text {
+        color: #3DCFB6; // 100 % beim Hover
+      }
     }
+
+    .toggle-segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      gap: 10px;
+
+      &.active {
+        width: 46px;
+        padding: 1px 13px;
+        background: #3DCFB6;
+        border-radius: 100px;
+        margin: -1px;
+        cursor: default;
+      }
+
+      &.inactive {
+        width: 44px;
+        cursor: pointer;
+
+        &:first-child {
+          padding-right: 8px;
+          padding-left: 12px;
+        }
+
+        &:last-child {
+          padding-right: 12px;
+          padding-left: 8px;
+        }
+      }
+    }
+
+    .toggle-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 16px;
+      line-height: 120%;
+      letter-spacing: 0px;
+      height: 19px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .active-text {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .inactive-text {
+      font-weight: 400;
+      color: #3DCFB680;
+    }
+  }
+}
+
+
+.logo-container {
+  position: relative;
+  height: 70px;
+  width: 180px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  > img {
+    height: 100px;
+  }
 }
