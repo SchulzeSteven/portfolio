@@ -2,6 +2,19 @@
     margin: 0;
 }
 
+app-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+app-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
 @font-face {
   font-family: 'Fira Code';
@@ -18,4 +31,18 @@
   font-style: normal;
   line-height: 100%;
   letter-spacing: -2px;
+}
+
+@media (min-height: 920px) {
+  .marquee-container {
+    bottom: 385px !important;
+    max-width: 1440px;
+    height: 55px !important;
+  }
+}
+
+@media (max-height: 1200px) {
+  .marquee-container {
+    width: 75% !important;
+  }
 }
