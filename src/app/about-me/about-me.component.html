@@ -1,1 +1,38 @@
-<p>about-me works!</p>
+<section data-aos="fade-right" class="about-me-container">
+    <div class="about-me-img" [ngClass]="{ 'moved': hasMoved }" (mouseenter)="hasMoved = true">
+  <img src="assets/images/me-portfolio.jpg" />
+</div>
+    <div class="about-me-content">
+        <h2>{{ "about.I-me" | translate }}</h2>
+        <div class="about-me-div">
+        <h1>{{ "about.me" | translate }}</h1>
+        <div class="me-content">
+            <div class="me-span">
+            <span>
+                {{ "about.intro" | translate }}
+            </span>
+            </div>
+            <div class="personality-container">
+            <div class="personality-content">
+                <img src="assets/images/location_on.png" alt="" />
+                <span>
+                {{ "about.locate" | translate }}
+                </span>
+            </div>
+            <div class="personality-content">
+                <img src="assets/images/cognition.png" alt="" />
+                <span>
+                {{ "about.mindset" | translate }}
+                </span>
+            </div>
+            <div class="personality-content">
+                <img src="assets/images/new_releases.png" alt="" />
+                <span>
+                {{ "about.ambitious" | translate }}
+                </span>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
