@@ -1,7 +1,7 @@
-<section data-aos="fade-right" class="about-me-container">
-    <div class="about-me-img" [ngClass]="{ 'moved': hasMoved }" (mouseenter)="hasMoved = true">
-  <img src="assets/images/me-portfolio.jpg" />
-</div>
+<section #aboutMeSection class="about-me-container" data-aos="fade-right">
+  <div class="about-me-img" [ngClass]="{ 'moved': hasMoved }" (mouseenter)="onHover()">
+    <img src="assets/images/me-portfolio.jpg" />
+  </div>
     <div class="about-me-content">
         <h2>{{ "about.I-me" | translate }}</h2>
         <div class="about-me-div">
