@@ -26,6 +26,7 @@
       font-family: 'Karla';
       font-weight: 700;
       margin-bottom: 20px;
+      letter-spacing: -2px;
     }
 
     h2 {
@@ -100,7 +101,7 @@
     align-items: flex-end;
     padding: 0px 96px 0px 96px;
     width: 100%;
-    gap: 80%;
+    gap: 70%;
     max-width: 1440px;
 }
 
@@ -313,8 +314,8 @@
 .marquee-container {
   position: absolute;
   bottom: 30px;
-  width: 70%;
-  height: 42px;
+  width: 80%;
+  height: 55px;
   background-color: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(5.3px);
   transform: rotate(-3deg);
@@ -336,10 +337,11 @@
 
       span {
         color: #3dcfb6;
-        font-family: 'Karla', sans-serif;
+        font-family: 'Karla';
         font-size: 32px;
         font-weight: 400;
         line-height: 120%;
+        font-style: normal;
       }
     }
   }

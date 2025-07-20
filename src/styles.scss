@@ -27,7 +27,7 @@ app-footer {
 @font-face {
   font-family: 'Karla';
   src: url('assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   line-height: 100%;
   letter-spacing: -2px;
@@ -37,12 +37,11 @@ app-footer {
   .marquee-container {
     bottom: 385px !important;
     max-width: 1440px;
-    height: 55px !important;
   }
 }
 
-@media (max-height: 1200px) {
+@media (max-width: 1800px) {
   .marquee-container {
-    width: 75% !important;
+    width: 85% !important;
   }
 }
