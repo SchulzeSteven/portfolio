@@ -11,15 +11,20 @@
   align-items: center;
 }
 
-.navbar-container {
-  justify-content: space-around;
-  align-items: center;
-  padding: 25px 96px;
-  max-width: 1440px;
+.navbar-outer {
   width: 100%;
-  height: 98px;
-  gap: 36%;
   display: flex;
+  justify-content: center;
+  padding: 25px 0;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 96px;
 }
 
 .internal-links {
@@ -62,7 +67,6 @@
   gap: 24px;
 }
 
-/* 🔽 Sprachumschalter hier hinzufügen */
 .navbar-button {
   display: flex;
   align-items: center;
@@ -78,7 +82,7 @@
       border: 1px solid #FFFFFF;
 
       .inactive-text {
-        color: #3DCFB6; // 100 % beim Hover
+        color: #3DCFB6;
       }
     }
 
@@ -136,15 +140,8 @@
   }
 }
 
-
 .logo-container {
-  position: relative;
-  height: 70px;
-  width: 180px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
 
   > img {
     height: 100px;

@@ -1,46 +1,44 @@
-<nav class="navbar-container">
-  <div class="nav-content">
+<nav class="navbar-outer">
+  <div class="navbar-container">
+    <div class="nav-content">
+      <div class="navbar-button">
+        <div class="toggle-container">
+          <div 
+            class="toggle-segment" 
+            [ngClass]="{ active: selectedLanguage === 'EN', inactive: selectedLanguage === 'DE' }"
+            (click)="selectedLanguage === 'DE' && toggleLanguage()">
+            <span 
+              class="toggle-text" 
+              [ngClass]="{ 'active-text': selectedLanguage === 'EN', 'inactive-text': selectedLanguage === 'DE' }">EN</span>
+          </div>
+          <div 
+            class="toggle-segment" 
+            [ngClass]="{ active: selectedLanguage === 'DE', inactive: selectedLanguage === 'EN' }"
+            (click)="selectedLanguage === 'EN' && toggleLanguage()">
+            <span 
+              class="toggle-text" 
+              [ngClass]="{ 'active-text': selectedLanguage === 'DE', 'inactive-text': selectedLanguage === 'EN' }">DE</span>
+          </div>
+        </div>
+      </div>
 
-    <div class="navbar-button">
-      <div class="toggle-container">
-  <div 
-    class="toggle-segment" 
-    [ngClass]="{ active: selectedLanguage === 'EN', inactive: selectedLanguage === 'DE' }"
-    (click)="selectedLanguage === 'DE' && toggleLanguage()">
-    <span 
-      class="toggle-text" 
-      [ngClass]="{ 'active-text': selectedLanguage === 'EN', 'inactive-text': selectedLanguage === 'DE' }">EN</span>
-  </div>
-  <div 
-    class="toggle-segment" 
-    [ngClass]="{ active: selectedLanguage === 'DE', inactive: selectedLanguage === 'EN' }"
-    (click)="selectedLanguage === 'EN' && toggleLanguage()">
-    <span 
-      class="toggle-text" 
-      [ngClass]="{ 'active-text': selectedLanguage === 'DE', 'inactive-text': selectedLanguage === 'EN' }">DE</span>
-  </div>
-</div>
-
+      <section class="nav-links-container">
+        <div class="internal-links">
+          <a href="">{{ "navbar.me" | translate }}</a>
+          <span></span>
+        </div>
+        <div class="internal-links">
+          <a href="">{{ "navbar.skills" | translate }}</a>
+          <span></span>
+        </div>
+        <div class="internal-links">
+          <a href="">{{ "navbar.projects" | translate }}</a>
+          <span></span>
+        </div>
+      </section>
     </div>
-
-    <section class="nav-links-container">
-      <div class="internal-links">
-        <a href="">About me</a>
-        <span></span>
-      </div>
-      <div class="internal-links">
-        <a href="">Skills</a>
-        <span></span>
-      </div>
-      <div class="internal-links">
-        <a href="">Projects</a>
-        <span></span>
-      </div>
-    </section>
-
-  </div>
-
-  <div class="logo-container">
-    <img src="assets/images/logo.jpg" alt="">
+    <div class="logo-container">
+      <img src="assets/images/logo.jpg" alt="">
+    </div>
   </div>
 </nav>

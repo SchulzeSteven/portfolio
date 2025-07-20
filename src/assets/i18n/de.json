@@ -1,0 +1,17 @@
+{
+	"about.ambitious": "Bei meiner bisherigen Projektarbeit haben mir mein analytisches Denken, meine Kreativität und mein Ehrgeiz sehr geholfen.\nNicht zuletzt fördere ich auch den Fortschritt neuer Projekte durch Teamgeist.",
+	"about.I-me": "Wer ich bin",
+	"about.intro": "Hallo, ich bin Steven! Die Arbeit am Computer war schon immer eine meiner großen Leidenschaften. Durch meine Weiterbildung zum Frontend-Entwickler habe ich neue und interessante Facetten der IT kennengelernt und mir wurde klar, dass ich diese Leidenschaft zu meinem täglichen Beruf machen möchte.",
+	"about.locate": "Ich komme aus Berlin. Ich würde gerne in der Nähe von Berlin und Brandenburg arbeiten. Aber im Prinzip würde es mir nichts ausmachen, aus der Ferne zu arbeiten.",
+	"about.me": "Über mich",
+	"about.mindset": "Ich bin immer motiviert, alles über neue Technologien zu lernen und meine Fähigkeiten zu verbessern. Sei es mit objektorientiertem JS, dem Aufbau einer kleinen Datenbank mit Firebase oder der Arbeit mit Typescript in Angular und Angular Material.",
+	"landing.branch": "Frontend-Entwickler",
+	"landing.location": "Sitz in Berlin",
+	"landing.me": "Kontaktieren Sie mich",
+	"landing.ready": "Offen für neue Herausforderung",
+	"landing.remote": "Bereit für Home Office",
+	"landing.work": "Zu meinen Projekten",
+	"navbar.me": "Über mich",
+	"navbar.projects": "Projekte",
+	"navbar.skills": "Fähigkeiten"
+}

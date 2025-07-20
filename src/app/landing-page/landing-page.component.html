@@ -1,21 +1,19 @@
 <app-navbar></app-navbar>
 <div class="title-container">
   <div class="title">
-    <h2>Frontend Developer</h2>
+    <h2>{{ "landing.branch" | translate }}</h2>
     <h1>Steven Schulze</h1>
-    <div class="title-buttons">
-      <button
-        class="first-button"(mouseenter)="startScroll('check')"(mouseleave)="stopScroll('check')">
-        <div class="scroll-container">
-          <div class="scroll-text" #checkText>Check my work</div>
-        </div>
-      </button>
-      <button
-        class="second-button"(mouseenter)="startScroll('contact')"(mouseleave)="stopScroll('contact')">
-        <div class="scroll-container">
-          <div class="scroll-text" #contactText>Contact me</div>
-        </div>
-      </button>
+    <div class="title-buttons" [class.de]="currentLanguage === 'de'">
+        <button class="first-button" (mouseenter)="startScroll('check')" (mouseleave)="stopScroll('check')">
+          <div class="scroll-container">
+            <div class="scroll-text" #checkText>{{ 'landing.work' | translate }}</div>
+          </div>
+        </button>
+        <button class="second-button" (mouseenter)="startScroll('contact')" (mouseleave)="stopScroll('contact')">
+          <div class="scroll-container">
+            <div class="scroll-text" #contactText>{{ 'landing.me' | translate }}</div>
+          </div>
+        </button>
     </div>
   </div>
 </div>
@@ -27,28 +25,29 @@
         </div>
         <div class="left-seperator"></div>
       </div>
-      <aside class="marquee-container">
-        <div class="marquee-track">
-          <div class="adds-content">
-            <img src="/assets/images/radio_button_unchecked.png" alt="" />
-            <span>Open to Work</span>
-            <img src="/assets/images/radio_button_unchecked.png" alt="" />
-            <span>Available for remote work</span>
-            <img src="/assets/images/radio_button_unchecked.png" alt="" />
-            <span>Frontend Developer</span>
-            <img src="/assets/images/radio_button_unchecked.png" alt="" />
-            <span>Based in Berlin</span>
-            <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
-            <span aria-hidden="true">Open to Work</span>
-            <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
-            <span aria-hidden="true">Available for remote work</span>
-            <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
-            <span aria-hidden="true">Frontend Developer</span>
-            <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
-            <span aria-hidden="true">Based in Berlin</span>
-          </div>
-        </div>
-      </aside>
+      <aside class="marquee-container" [ngClass]="{ 'de-scroll': currentLanguage === 'de' }">
+  <div class="marquee-track">
+    <div class="adds-content">
+      <img src="/assets/images/radio_button_unchecked.png" alt="" />
+      <span>{{ "landing.ready" | translate }}</span>
+      <img src="/assets/images/radio_button_unchecked.png" alt="" />
+      <span>{{ "landing.remote" | translate }}</span>
+      <img src="/assets/images/radio_button_unchecked.png" alt="" />
+      <span>{{ "landing.branch" | translate }}</span>
+      <img src="/assets/images/radio_button_unchecked.png" alt="" />
+      <span>{{ "landing.location" | translate }}</span>
+      <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
+      <span aria-hidden="true">{{ "landing.ready" | translate }}</span>
+      <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
+      <span aria-hidden="true">{{ "landing.remote" | translate }}</span>
+      <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
+      <span aria-hidden="true">{{ "landing.branch" | translate }}</span>
+      <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
+      <span aria-hidden="true">{{ "landing.location" | translate }}</span>
+    </div>
+  </div>
+</aside>
+
       <div class="right-lateral">
         <a class="mail-link" href="mailto:schulze89s@hotmail.de">schulze89&#64;hotmail.de</a>
         <div class="links-imgs">

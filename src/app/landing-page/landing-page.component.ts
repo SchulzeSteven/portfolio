@@ -1,16 +1,29 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  ViewChild,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [CommonModule, NavbarComponent, TranslateModule],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 })
-export class LandingPageComponent implements AfterViewInit, OnDestroy {
+export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
   @ViewChild('checkText') checkTextRef!: ElementRef<HTMLDivElement>;
   @ViewChild('contactText') contactTextRef!: ElementRef<HTMLDivElement>;
+
+  currentLanguage: 'en' | 'de' = 'en';
+  private langChangeSub!: Subscription;
 
   private scrollSpeed = 1.2;
   private containerWidth = 120;
@@ -19,6 +32,21 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
     check: { pos: 0, frameId: null as number | null },
     contact: { pos: 0, frameId: null as number | null },
   };
+
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit(): void {
+    this.currentLanguage = this.translate.currentLang as 'en' | 'de' || 'en';
+
+    this.langChangeSub = this.translate.onLangChange.subscribe((event) => {
+      this.currentLanguage = event.lang as 'en' | 'de';
+    });
+  }
+
+  changeLanguage(lang: 'en' | 'de') {
+    this.translate.use(lang);
+    this.currentLanguage = lang; // optional redundant – wird eh durch onLangChange gesetzt
+  }
 
   ngAfterViewInit(): void {
     this.resetTextPosition('check');
@@ -84,5 +112,7 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
     Object.values(this.scrollState).forEach((state) => {
       if (state.frameId) cancelAnimationFrame(state.frameId);
     });
+
+    if (this.langChangeSub) this.langChangeSub.unsubscribe();
   }
 }

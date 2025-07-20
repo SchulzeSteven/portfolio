@@ -36,12 +36,21 @@ app-footer {
 @media (min-height: 920px) {
   .marquee-container {
     bottom: 385px !important;
-    max-width: 1440px;
+  }
+}
+
+@media (max-width: 2000px) {
+  .marquee-container {
+    width: 80% !important;
+    left: 10% !important;
+    bottom: 30px;
   }
 }
 
 @media (max-width: 1800px) {
   .marquee-container {
-    width: 85% !important;
+    width: 90% !important;
+    left: 5% !important;
+    bottom: 30px;
   }
 }
