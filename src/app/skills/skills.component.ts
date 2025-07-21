@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-skills',
@@ -18,6 +19,7 @@ import { Subscription } from 'rxjs';
 })
 export class SkillsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('scrollText') scrollTextRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('skillsSection') sectionRef!: ElementRef;
 
   currentLang: 'de' | 'en' = 'en';
 
@@ -32,6 +34,7 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     this.currentLang = this.translate.currentLang as 'de' | 'en' || 'en';
     this.langChangeSub = this.translate.onLangChange.subscribe(event => {
       this.currentLang = event.lang as 'de' | 'en';
+      AOS.refreshHard();
     });
   }
 
@@ -50,12 +53,29 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
   ];
 
   ngAfterViewInit(): void {
-    this.resetScroll();
+  this.resetScroll();
+  AOS.refresh();
 
-    this.langChangeSub = this.translate.onLangChange.subscribe(() => {
-      this.resetScroll();
-    });
-  }
+  const section = this.sectionRef.nativeElement;
+  const offset = 350;
+
+  const handleScroll = () => {
+    const rect = section.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight - offset && rect.bottom > offset;
+
+    if (inView) {
+      section.classList.add('visible');
+      section.classList.remove('invisible');
+    } else {
+      section.classList.add('invisible');
+      section.classList.remove('visible');
+    }
+  };
+
+  handleScroll(); // Initial prüfen
+  window.addEventListener('scroll', handleScroll);
+}
+
 
   startScroll(): void {
     const el = this.scrollTextRef.nativeElement;

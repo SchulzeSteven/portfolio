@@ -20,6 +20,16 @@ app-footer {
     width: 100%;
 }
 
+app-about-me {
+    width: 100%;
+    max-width: 1440px;
+}
+
+app-skills {
+    width: 100%;
+    max-width: 1440px;
+}
+
 @font-face {
   font-family: 'Fira Code';
   src: url('assets/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
@@ -35,32 +45,4 @@ app-footer {
   font-style: normal;
   line-height: 100%;
   letter-spacing: -2px;
-}
-
-@media (min-height: 920px) {
-  .marquee-container {
-    bottom: 385px !important;
-  }
-}
-
-@media only screen and (min-width: 2000px) {
-  .about-me-container {
-    padding-top: 0px !important;
-  }
-}
-
-@media (max-width: 2000px) {
-  .marquee-container {
-    width: 80% !important;
-    left: 10% !important;
-    bottom: 30px;
-  }
-}
-
-@media (max-width: 1800px) {
-  .marquee-container {
-    width: 90% !important;
-    left: 5% !important;
-    bottom: 30px;
-  }
 }

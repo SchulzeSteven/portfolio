@@ -1,8 +1,8 @@
 <section id="about" #aboutMeSection class="about-me-container">
-  <div class="about-me-img" data-aos="fade-right" [ngClass]="{ 'moved': hasMoved }" (mouseenter)="onHover()">
+  <div #aboutMeImg class="about-me-img" data-aos="fade-right" [ngClass]="{ 'moved': hasMoved }" (mouseenter)="onHover()">
     <img src="assets/images/me-portfolio.jpg" />
   </div>
-    <div class="about-me-content" data-aos="fade-left">
+    <div #aboutMeContent class="about-me-content" data-aos="fade-left">
         <h2>{{ "about.I-me" | translate }}</h2>
         <div class="about-me-div">
         <h1>{{ "about.me" | translate }}</h1>
@@ -35,4 +35,5 @@
         </div>
         </div>
     </div>
+
 </section>

@@ -19,10 +19,10 @@ export class AppComponent implements OnInit {
   // ⬅️ AOS initialisieren
   ngOnInit(): void {
     AOS.init({
-      duration: 600,         // Geschwindigkeit
-      once: false,           // Jedes Mal animieren beim Scroll
-      offset: 250,           // Globaler Abstand vom Viewport
-      easing: 'ease-out-back' // Animationseffekt
+      duration: 500,
+      once: false,
+      offset: 350,
+      easing: 'ease-out-back'
     });
   }
 }

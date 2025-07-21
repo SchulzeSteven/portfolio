@@ -20,25 +20,37 @@ export class AboutMeComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    AOS.init({
-      duration: 1000,
-      once: false
-    });
+  const section = this.sectionRef.nativeElement;
+  const image = section.querySelector('.about-me-img') as HTMLElement;
+  const content = section.querySelector('.about-me-content') as HTMLElement;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Wenn sichtbar → zurücksetzen
-            this.hasMoved = false;
-          }
-        });
-      },
-      {
-        threshold: 0.3 // Sichtbarkeitsschwelle
-      }
-    );
+  const offset = 350;
 
-    observer.observe(this.sectionRef.nativeElement);
-  }
+  const handleScroll = () => {
+    const rect = section.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight - offset && rect.bottom > offset;
+
+    if (inView) {
+      image.classList.add('visible');
+      image.classList.remove('invisible');
+
+      content.classList.add('visible');
+      content.classList.remove('invisible');
+    } else {
+      image.classList.add('invisible');
+      image.classList.remove('visible');
+
+      content.classList.add('invisible');
+      content.classList.remove('visible');
+
+      this.hasMoved = false;
+    }
+  };
+
+  handleScroll();
+  window.addEventListener('scroll', handleScroll);
+}
+
+
+
 }
