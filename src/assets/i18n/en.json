@@ -13,5 +13,13 @@
 	"landing.work": "Check my work",
 	"navbar.me": "About me",
 	"navbar.projects": "Projects",
-	"navbar.skills": "Skills"
+	"navbar.skills": "Skills",
+	"skills.another": "another skill?",
+	"skills.description": "I have experience in HTML, CSS, JavaScript, TypeScript, Angular, Firebase, Git, REST APIs, and Material Design, and I enjoy working agilely with Scrum. I'm currently particularly interested in React as a way to further expand my skillset. I find the changes in web development a motivation to always stay on top of the latest trends.",
+	"skills.fell-free": "Feel free to contact me. I look forward to expanding on my previous knowledge.",
+	"skills.need": "You need",
+	"skills.set": "Skill Set",
+	"skills.special": "I have a special interest in learning",
+	"skills.talk": "Let's Talk",
+	"skills.technologies": "Technologies"
 }

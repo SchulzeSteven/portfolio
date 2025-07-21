@@ -13,5 +13,13 @@
 	"landing.work": "Zu meinen Projekten",
 	"navbar.me": "Über mich",
 	"navbar.projects": "Projekte",
-	"navbar.skills": "Fähigkeiten"
+	"navbar.skills": "Fähigkeiten",
+	"skills.another": "eine andere Fähigkeit?",
+	"skills.description": "Ich bringe Erfahrung mit in HTML, CSS, JavaScript, TypeScript, Angular, Firebase, Git, REST-APIs, Material Design und arbeite gerne agil mit Scrum. Aktuell reizt mich besonders React, um mein Skillset weiter auszubauen. Der ständige Fortschritt in der Webentwicklung motiviert mich, mein Wissen laufend zu erweitern.",
+	"skills.fell-free": "Sprechen Sie mich gerne an. Ich freue mich darauf, mein bisheriges Wissen zu erweitern.",
+	"skills.need": "Sie benötigen",
+	"skills.set": "Fähigkeit",
+	"skills.special": "Das möchte ich noch gerne lernen",
+	"skills.talk": "Lassen Sie uns reden",
+	"skills.technologies": "Technologien"
 }
