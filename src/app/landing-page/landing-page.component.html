@@ -4,58 +4,66 @@
     <h2>{{ "landing.branch" | translate }}</h2>
     <h1>Steven Schulze</h1>
     <div class="title-buttons" [class.de]="currentLanguage === 'de'">
-        <button class="first-button" (mouseenter)="startScroll('check')" (mouseleave)="stopScroll('check')">
-          <div class="scroll-container">
-            <div class="scroll-text" #checkText>{{ 'landing.work' | translate }}</div>
-          </div>
-        </button>
-        <button class="second-button" (mouseenter)="startScroll('contact')" (mouseleave)="stopScroll('contact')">
-          <div class="scroll-container">
-            <div class="scroll-text" #contactText>{{ 'landing.me' | translate }}</div>
-          </div>
-        </button>
+      <button class="first-button" (mouseenter)="startScroll('check')" (mouseleave)="stopScroll('check')" >
+        <div class="scroll-container">
+          <div class="scroll-text" #checkText> {{ "landing.work" | translate }} </div>
+        </div>
+      </button>
+      <button class="second-button" (mouseenter)="startScroll('contact')" (mouseleave)="stopScroll('contact')" >
+        <div class="scroll-container">
+          <div class="scroll-text" #contactText> {{ "landing.me" | translate }} </div>
+        </div>
+      </button>
     </div>
   </div>
 </div>
 <div class="lateral-container">
   <div class="lateral">
-      <div class="left-lateral">
-        <div class="arrow-down">
-          <span>&darr;</span>
-        </div>
-        <div class="left-seperator"></div>
+    <div class="left-lateral">
+      <div class="arrow-down">
+        <span>&darr;</span>
       </div>
-      <aside class="marquee-container" [ngClass]="{ 'de-scroll': currentLanguage === 'de' }">
-  <div class="marquee-track">
-    <div class="adds-content">
-      <img src="/assets/images/radio_button_unchecked.png" alt="" />
-      <span>{{ "landing.ready" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" />
-      <span>{{ "landing.remote" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" />
-      <span>{{ "landing.branch" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" />
-      <span>{{ "landing.location" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
-      <span aria-hidden="true">{{ "landing.ready" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
-      <span aria-hidden="true">{{ "landing.remote" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
-      <span aria-hidden="true">{{ "landing.branch" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true"/>
-      <span aria-hidden="true">{{ "landing.location" | translate }}</span>
+      <div class="left-seperator"></div>
     </div>
-  </div>
-</aside>
-
-      <div class="right-lateral">
-        <a class="mail-link" href="mailto:schulze89s@hotmail.de">schulze89&#64;hotmail.de</a>
-        <div class="links-imgs">
-          <a class="mail-container" href="mailto:schulze89@hotmail.de"><div class="mail-content"></div><span></span></a>
-          <a class="github-container" href="https://github.com/SchulzeSteven" target="_blank" rel="noopener"><div class="github-content"></div><span></span></a>
-          <a class="linkedin-container" href="https://www.linkedin.com/in/steven-schulze-b80aaa375/" target="_blank" rel="noopener"><div class="linkedin-content"></div><span></span></a>
+    <aside class="marquee-container" [ngClass]="{ 'de-scroll': currentLanguage === 'de' }" >
+      <div class="marquee-track">
+        <div class="adds-content">
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span>{{ "landing.ready" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span>{{ "landing.remote" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span>{{ "landing.branch" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span>{{ "landing.location" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true" />
+          <span aria-hidden="true">{{ "landing.ready" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true" />
+          <span aria-hidden="true">{{ "landing.remote" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true" />
+          <span aria-hidden="true">{{ "landing.branch" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" aria-hidden="true" />
+          <span aria-hidden="true">{{ "landing.location" | translate }}</span>
         </div>
-        <div class="right-seperator"></div>
       </div>
+    </aside>
+    <div class="right-lateral">
+      <a class="mail-link" href="mailto:schulze89s@hotmail.de" >schulze89&#64;hotmail.de</a>
+      <div class="links-imgs">
+        <a class="mail-container" href="mailto:schulze89@hotmail.de">
+          <div class="mail-content"></div>
+          <span></span>
+        </a>
+        <a class="github-container" href="https://github.com/SchulzeSteven" target="_blank" rel="noopener">
+          <div class="github-content"></div>
+          <span></span>
+        </a>
+        <a class="linkedin-container" href="https://www.linkedin.com/in/steven-schulze-b80aaa375/" target="_blank" rel="noopener">
+          <div class="linkedin-content"></div>
+          <span></span>
+        </a>
+      </div>
+      <div class="right-seperator"></div>
+    </div>
   </div>
 </div>
