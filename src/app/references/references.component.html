@@ -1,1 +1,42 @@
-<p>references works!</p>
+<section data-aos="fade-down" class="reference-section">
+  <div class="reference-title-box">
+    <h3>{{ "references.title" | translate }}</h3>
+  </div>
+  <div class="fade-shadow"></div>
+  <div class="reference-slider-wrapper">
+    <div class="reference-track">
+      <div *ngFor="let references of displayedReferencesComments" class="reference-card-wrapper">
+        <img class="quote-icon" *ngIf="references.id === 1" src="assets/images/quotes.png" alt=""/>
+        <div class="reference-card" [ngClass]="{
+            'reference-prev': references.id === 0,
+            'reference-active': references.id === 1,
+            'reference-next': references.id === 2,
+            'slide-left': animate && direction === 'left',
+            'slide-right': animate && direction === 'right'
+          }">
+          <span [ngClass]="{ 'touch-animation': isTouchDevice }">
+            {{ references.descriptionKey | translate }}
+          </span>
+          <div class="reference-author">
+            <div class="author-gap"></div>
+            <span [ngClass]="{ 'touch-animation': isTouchDevice }">
+              {{ references.nameKey | translate }} -
+              {{ references.rangKey | translate }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reference-navigation">
+    <div (click)="nextReferences('left')" class="nav-arrow-left">
+      <img class="arrow-default" src="assets/images/Left_arrow.png" alt="" />
+      <img class="arrow-hover" src="assets/images/Left_hover.png" alt="" />
+    </div>
+    <p *ngFor="let dot of [0, 1, 2]; let i = index" [ngClass]="{ 'dot-inactive': i !== activeReferenceIndex }"></p>
+    <div (click)="nextReferences('right')" class="nav-arrow-right">
+      <img class="arrow-default" src="assets/images/Right_arrow.png" alt="" />
+      <img class="arrow-hover" src="assets/images/Right_hover.png" alt="" />
+    </div>
+  </div>
+</section>

@@ -39,6 +39,11 @@ app-featured-projects {
     align-items: center;
 }
 
+app-references {
+    max-width: 1440px;
+    width: 100%;
+}
+
 @font-face {
   font-family: 'Fira Code';
   src: url('assets/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');

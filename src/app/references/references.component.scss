@@ -1,0 +1,209 @@
+.dark-white {
+    color: #FFFFFFCC;
+}
+
+.reference-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 144px;
+    max-width: 1440px;
+}
+
+.reference-title-box {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 48px 0;
+
+    >h3 {
+        font-family: 'Fira Code';
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #3DCFB6;
+        text-align: center;
+    }
+}
+
+.fade-shadow {
+    width: 100%;
+    height: 388px;
+    position: absolute;
+    background: linear-gradient(90deg, rgba(28, 28, 28, 1) 0%, rgba(28, 28, 28, 0) 10%, rgba(28, 28, 28, 0) 90%, rgba(28, 28, 28, 1) 100%);
+    z-index: 1;
+    display: none;
+}
+
+.reference-slider-wrapper {
+    margin-bottom: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reference-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+
+    >p {
+        margin: 0;
+        display: block;
+        height: 6.5px;
+        width: 6.5px;
+        background-color: #3DCFB6;
+        border-radius: 59%;
+    }
+
+    .dot-inactive {
+        background-color: #FFFFFF;
+    }
+}
+
+.nav-arrow-left,
+.nav-arrow-right {
+    height: 40px;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+
+        .arrow-default {
+            animation: fadeOut 90ms ease-in forwards;
+        }
+
+        .arrow-hover {
+            animation: fadeIn 90ms ease-in forwards;
+        }
+    }
+}
+
+.reference-track {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    justify-content: center;
+    position: relative;
+}
+
+.reference-card-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.quote-icon {
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width: 66px;
+    height: 48px;
+    z-index: 1;
+}
+
+.reference-card {
+    width: 280px;
+    height: 360px;
+    border-radius: 32px;
+    border: 1px solid #3DCFB6;
+    background-color: #3DCFB64D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    >span {
+        padding: 40px 40px 0 40px;
+        height: 260px;
+        font-family: 'Karla';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #FFFFFF;
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.reference-card.reference-prev,
+.reference-card.reference-next {
+    background-color: #3DCFB61A;
+}
+
+.reference-author {
+    height: 22px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 0 30px 40px 30px;
+    width: 100%;
+    justify-content: center;
+
+    >span {
+        font-family: 'Karla';
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #FFFFFF;
+    }
+}
+
+.touch-animation {
+    opacity: 0;
+    animation: fadeIn 500ms ease-in forwards;
+}
+
+.author-gap {
+    height: 0;
+    width: 38px;
+    border-radius: 32px;
+    border: 1px solid #FFFFFF;
+}
+
+.blank-not-focused {
+    border: 1px solid #FFFFFFCC;
+}
+
+.arrow-default {
+    opacity: 1;
+    position: absolute;
+}
+
+.arrow-hover {
+    opacity: 0;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
