@@ -197,8 +197,8 @@
 
 .tooltip-div {
   position: absolute;
-  top: -127px;
-  left: -17px;
+  top: -130px;
+  left: -20px;
   width: 188px;
   height: 129px;
   background-color: #fff;
@@ -233,7 +233,7 @@
     background-repeat: no-repeat;
     position: absolute;
     top: 100%;
-    left: 25%;
+    left: 18%;
     width: 26px;
     height: 17px;
     margin-left: 4px;
@@ -245,6 +245,7 @@
   height: 38px;
   font-size: 16px;
   text-align: center;
+  font-family: 'Karla';
 }
 
 .wanted-skills-container {
@@ -267,8 +268,8 @@
   }
 
   > span {
-    font-size: 12px;
     line-height: 108%;
+    font-family: 'Karla';
   }
 }
 
