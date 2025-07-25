@@ -1,7 +1,435 @@
 .flex-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-image: linear-gradient(to top right, #1c1c1c 70%, #08463b);
+}
+
+/* ===================== DIALOG ===================== */
+
+.featured-projects-dialog-container {
+  position: fixed;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.374) !important;
+  z-index: 999;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-open {
+  overflow: hidden;
+}
+
+.featured-projects-dialog {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+  height: 90%;
+  border-radius: 30px;
+  border: 1px solid #3dcfb6;
+  background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+  color: #00e6b8;
+  z-index: 1000;
+}
+
+.left-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  justify-content: center;
+  background-image: unset;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 12px;
+  width: 100%;
+
+  h1 {
+    font-family: Karla;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 100px;
+    letter-spacing: -2px;
+    color: #3dcfb6;
+    margin: 0;
+  }
+
+  h2 {
+    font-family: 'Fira Code';
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 80%;
+    letter-spacing: -3px;
+    color: #fff;
+    margin: 0;
+  }
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-image: unset;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 6px;
+  background-image: unset;
+
+  h3 {
+    font-family: 'Fira Code';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: #3dcfb6;
+    margin: 0;
     width: 100%;
-    background-image: linear-gradient(to top right, #1c1c1c 70%, #08463b);
+  }
+
+  span {
+    font-family: 'Karla';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    color: #fff;
+  }
+}
+
+.technologies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 13px;
+  padding: 0 12px;
+}
+
+.technologies-description {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  span {
+    font-family: 'Karla';
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+  }
+}
+
+.preview-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+
+  img {
+
+    border-radius: 30px;
+  }
+}
+
+.dialog-close-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 16px 0 0;
+
+  .close-content {
+    position: relative;
+    height: 48px;
+    width: 48px;
+
+    .low-default {
+      opacity: 1;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .high-hover {
+      opacity: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .low-default {
+        animation: fadeOut 200ms ease-in forwards;
+      }
+
+      .high-hover {
+        animation: fadeIn 200ms ease-in forwards;
+      }
+    }
+  }
+}
+
+.link-buttons-container {
+  display: flex;
+  gap: 32px;
+  padding: 0 12px;
+  width: 100%;
+}
+
+.link-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 130px;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: border-color 300ms ease-out;
+
+  div {
+    display: flex;
+    gap: 4px;
+
+    span {
+      font-family: 'Karla';
+      font-size: 18px;
+      color: #fff;
+      transition: color 300ms ease-out;
+    }
+  }
+
+  &:hover {
+    border-color: #3dcfb6;
+
+    div span {
+      color: #3dcfb6;
+    }
+
+    .arrow-outward-container .low-default {
+      animation: fadeOut 120ms ease-in forwards;
+    }
+
+    .arrow-outward-container .high-hover {
+      animation: fadeIn 120ms ease-in forwards;
+    }
+  }
+}
+
+.arrow-outward-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  .low-default {
+    opacity: 1;
+    position: absolute;
+  }
+
+  .high-hover {
+    opacity: 0;
+  }
+}
+
+.next-project-container-responsive {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px 15px 0;
+
+  span {
+    font-family: 'Karla';
+    font-size: 18px;
+    color: #3dcfb6;
+  }
+
+  .low-default {
+    opacity: 1;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  .high-hover {
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    span {
+      color: #fff;
+    }
+
+    .arrow-outward-container .low-default {
+      animation: fadeOut 50ms ease-in forwards;
+    }
+
+    .arrow-outward-container .high-hover {
+      animation: fadeIn 50ms ease-in forwards;
+    }
+  }
+}
+
+.next-project-container-desktop {
+  display: none;
+
+  span {
+    font-family: 'Karla';
+    font-size: 18px;
+    color: #3dcfb6;
+  }
+}
+
+/* ===================== ANIMATIONS ===================== */
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+@media only screen and (min-height: 320px) {
+    .dialog-image {
+        height: 200px;
+        width: 90%;
+    }
+
+    .link-buttons-container {
+        gap: 24px;
+        padding: 0;
+        width: unset;
+    }
+
+    .link-buttons {
+        width: 110px;
+    }
+}
+
+@media only screen and (min-height: 875px) {
+    .link-buttons-container {
+        width: 100%;
+    }
+
+    .link-buttons {
+        height: 48px;
+    }
+}
+
+@media only screen and (min-width: 925px) {
+  .featured-projects-dialog {
+    flex-direction: row;
+    gap: 18px;
+    height: 656px;
+    max-width: 1248px;
+    width: 90%;
+  }
+
+  .left-details-container {
+    width: 480px;
+    padding-left: 40px;
+  }
+
+  .title {
+    gap: 24px;
+    padding: 0;
+
+    h1 {
+      font-size: 128px;
+    }
+  }
+
+  .technologies-container {
+    width: 480px;
+  }
+
+  .preview-project {
+    padding-right: 40px;
+    height: 600px;
+    max-width: 520px;
+    width: 100%;
+
+    img {
+      max-width: 520px;
+    }
+
+    .dialog-image {
+        height: 370px;
+        width: 100%;
+        max-width: 520px;
+    }
+  }
+
+  .dialog-close-container {
+    margin-bottom: 39px;
+  }
+
+  .next-project-container-responsive {
+    display: none;
+  }
+
+  .next-project-container-desktop {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+
+    span {
+      color: #3dcfb6;
+    }
+
+    .low-default {
+      opacity: 1;
+      transition: opacity 150ms ease-in-out;
+    }
+
+    .high-hover {
+      opacity: 0;
+      transition: opacity 150ms ease-in-out;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      span {
+        color: #fff;
+      }
+
+      .arrow-outward-container .low-default {
+        animation: fadeOut 50ms ease-in forwards;
+      }
+
+      .arrow-outward-container .high-hover {
+        animation: fadeIn 50ms ease-in forwards;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .featured-projects-dialog {
+    gap: 88px;
+  }
+
+  .left-details-container {
+    padding-left: 80px;
+  }
+
+  .preview-project {
+    padding-right: 80px;
+  }
 }

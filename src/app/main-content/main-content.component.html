@@ -1,9 +1,83 @@
 <section class="flex-column">
-<app-landing-page></app-landing-page>
-
-<app-about-me></app-about-me>
-<app-skills></app-skills>
-<app-featured-projects></app-featured-projects>
-<app-references></app-references>
-<app-contact-me></app-contact-me>
+  <app-landing-page></app-landing-page>
+  <app-about-me></app-about-me>
+  <app-skills></app-skills>
+  <app-featured-projects (openDialog)="openDialog($event)"></app-featured-projects>
+  <app-references></app-references>
+  <app-contact-me></app-contact-me>
 </section>
+
+<div *ngIf="dialogVisible && selectedProject" class="featured-projects-dialog-container">
+  <div class="featured-projects-dialog">
+    <div class="flex-column left-details-container">
+      <div class="title">
+        <h1>0{{ selectedProject.id }}</h1>
+        <h2>{{ selectedProject.nameKey | translate }}</h2>
+      </div>
+
+      <div class="flex-column description-container">
+        <article class="flex-column intro">
+          <h3>{{ "featured.about-project" | translate }}</h3>
+          <span>{{ selectedProject.descriptionKey | translate }}</span>
+        </article>
+
+        <div class="technologies-container">
+          <div
+            class="technologies-description"
+            *ngFor="let tech of selectedProject.technologies | keyvalue"
+          >
+            <img src="assets/images/{{ tech.value }}_green.png" alt="" />
+            <span>{{ tech.value }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="link-buttons-container">
+        <a class="link-buttons" [href]="selectedProject.linkGitHub" target="_blank">
+          <div>
+            <span>GitHub</span>
+            <div class="arrow-outward-container">
+              <img class="low-default" src="assets/images/arrow_outward_low.png" alt="" />
+              <img class="high-hover" src="assets/images/arrow_outward_high.png" alt="" />
+            </div>
+          </div>
+        </a>
+
+        <a class="link-buttons" [href]="selectedProject.linkLive" target="_blank">
+          <div>
+            <span>Live Test</span>
+            <div class="arrow-outward-container">
+              <img class="low-default" src="assets/images/arrow_outward_low.png" alt="" />
+              <img class="high-hover" src="assets/images/arrow_outward_high.png" alt="" />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="preview-project">
+      <div class="dialog-close-container">
+        <div class="close-content">
+          <img class="low-default" src="assets/images/X_Default.png" alt="" />
+          <img (click)="closeProjects()" class="high-hover" src="assets/images/X_Hover.png" alt="" />
+        </div>
+      </div>
+
+      <img class="dialog-image" src="assets/images/{{ selectedProject.namePng }}.png" alt="" />
+        <div (click)="nextProject(selectedProject.id)" class="next-project-container-responsive">
+            <span>{{ "featured.next" | translate }}</span>
+            <div class="arrow-outward-container">
+                <img class="low-default" src="assets/images/arrows_left_default.png" alt="" />
+                <img class="high-hover" src="assets/images/arrows_left_right.png" alt="" />
+            </div>
+        </div>
+      <div (click)="nextProject(selectedProject.id)" class="next-project-container-desktop hidden">
+        <span>{{ "featured.next" | translate }}</span>
+        <div class="arrow-outward-container">
+          <img class="low-default" src="assets/images/arrows_left_default.png" alt="" />
+          <img class="high-hover" src="assets/images/arrows_left_right.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

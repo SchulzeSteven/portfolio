@@ -3,7 +3,7 @@
         width: 100%;
         margin-bottom: 0 0 144px 0;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         box-sizing: border-box;
         padding-left: 96px;
     }
@@ -44,92 +44,6 @@
         display: block;
         right: -228px;
     }
-
-    .featured-projects-dialog {
-        flex-direction: row;
-        gap: 18px;
-        height: 656px;
-        max-width: 1248px;
-        width: 90%;
-    }
-
-    .left-details-container {
-        width: 480px;
-        padding: 0px 0 0 40px;
-    }
-
-    .title {
-        gap: 24px;
-        padding: 0 0 0 0;
-
-        >h1 {
-            font-size: 128px;
-        }
-    }
-
-    .technologies-container {
-        width: 480px;
-    }
-
-    .preview-project {
-        padding: 0px 40px 0 0;
-        height: 600px;
-        width: 100%;
-        max-width: 520px;
-
-        >img {
-            height: 370px;
-            width: 100%;
-            max-width: 520px;
-        }
-    }
-
-    .dialog-close-container {
-        margin-bottom: 39px;
-    }
-
-    .next-project-container-responsive {
-        display: none;
-    }
-
-    .next-project-container-desktop {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: flex-end;
-
-        >span {
-            color: #3dcfb6;
-        }
-
-        .low-default {
-            opacity: 1;
-            transition: opacity 150ms ease-in-out;
-        }
-
-        .high-hover {
-            opacity: 0;
-            transition: opacity 150ms ease-in-out;
-        }
-
-        &:hover {
-            cursor: pointer;
-
-            >span {
-                transition: color 10ms ease-out;
-                color: #FFFFFF;
-            }
-        }
-
-        &:hover .arrow-outward-container .low-default {
-            animation: fadeOut 50ms ease-in forwards;
-        }
-
-        &:hover .arrow-outward-container .high-hover {
-            animation: fadeIn 50ms ease-in forwards;
-        }
-    }
 }
 
 @media only screen and (min-width: 1050px) {
@@ -150,23 +64,17 @@
     .preview-divs {
         right: -402px;
     }
-
-    .featured-projects-dialog {
-        gap: 88px;
-    }
-
-    .left-details-container {
-        padding: 0 0 0 80px;
-    }
-
-    .preview-project {
-        padding: 0 80px 0 0;
-    }
 }
 
 @media only screen and (min-width: 1420px) {
     .featured-projects-container {
         width: 880px;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .featured-projects-section {
+        padding: 0;
     }
 }
 

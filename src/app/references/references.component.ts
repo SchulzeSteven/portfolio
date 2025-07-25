@@ -17,6 +17,7 @@ interface ReferencesComments {
   templateUrl: './references.component.html',
   styleUrls: [
     './references.component.scss',
+    './references.component-media-query.scss',
   ]
 })
 

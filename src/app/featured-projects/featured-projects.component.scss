@@ -187,20 +187,6 @@
     z-index: -1;
 }
 
-.featured-projects-dialog-container {
-    position: fixed;
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.374) !important;
-    z-index: 999;
-    inset: 0;
-    align-items: center;
-    justify-content: center;
-}
-
-.dialog-open {
-    overflow: hidden;
-}
-
 @keyframes fadeOut {
     0% {
         opacity: 1;

@@ -1,0 +1,142 @@
+@media only screen and (max-width: 700px) {
+    .reference-title-box 
+    
+        >h3 {
+            font-size: 24px;
+        }
+}
+
+@media only screen and (min-width: 250px) {
+    .reference-card {
+
+        >span {
+            font-size: 16px;
+        }
+    }
+
+    .reference-author {
+
+        >span {
+            font-size: 14px;
+        }
+    }
+}
+
+@media only screen and (min-width: 925px) {
+    .fade-shadow {
+        display: block;
+        height: 274px;
+    }
+
+    .reference-title-box {
+
+        >h3 {
+            font-size: 32px;
+        }
+    }
+
+    .reference-slider-wrapper {
+        height: 274px;
+        margin-bottom: 48px;
+    }
+
+    .reference-card {
+        width: 632px;
+        height: 274px;
+        gap: 44px;
+
+        >span {
+            width: 552px;
+            height: 112px;
+            font-size: 20px;
+            padding: 40px 40px 0 40px;
+        }
+    }
+
+    .reference-author {
+        width: 552px;
+
+        >span {
+            width: 250px;
+            font-size: 18px;
+        }
+    }
+
+    .author-gap {
+        width: 335px;
+    }
+
+    .reference-prev.slide-left {
+        animation: penultimate-left 500ms ease-out forwards;
+    }
+
+    .reference-prev.slide-right {
+        animation: penultimate-right 500ms ease-out forwards;
+    }
+
+    .reference-active.slide-left {
+        animation: highlight-left 500ms ease-out forwards;
+    }
+
+    .reference-active.slide-right {
+        animation: highlight-right 500ms ease-out forwards;
+    }
+
+    .reference-next.slide-left {
+        animation: next-left 500ms ease-out forwards;
+    }
+
+    .reference-next.slide-right {
+        animation: next-right 500ms ease-out forwards;
+    }
+
+    @keyframes fadeOut {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes penultimate-left {
+        0% { right: 0px; }
+        50% { right: -348px; }
+        100% { right: -697px; }
+    }
+
+    @keyframes penultimate-right {
+        0% { right: 0px; opacity: 0; }
+        50% { right: -697px; opacity: 0; }
+        90% { opacity: 0.5; }
+        100% { right: -1395px; opacity: 1; }
+    }
+
+    @keyframes highlight-left {
+        0% { right: 0px; }
+        50% { right: -348px; }
+        100% { right: -697px; }
+    }
+
+    @keyframes highlight-right {
+        0% { left: 0px; }
+        50% { left: -348px; }
+        100% { left: -697px; }
+    }
+
+    @keyframes next-left {
+        0% { left: 0px; opacity: 0; }
+        50% { left: -697px; opacity: 0; }
+        90% { opacity: 0.5; }
+        100% { left: -1395px; opacity: 1; }
+    }
+
+    @keyframes next-right {
+        0% { left: 0px; }
+        50% { left: -348px; }
+        100% { left: -697px; }
+    }
+}
