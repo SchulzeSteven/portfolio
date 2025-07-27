@@ -1,0 +1,482 @@
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-me-section {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 144px;
+    max-width: 1440px;
+
+    >div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 64px;
+    }
+}
+
+.lets-work-container {
+    gap: 40px;
+}
+
+.intro-container {
+    gap: 20px;
+
+    >h3 {
+        font-family: 'Karla';
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: #3dcfb6;
+
+    }
+
+    >h1 {
+        font-family: 'Fira Code';
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: -3px;
+        color: #3dcfb6;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+    }
+
+    >h1,
+    h3 {
+        margin: 0;
+    }
+}
+
+.problem-container {
+    gap: 16px;
+    border-radius: 30px;
+    backdrop-filter: blur(4px);
+
+    >h2 {
+        font-family: 'Fira Code';
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        color: #3dcfb6;
+
+    }
+
+    >p {
+        font-family: 'Karla';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+
+    }
+}
+
+.font-16-px,
+.talk-content {
+    font-size: 16px;
+}
+
+.talk-content {
+    font-weight: 700;
+}
+
+.contact-formular-container {
+    height: 550px;
+    gap: 40px;
+}
+
+.name-container.hovered-bottom-name {
+    border-bottom: 1px solid #3DCFB6;
+}
+
+.email-container.hoverd-bottom-email {
+    border-bottom: 1px solid #3DCFB6;
+}
+
+.input-container {
+    gap: 16px;
+    padding: 32px 16px 32px 16px;
+
+    >label {
+        font-family: 'Fira Code';
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        color: #3dcfb6;
+
+    }
+
+    >input {
+        background-color: rgba(28, 28, 28, 1);
+        border: none;
+        font-family: 'Karla';
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        color: #FFFFFFCC;
+
+        ::after {
+            background-color: rgba(28, 28, 28, 1);
+            border: none;
+            color: white;
+        }
+    }
+}
+
+
+
+input.ng-invalid.ng-touched::placeholder {
+    color: #EC7B7BCC !important;
+    font-family: 'Karla';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0px;
+}
+
+input.ng-invalid {
+    color: #EC7B7BCC !important;
+}
+
+@keyframes showerror {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.name-form {
+    gap: 10px;
+    border-bottom: 1px solid #3DCFB680;
+    transition: color 300ms ease-out, border-color 300ms ease-out;
+
+    &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid #3DCFB6;
+
+        ::placeholder {
+            color: #FFFFFF;
+        }
+    }
+}
+
+.name-form-border {
+    gap: 10px;
+    border-top: 1px solid #3DCFB680;
+    border-bottom: 1px solid #3DCFB680;
+    transition: color 300ms ease-out, border-color 300ms ease-out;
+
+    &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid #3DCFB6;
+        border-top: 1px solid #3DCFB6;
+
+        ::placeholder {
+            color: #FFFFFF;
+        }
+    }
+}
+
+
+
+::placeholder {
+    font-family: 'Karla';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    color: #FFFFFFCC;
+
+
+    .showsmooth {
+        animation: showerror 300ms linear forwards;
+    }
+
+}
+
+input:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.policy-and-submit-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.policy-and-submit-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  .scroll-button {
+    height: 48px;
+    max-width: 100%;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    background: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Karla';
+    font-weight: 400;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &.button-de {
+      min-width: 230px;
+    }
+
+    &.button-en {
+      min-width: 160px;
+    }
+
+    &:hover {
+      color: #3dcfb6;
+      border-color: #3dcfb6;
+    }
+
+    .scroll-container {
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .scroll-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      transition: transform 0.4s ease-out;
+      line-height: 120%;
+    }
+
+    &.ngForm-valid,
+    &.ngForm-valid-resposive {
+      border-color: #3dcfb6;
+      color: #3dcfb6;
+    }
+  }
+}
+
+
+.ngForm-valid {
+    transition: color 300ms ease-out, border-color 300ms ease-out;
+    border-color: #FFFFFF !important;
+
+    >span {
+        display: inline-block;
+        color: #FFFFFF;
+    }
+
+    &:hover {
+        border-color: #3dcfb6 !important;
+
+        >span {
+            color: #3dcfb6;
+            animation: slideTextSkill 2500ms linear forwards infinite;
+        }
+
+    }
+}
+
+@keyframes slideTextSkill {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-130%);
+        visibility: hidden;
+    }
+
+    51% {
+        transform: translateX(160%);
+        visibility: hidden;
+    }
+
+    60% {
+        transform: translateX(130%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.checkbox-container {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+
+    >p {
+        >span {
+            color: #EC7B7BCC;
+            font-family: Karla;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 120%;
+            letter-spacing: 0px;
+
+        }
+    }
+}
+
+.checkbox-imgs {
+    >img {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.checkbox-default {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    >p {
+        font-family: 'Karla';
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+
+
+        >a {
+            font-family: 'Fira Code';
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 120%;
+            letter-spacing: -2px;
+            color: #3dcfb6;
+            text-decoration: none;
+            padding: 5px 4px 2px 4px;
+
+            &:hover {
+                color: #FFFFFF;
+                border-bottom: 1px solid #3DCFB6
+            }
+        }
+    }
+
+    >input {
+        display: none;
+    }
+}
+
+.default-container {
+    &:hover {
+        cursor: pointer;
+
+        .default {
+            display: none;
+        }
+
+        .hidden {
+            display: block;
+        }
+
+    }
+}
+
+.check-container {
+    &:hover {
+        cursor: pointer;
+
+        .hidden-checked {
+            display: none;
+        }
+
+        .hidden-checked-hover {
+            display: block;
+        }
+
+    }
+}
+
+.checkmark {
+    height: 25px;
+    width: 25px;
+    border: solid #3DCFB6;
+}
+
+.default {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden-checked {
+    display: block;
+}
+
+.hidden-checked-hover {
+    display: none;
+}
+
+.pop-up-dialog-container {
+    opacity: 0;
+    animation: fadeIn 500ms ease-in forwards;
+    position: fixed;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.374) !important;
+    z-index: 999;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.fadeout {
+    animation: fadeOut 500ms ease-in forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

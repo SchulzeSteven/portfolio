@@ -1,0 +1,41 @@
+.ngForm-valid-resposive {
+    transition: color 300ms ease-out, border-color 300ms ease-out;
+    border-color: #3dcfb6 !important;
+
+    >span {
+        display: inline-block;
+        color: #3dcfb6;
+        animation: slideTextSkill 2500ms linear forwards infinite;
+    }
+}
+
+@media only screen and (min-width: 925px) {
+    .contact-me-section {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 96px 0 96px;
+        align-items: flex-start;
+
+        >div {
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    .lets-work-container {
+        width: 100%;
+        max-width: 568px;
+    }
+
+    .contact-formular-container {
+        width: 100%;
+        max-width: 616px;
+    }
+
+    .intro-container {
+        >h1 {
+            font-size: 56px;
+        }
+    }
+}

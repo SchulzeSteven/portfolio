@@ -13,11 +13,20 @@ export class NavbarComponent {
   selectedLanguage: 'EN' | 'DE' = 'EN';
 
   constructor(public translate: TranslateService) {
-    this.translate.use('en');
+    const savedLang = localStorage.getItem('lang');
+
+    // 👉 Immer 'en' als Standard, nur wenn savedLang vorhanden, dann verwenden
+    const defaultLang = savedLang ?? 'en';
+
+    this.translate.use(defaultLang);
+    this.selectedLanguage = defaultLang.toUpperCase() === 'DE' ? 'DE' : 'EN';
   }
 
   toggleLanguage() {
     this.selectedLanguage = this.selectedLanguage === 'EN' ? 'DE' : 'EN';
-    this.translate.use(this.selectedLanguage.toLowerCase());
+    const langCode = this.selectedLanguage.toLowerCase();
+
+    this.translate.use(langCode);
+    localStorage.setItem('lang', langCode);
   }
 }

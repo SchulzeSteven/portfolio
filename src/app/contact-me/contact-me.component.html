@@ -1,1 +1,78 @@
-<p>contact-me works!</p>
+<section data-aos="fade-up" class="contact-me-section">
+  <div>
+    <div class="flex-column lets-work-container">
+      <div class="flex-column intro-container">
+        <h3> {{ "contact.me" | translate }} </h3>
+        <h1> {{ "contact.work" | translate }} </h1>
+      </div>
+      <div class="flex-column problem-container">
+        <h2> {{ "contact.problem" | translate }} </h2>
+        <p> {{ "contact.intrest" | translate }} <br /><br/> {{ "contact.need" | translate }} <span style="color: #3dcfb6;">{{ "contact.talk" | translate }}</span> </p>
+      </div>
+    </div>
+
+    <form class="flex-column contact-formular-container" (submit)="checkFormular(contactForm)" #contactForm="ngForm">
+      <div class="input-cotainer">
+        <div class="flex-column name-form-border name-container" [ngClass]="{ 'hovered-bottom-name': isInputHoveredEmail }">
+          <div class="flex-column input-container">
+            <label for="inputName"> {{ "contact.name" | translate }} </label>
+            <input id="inputName" required #inputName="ngModel" name="inputName" [(ngModel)]="contactData.name" [placeholder]="!inputName.valid && inputName.touched ? ('contact.errorNamePlaceholder' | translate) : ('contact.namePlaceholder' | translate)" type="text" class="showsmooth"/>
+          </div>
+        </div>
+        <div class="flex-column name-form email-container" [ngClass]="{ 'hoverd-bottom-email': isInputHoveredMessage }" (mouseenter)="isInputHoveredEmail = true" (mouseleave)="isInputHoveredEmail = false">
+          <div class="flex-column input-container">
+            <label for="inputEmail"> {{ "contact.email" | translate }} </label>
+            <input id="inputEmail" required #intputEmail="ngModel" name="inputEmail" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" [(ngModel)]="contactData.email" [placeholder]="!intputEmail.valid && intputEmail.touched ? ('contact.errorEmailPlaceholder' | translate) : ('contact.emailPlaceholder' | translate)" type="text"/>
+          </div>
+        </div>
+        <div class="flex-column name-form message-container" (mouseenter)="isInputHoveredMessage = true" (mouseleave)="isInputHoveredMessage = false">
+          <div class="flex-column input-container">
+            <label for="inputMessage"> {{ "contact.message" | translate }} </label>
+            <input id="inputMessage" required #inputMessage="ngModel" name="message" minlength="4" [(ngModel)]="contactData.message" [placeholder]=" !inputMessage.valid && inputMessage.touched ? ('contact.errorMessagePlaceholder' | translate) : ('contact.messagePlaceholder' | translate)" type="text"/>
+          </div>
+        </div>
+      </div>
+      <div class="policy-and-submit-container">
+        <div class="policy-and-submit-content">
+          <div class="checkbox-container">
+            <div class="checkbox-imgs checkbox-default">
+              <div *ngIf="!buttonChecked" class="default-container">
+                <img class="default" src="assets/images/Checkbox_default.png" alt=""/>
+                <img (click)="checkButtonPolicy()" class="hidden" src="assets/images/Checkbox_default_hover.png" alt=""/>
+              </div>
+              <div *ngIf="buttonChecked" class="check-container">
+                <img class="hidden-checked" src="assets/images/Checkbox_Checked.png" alt=""/>
+                <img (click)="checkButtonPolicy()" class="hidden-checked-hover" src="assets/images/Checkbox_checked_hover.png" alt=""/>
+              </div>
+              <input required type="checkbox" #checkboxField="ngModel" name="checkbox" [(ngModel)]="buttonChecked"/>
+              <p> {{ "contact.read1" | translate }}
+                <a routerLink="/privacypolicy">{{ "contact.policy" | translate }}</a>
+                {{ "contact.read2" | translate }}
+              </p>
+            </div>
+            <p *ngIf="checkboxField.invalid && checkboxField.touched">
+              <span> {{ "contact.accept" | translate }} </span>
+            </p>
+          </div>
+          <div class="contact-button">
+  <button 
+    class="scroll-button" 
+    [ngClass]="[
+      currentLang === 'de' ? 'button-de' : 'button-en',
+      checkboxField.valid && !isTouchDevice ? 'ngForm-valid' : '',
+      checkboxField.valid && isTouchDevice ? 'ngForm-valid-resposive' : ''
+    ]"
+    (mouseenter)="startScroll()" 
+    (mouseleave)="stopScroll()"
+  >
+    <div class="scroll-container">
+      <div class="scroll-text" #scrollText>{{ "contact.hello" | translate }}</div>
+    </div>
+  </button>
+</div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-pop-up-message (closeMessage)="logCloseDialog($event)" *ngIf="sendFormular" class="pop-up-dialog-container" [ngClass]="{ fadeout: animate }"></app-pop-up-message>
+</section>
