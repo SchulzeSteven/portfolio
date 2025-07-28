@@ -1,1 +1,72 @@
-<p>footer works!</p>
+<section class="footer-section-mobile">
+  <div class="footer-container footer-container-mobile">
+    <div class="mobile-container">
+      <div class="logo-info-container">
+        <div (click)="backToBegin()" class="logo-container">
+            <img src="assets/images/logo.jpg" alt="Logo" />
+        </div>
+        <div class="info-content">
+          <p> {{ "footer.developer" | translate }} </p>
+          <p> {{ "footer.location" | translate }} </p>
+        </div>
+      </div>
+      <div class="link-container">
+        <div class="links-content">
+          <span></span>
+          <a href="https://github.com/SchulzeSteven" target="_blank">Github</a>
+        </div>
+        <div class="links-content">
+          <span></span>
+          <a href="https://www.linkedin.com/in/steven-schulze-b80aaa375/" target="_blank" >LinkedIn</a>
+        </div>
+        <div class="links-content">
+          <span></span>
+          <a href="mailto:mail@steven-schulze.com">Email</a>
+        </div>
+        <div class="links-content">
+          <span></span>
+          <a routerLink="/imprint"> {{"footer.imprint" | translate}} </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright-container">
+      <span>© Steven Schulze 2025</span>
+    </div>
+  </div>
+</section>
+
+<section class="footer-section-desktop">
+  <div class="footer-container footer-container-desktop">
+    <div class="logo-info-container">
+        <div (click)="backToBegin()" class="logo-container">
+            <img src="assets/images/logo.jpg" alt="Logo" />
+        </div>
+      <div class="info-content">
+        <p> {{ "footer.developer" | translate }} </p>
+        <p> {{ "footer.location" | translate }} </p>
+      </div>
+    </div>
+    <div class="copyright-container">
+      <span>© Steven Schulze 2025</span>
+    </div>
+    <div class="link-container">
+      <div class="links-content">
+        <span></span>
+        <a href="https://github.com/SchulzeSteven" target="_blank">Github</a>
+      </div>
+      <div class="links-content">
+        <span></span>
+        <a href="https://www.linkedin.com/in/steven-schulze-b80aaa375/" target="_blank">LinkedIn</a>
+      </div>
+      <div class="links-content">
+        <span></span>
+        <a href="mailto:mail@steven-schulze.com">Email</a>
+      </div>
+      <div class="links-content">
+        <span></span>
+        <a routerLink="/imprint"> {{ "footer.imprint" | translate}} </a>
+      </div>
+    </div>
+  </div>
+</section>
