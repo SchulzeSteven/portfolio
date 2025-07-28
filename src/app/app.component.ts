@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 // ⬅️ AOS importieren
 import * as AOS from 'aos';
