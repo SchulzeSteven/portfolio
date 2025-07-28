@@ -7,6 +7,11 @@ html {
   overflow-x: hidden;
 }
 
+app-landing-page {
+    width: 100%;
+    max-width: 1440px;
+}
+
 app-main-content {
     display: flex;
     flex-direction: column;

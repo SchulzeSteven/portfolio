@@ -7,7 +7,10 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './about-me.component.html',
-  styleUrl: './about-me.component.scss'
+  styleUrls: [
+    './about-me.component.scss',
+    './about-me.component-media-query.scss'
+  ]
 })
 export class AboutMeComponent implements AfterViewInit {
   hasMoved = false;

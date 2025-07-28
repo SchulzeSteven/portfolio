@@ -22,10 +22,7 @@
         </article>
 
         <div class="technologies-container">
-          <div
-            class="technologies-description"
-            *ngFor="let tech of selectedProject.technologies | keyvalue"
-          >
+          <div class="technologies-description" *ngFor="let tech of selectedProject.technologies | keyvalue">
             <img src="assets/images/{{ tech.value }}_green.png" alt="" />
             <span>{{ tech.value }}</span>
           </div>

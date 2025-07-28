@@ -1,12 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  ViewChild,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, OnDestroy, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
@@ -14,9 +7,12 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, TranslateModule],
+  imports: [CommonModule, TranslateModule, NavbarComponent],
   templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.scss',
+  styleUrls: [
+    './landing-page.component.scss',
+    './landing-page.component-media-query.scss'
+  ]
 })
 export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
   @ViewChild('checkText') checkTextRef!: ElementRef<HTMLDivElement>;
@@ -36,16 +32,24 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    this.currentLanguage = this.translate.currentLang as 'en' | 'de' || 'en';
+  this.currentLanguage = this.translate.currentLang as 'en' | 'de' || 'en';
 
-    this.langChangeSub = this.translate.onLangChange.subscribe((event) => {
-      this.currentLanguage = event.lang as 'en' | 'de';
-    });
-  }
+  this.langChangeSub = this.translate.onLangChange.subscribe((event) => {
+    this.currentLanguage = event.lang as 'en' | 'de';
+
+    // Body-Klasse setzen für Sprachsteuerung via SCSS
+    document.body.classList.toggle('lang-de', this.currentLanguage === 'de');
+    document.body.classList.toggle('lang-en', this.currentLanguage === 'en');
+  });
+
+  // Initial setzen
+  document.body.classList.toggle('lang-de', this.currentLanguage === 'de');
+  document.body.classList.toggle('lang-en', this.currentLanguage === 'en');
+}
 
   changeLanguage(lang: 'en' | 'de') {
     this.translate.use(lang);
-    this.currentLanguage = lang; // optional redundant – wird eh durch onLangChange gesetzt
+    this.currentLanguage = lang;
   }
 
   ngAfterViewInit(): void {

@@ -14,15 +14,10 @@
             'slide-left': animate && direction === 'left',
             'slide-right': animate && direction === 'right'
           }">
-          <span [ngClass]="{ 'touch-animation': isTouchDevice }">
-            {{ references.descriptionKey | translate }}
-          </span>
+          <span [ngClass]="{ 'touch-animation': isTouchDevice }"> {{ references.descriptionKey | translate }} </span>
           <div class="reference-author">
             <div class="author-gap"></div>
-            <span [ngClass]="{ 'touch-animation': isTouchDevice }">
-              {{ references.nameKey | translate }} -
-              {{ references.rangKey | translate }}
-            </span>
+            <span [ngClass]="{ 'touch-animation': isTouchDevice }"> {{ references.nameKey | translate }} - {{ references.rangKey | translate }} </span>
           </div>
         </div>
       </div>
