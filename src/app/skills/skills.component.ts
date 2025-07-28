@@ -1,11 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
-  OnDestroy
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import * as AOS from 'aos';
@@ -30,7 +24,8 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
 
   private langChangeSub!: Subscription;
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private viewportScroller: ViewportScroller
+  ) {
     this.currentLang = this.translate.currentLang as 'de' | 'en' || 'en';
     this.langChangeSub = this.translate.onLangChange.subscribe(event => {
       this.currentLang = event.lang as 'de' | 'en';
@@ -122,4 +117,20 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     if (this.langChangeSub) this.langChangeSub.unsubscribe();
     if (this.frameId) cancelAnimationFrame(this.frameId);
   }
+
+  scrollToContact(anchor: string): void {
+  const element = document.getElementById(anchor);
+  if (element) {
+    const offset = -110; // <- Erhöhe den Offset testweise
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = element.getBoundingClientRect().top;
+    const position = elementRect - bodyRect + offset;
+
+    window.scrollTo({
+      top: position,
+      behavior: 'smooth'
+    });
+  }
+}
+
 }

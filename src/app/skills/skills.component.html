@@ -13,7 +13,7 @@
           </div>
       </div>
       <div class="contact-button">
-        <button class="scroll-button" [ngClass]="currentLang === 'de' ? 'button-de' : 'button-en'" (mouseenter)="startScroll()" (mouseleave)="stopScroll()">
+        <button class="scroll-button" [ngClass]="currentLang === 'de' ? 'button-de' : 'button-en'" (click)="scrollToContact('contact')" (mouseenter)="startScroll()" (mouseleave)="stopScroll()">
           <div class="scroll-container">
             <div class="scroll-text" #scrollText>{{ 'skills.talk' | translate }}</div>
           </div>
