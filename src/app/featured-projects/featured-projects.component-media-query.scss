@@ -38,6 +38,10 @@
 
     .headline-container {
         gap: 20px;
+
+        >h1 {
+            font-size: 64px;
+        }
     }
 
     .preview-divs {
