@@ -12,7 +12,7 @@
     </div>
 
     <form class="flex-column contact-formular-container" (submit)="checkFormular(contactForm)" #contactForm="ngForm">
-      <div class="input-cotainer">
+      <div class="input-container">
         <div class="flex-column name-form-border name-container" [ngClass]="{ 'hovered-bottom-name': isInputHoveredEmail }">
           <div class="flex-column input-container">
             <label for="inputName"> {{ "contact.name" | translate }} </label>
@@ -46,7 +46,7 @@
               </div>
               <input required type="checkbox" #checkboxField="ngModel" name="checkbox" [(ngModel)]="buttonChecked"/>
               <p> {{ "contact.read1" | translate }}
-                <a routerLink="/privacypolicy">{{ "contact.policy" | translate }}</a>
+                <a routerLink="/privacy-policy">{{ "contact.policy" | translate }}</a>
                 {{ "contact.read2" | translate }}
               </p>
             </div>

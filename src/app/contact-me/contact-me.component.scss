@@ -1,222 +1,133 @@
 .flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-me-section {
-    width: 280px;
+  width: 280px;
+  max-width: 1440px;
+  margin-bottom: 144px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > div {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 144px;
-    max-width: 1440px;
-
-    >div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 64px;
-    }
+    justify-content: space-between;
+    gap: 64px;
+  }
 }
 
-.lets-work-container {
-    gap: 40px;
+.lets-work-container,
+.contact-formular-container {
+  gap: 40px;
+}
+
+.intro-container,
+.problem-container {
+  gap: 20px;
 }
 
 .intro-container {
-    gap: 20px;
+  h1, h3 {
+    margin: 0;
+  }
 
-    >h3 {
-        font-family: 'Karla';
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 100%;
-        letter-spacing: 0px;
-        color: #3dcfb6;
+  h3 {
+    font: 500 24px 'Karla';
+    color: #3dcfb6;
+  }
 
-    }
-
-    >h1 {
-        font-family: 'Fira Code';
-        font-weight: 700;
-        font-size: 56px;
-        line-height: 100%;
-        letter-spacing: -3px;
-        color: #3dcfb6;
-        box-sizing: border-box;
-        overflow-wrap: anywhere;
-    }
-
-    >h1,
-    h3 {
-        margin: 0;
-    }
+  h1 {
+    font: 700 56px 'Fira Code';
+    letter-spacing: -3px;
+    color: #3dcfb6;
+    overflow-wrap: anywhere;
+  }
 }
 
 .problem-container {
-    gap: 16px;
-    border-radius: 30px;
-    backdrop-filter: blur(4px);
+  border-radius: 30px;
+  backdrop-filter: blur(4px);
 
-    >h2 {
-        font-family: 'Fira Code';
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 120%;
-        letter-spacing: 0px;
-        color: #3dcfb6;
+  h2 {
+    font: 700 24px 'Fira Code';
+    color: #3dcfb6;
+  }
 
-    }
-
-    >p {
-        font-family: 'Karla';
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 120%;
-        letter-spacing: 0px;
-        color: #FFFFFF;
-
-    }
-}
-
-.font-16-px,
-.talk-content {
-    font-size: 16px;
-}
-
-.talk-content {
-    font-weight: 700;
-}
-
-.contact-formular-container {
-    height: 550px;
-    gap: 40px;
-}
-
-.name-container.hovered-bottom-name {
-    border-bottom: 1px solid #3DCFB6;
-}
-
-.email-container.hoverd-bottom-email {
-    border-bottom: 1px solid #3DCFB6;
+  p {
+    font: 400 16px 'Karla';
+    color: #fff;
+  }
 }
 
 .input-container {
-    gap: 16px;
-    padding: 32px 16px 32px 16px;
+  gap: 16px;
+  padding: 32px 16px;
 
-    >label {
-        font-family: 'Fira Code';
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 120%;
-        letter-spacing: 0px;
-        color: #3dcfb6;
+  label {
+    font: 500 24px 'Fira Code';
+    color: #3dcfb6;
+  }
 
+  input {
+    background: #1c1c1c;
+    border: none;
+    font: 400 18px 'Karla';
+    color: #ffffffcc;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
     }
-
-    >input {
-        background-color: rgba(28, 28, 28, 1);
-        border: none;
-        font-family: 'Karla';
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 120%;
-        letter-spacing: 0px;
-        color: #FFFFFFCC;
-
-        ::after {
-            background-color: rgba(28, 28, 28, 1);
-            border: none;
-            color: white;
-        }
-    }
+  }
 }
 
-
-
-input.ng-invalid.ng-touched::placeholder {
-    color: #EC7B7BCC !important;
-    font-family: 'Karla';
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 120%;
-    letter-spacing: 0px;
-}
-
+input.ng-invalid.ng-touched::placeholder,
 input.ng-invalid {
-    color: #EC7B7BCC !important;
+  color: #ec7b7bcc !important;
+  font: 400 18px 'Karla';
 }
 
-@keyframes showerror {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+::placeholder {
+  font: 400 18px 'Karla';
+  color: #ffffffcc;
 }
 
-.name-form {
-    gap: 10px;
-    border-bottom: 1px solid #3DCFB680;
-    transition: color 300ms ease-out, border-color 300ms ease-out;
+.name-form,
+.name-form-border {
+  gap: 10px;
+  border-bottom: 1px solid #3dcfb680;
+  transition: color 300ms ease-out, border-color 300ms ease-out;
 
-    &:hover {
-        cursor: pointer;
-        border-bottom: 1px solid #3DCFB6;
+  &:hover {
+    cursor: pointer;
+    border-color: #3dcfb6;
 
-        ::placeholder {
-            color: #FFFFFF;
-        }
+    ::placeholder {
+      color: #fff;
     }
+  }
 }
 
 .name-form-border {
-    gap: 10px;
-    border-top: 1px solid #3DCFB680;
-    border-bottom: 1px solid #3DCFB680;
-    transition: color 300ms ease-out, border-color 300ms ease-out;
+  border-top: 1px solid #3dcfb680;
 
-    &:hover {
-        cursor: pointer;
-        border-bottom: 1px solid #3DCFB6;
-        border-top: 1px solid #3DCFB6;
-
-        ::placeholder {
-            color: #FFFFFF;
-        }
-    }
+  &:hover {
+    border-top: 1px solid #3dcfb6;
+  }
 }
 
-
-
-::placeholder {
-    font-family: 'Karla';
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 120%;
-    letter-spacing: 0px;
-    color: #FFFFFFCC;
-
-
-    .showsmooth {
-        animation: showerror 300ms linear forwards;
-    }
-
-}
-
-input:focus {
-    outline: none;
-    border: none;
-    box-shadow: none;
+.hovered-bottom-name,
+.hoverd-bottom-email {
+  border-bottom: 1px solid #3dcfb6;
 }
 
 .policy-and-submit-container {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 }
 
 .policy-and-submit-content {
@@ -224,259 +135,170 @@ input:focus {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
 
-  .scroll-button {
-    height: 48px;
-    max-width: 100%;
-    border: 1px solid #fff;
-    border-radius: 100px;
-    background: none;
-    color: white;
-    font-size: 18px;
-    font-family: 'Karla';
-    font-weight: 400;
-    cursor: pointer;
+.scroll-button {
+  height: 48px;
+  max-width: 100%;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  background: none;
+  font: 400 18px 'Karla';
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &.button-de {
+    min-width: 230px;
+  }
+
+  &.button-en {
+    min-width: 160px;
+  }
+
+  &:hover {
+    color: #3dcfb6;
+    border-color: #3dcfb6;
+  }
+
+  &.ngForm-valid,
+  &.ngForm-valid-resposive {
+    border-color: #3dcfb6;
+    color: #3dcfb6;
+  }
+
+  .scroll-container {
+    height: 100%;
     overflow: hidden;
     position: relative;
-    transition: all 0.3s ease;
+  }
 
-    &.button-de {
-      min-width: 230px;
-    }
+  .scroll-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    transition: transform 0.4s ease-out;
+    line-height: 120%;
+  }
+}
 
-    &.button-en {
-      min-width: 160px;
-    }
+.ngForm-valid {
+  border-color: #fff !important;
+  transition: all 300ms ease-out;
 
-    &:hover {
+  > span {
+    color: #fff;
+  }
+
+  &:hover {
+    border-color: #3dcfb6 !important;
+
+    > span {
       color: #3dcfb6;
-      border-color: #3dcfb6;
-    }
-
-    .scroll-container {
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .scroll-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-      transition: transform 0.4s ease-out;
-      line-height: 120%;
-    }
-
-    &.ngForm-valid,
-    &.ngForm-valid-resposive {
-      border-color: #3dcfb6;
-      color: #3dcfb6;
+      animation: slideTextSkill 2.5s linear infinite;
     }
   }
 }
 
-
-.ngForm-valid {
-    transition: color 300ms ease-out, border-color 300ms ease-out;
-    border-color: #FFFFFF !important;
-
-    >span {
-        display: inline-block;
-        color: #FFFFFF;
-    }
-
-    &:hover {
-        border-color: #3dcfb6 !important;
-
-        >span {
-            color: #3dcfb6;
-            animation: slideTextSkill 2500ms linear forwards infinite;
-        }
-
-    }
-}
-
 @keyframes slideTextSkill {
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(-130%);
-        visibility: hidden;
-    }
-
-    51% {
-        transform: translateX(160%);
-        visibility: hidden;
-    }
-
-    60% {
-        transform: translateX(130%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-130%); visibility: hidden; }
+  51% { transform: translateX(160%); visibility: hidden; }
+  60% { transform: translateX(130%); }
+  100% { transform: translateX(0); }
 }
-
 
 .checkbox-container {
-    display: flex;
-    gap: 8px;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    >p {
-        >span {
-            color: #EC7B7BCC;
-            font-family: Karla;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 120%;
-            letter-spacing: 0px;
-
-        }
-    }
-}
-
-.checkbox-imgs {
-    >img {
-        &:hover {
-            cursor: pointer;
-        }
-    }
+  span {
+    font: 400 14px 'Karla';
+    color: #ec7b7bcc;
+  }
 }
 
 .checkbox-default {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-    >p {
-        font-family: 'Karla';
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 120%;
-        letter-spacing: 0px;
-        color: #FFFFFF;
+  p {
+    font: 400 15px 'Karla';
+    color: #fff;
 
+    a {
+      font: 400 15px 'Fira Code';
+      letter-spacing: -2px;
+      color: #3dcfb6;
+      text-decoration: none;
+      padding: 5px 4px 0;
 
-        >a {
-            font-family: 'Fira Code';
-            font-weight: 400;
-            font-size: 15px;
-            line-height: 120%;
-            letter-spacing: -2px;
-            color: #3dcfb6;
-            text-decoration: none;
-            padding: 5px 4px 2px 4px;
-
-            &:hover {
-                color: #FFFFFF;
-                border-bottom: 1px solid #3DCFB6
-            }
-        }
+      &:hover {
+        color: #fff;
+        border-bottom: 1px solid #3dcfb6;
+      }
     }
+  }
 
-    >input {
-        display: none;
-    }
-}
-
-.default-container {
-    &:hover {
-        cursor: pointer;
-
-        .default {
-            display: none;
-        }
-
-        .hidden {
-            display: block;
-        }
-
-    }
-}
-
-.check-container {
-    &:hover {
-        cursor: pointer;
-
-        .hidden-checked {
-            display: none;
-        }
-
-        .hidden-checked-hover {
-            display: block;
-        }
-
-    }
-}
-
-.checkmark {
-    height: 25px;
-    width: 25px;
-    border: solid #3DCFB6;
-}
-
-.default {
-    display: block;
-}
-
-.hidden {
+  input {
     display: none;
+  }
 }
 
+.default-container:hover {
+  cursor: pointer;
+
+  .default { display: none; }
+  .hidden { display: block; }
+}
+
+.check-container:hover {
+  cursor: pointer;
+
+  .hidden-checked { display: none; }
+  .hidden-checked-hover { display: block; }
+}
+
+.default,
 .hidden-checked {
-    display: block;
+  display: block;
 }
 
+.hidden,
 .hidden-checked-hover {
-    display: none;
+  display: none;
 }
 
 .pop-up-dialog-container {
-    opacity: 0;
-    animation: fadeIn 500ms ease-in forwards;
-    position: fixed;
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.374) !important;
-    z-index: 999;
-    inset: 0;
-    align-items: center;
-    justify-content: center;
+  opacity: 0;
+  animation: fadeIn 500ms ease-in forwards;
+  position: fixed;
+  display: flex;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.374);
+  z-index: 999;
 }
 
 .fadeout {
-    animation: fadeOut 500ms ease-in forwards;
+  animation: fadeOut 500ms ease-in forwards;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 1;
-    }
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
 
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 0;
-    }
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0; }
 }

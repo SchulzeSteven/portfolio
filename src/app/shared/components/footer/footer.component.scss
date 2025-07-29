@@ -61,23 +61,6 @@
     object-fit: contain;
     transition: opacity 300ms ease-out;
   }
-
-    /* &::after {
-        background-image: url('./../../../../assets/img/HoverLogo.png');
-        opacity: 0;
-    } */
-
-    /* &:hover {
-        cursor: pointer;
-
-        &::before {
-            opacity: 0;
-        }
-
-        &::after {
-            opacity: 1;
-        }
-    } */
 }
 
 .info-content {

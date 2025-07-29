@@ -69,6 +69,13 @@ app-imprint {
     align-items: center;
 }
 
+app-privacypolicy {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @font-face {
   font-family: 'Fira Code';
   src: url('assets/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
