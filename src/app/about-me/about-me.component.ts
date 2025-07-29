@@ -32,19 +32,17 @@ export class AboutMeComponent implements AfterViewInit {
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Fade-In
             image.classList.add('visible');
             image.classList.remove('invisible');
             content.classList.add('visible');
             content.classList.remove('invisible');
           } else {
-            // Fade-Out + Hover-Reset
             image.classList.remove('visible');
             image.classList.add('invisible');
             content.classList.remove('visible');
             content.classList.add('invisible');
 
-            this.hasMoved = false; // 🟢 reset Hover-Status
+            this.hasMoved = false;
           }
         });
       },

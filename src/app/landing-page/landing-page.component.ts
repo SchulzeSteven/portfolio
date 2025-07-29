@@ -37,12 +37,10 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
   this.langChangeSub = this.translate.onLangChange.subscribe((event) => {
     this.currentLanguage = event.lang as 'en' | 'de';
 
-    // Body-Klasse setzen für Sprachsteuerung via SCSS
     document.body.classList.toggle('lang-de', this.currentLanguage === 'de');
     document.body.classList.toggle('lang-en', this.currentLanguage === 'en');
   });
 
-  // Initial setzen
   document.body.classList.toggle('lang-de', this.currentLanguage === 'de');
   document.body.classList.toggle('lang-en', this.currentLanguage === 'en');
 }
@@ -110,6 +108,21 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
     return type === 'check'
       ? this.checkTextRef.nativeElement
       : this.contactTextRef.nativeElement;
+  }
+
+  scrollTo(anchor: string): void {
+    const element = document.getElementById(anchor);
+    if (element) {
+      const offset = anchor === 'contact' ? -110 : 0;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const position = elementRect - bodyRect + offset;
+
+      window.scrollTo({
+        top: position,
+        behavior: 'smooth'
+      });
+    }
   }
 
   ngOnDestroy(): void {

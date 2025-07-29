@@ -14,8 +14,6 @@ export class NavbarComponent {
 
   constructor(public translate: TranslateService) {
     const savedLang = localStorage.getItem('lang');
-
-    // 👉 Immer 'en' als Standard, nur wenn savedLang vorhanden, dann verwenden
     const defaultLang = savedLang ?? 'en';
 
     this.translate.use(defaultLang);

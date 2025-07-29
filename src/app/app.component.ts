@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './shared/components/footer/footer.component';
 
-// ⬅️ AOS importieren
+// AOS importieren
 import * as AOS from 'aos';
 
 @Component({
@@ -16,7 +16,7 @@ import * as AOS from 'aos';
 export class AppComponent implements OnInit {
   title = 'portfolio';
 
-  // ⬅️ AOS initialisieren
+  // AOS initialisieren
   ngOnInit(): void {
     AOS.init({
       duration: 500,

@@ -4,12 +4,12 @@
       <h2>{{ "landing.branch" | translate }}</h2>
       <h1>Steven Schulze</h1>
       <div class="title-buttons" [class.de]="currentLanguage === 'de'" [class.en]="currentLanguage === 'en'">
-      <button class="first-button" (mouseenter)="startScroll('check')" (mouseleave)="stopScroll('check')" >
+      <button class="first-button" (mouseenter)="startScroll('check')" (mouseleave)="stopScroll('check')" (click)="scrollTo('projects')" >
         <div class="scroll-container">
           <div class="scroll-text" #checkText> {{ "landing.work" | translate }} </div>
         </div>
       </button>
-      <button class="second-button" (mouseenter)="startScroll('contact')" (mouseleave)="stopScroll('contact')" >
+      <button class="second-button" (mouseenter)="startScroll('contact')" (mouseleave)="stopScroll('contact')" (click)="scrollTo('contact')">
         <div class="scroll-container">
           <div class="scroll-text" #contactText> {{ "landing.me" | translate }} </div>
         </div>
