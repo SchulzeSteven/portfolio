@@ -55,7 +55,7 @@ export class FeaturedProjectsComponent {
         tech3: "JavaScript"
       },
       linkGitHub: "https://github.com/SchulzeSteven/El-Pollo-Loco",
-      linkLive: "https://steven-schulze.com/"
+      linkLive: "https://steven-schulze.com/El-Pollo-Loco/"
     },
     {
       id: 3,
