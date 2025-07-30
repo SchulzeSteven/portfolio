@@ -1,33 +1,113 @@
 <nav class="navbar-outer">
   <div class="navbar-container">
+    <!-- Sprach-Icon nur unter 600px sichtbar (links) -->
+    <div class="language-icon" (click)="toggleIconFilter()">
+  <img
+    src="assets/images/logo-icon.png"
+    alt="Language Icon"
+    [class.inverted]="isIconInverted"
+  />
+</div>
+
     <div class="nav-content">
+      <!-- Toggle nur über 600px sichtbar -->
       <div class="navbar-button">
         <div class="toggle-container">
-          <div class="toggle-segment" [ngClass]="{ active: selectedLanguage === 'EN', inactive: selectedLanguage === 'DE' }" (click)="selectedLanguage === 'DE' && toggleLanguage()">
-            <span class="toggle-text" [ngClass]="{ 'active-text': selectedLanguage === 'EN', 'inactive-text': selectedLanguage === 'DE' }">EN</span>
+          <div
+            class="toggle-segment"
+            [ngClass]="{ active: selectedLanguage === 'EN', inactive: selectedLanguage === 'DE' }"
+            (click)="selectedLanguage === 'DE' && toggleLanguage()"
+          >
+            <span
+              class="toggle-text"
+              [ngClass]="{ 'active-text': selectedLanguage === 'EN', 'inactive-text': selectedLanguage === 'DE' }"
+              >EN</span
+            >
           </div>
-          <div class="toggle-segment" [ngClass]="{ active: selectedLanguage === 'DE', inactive: selectedLanguage === 'EN' }" (click)="selectedLanguage === 'EN' && toggleLanguage()">
-            <span class="toggle-text" [ngClass]="{ 'active-text': selectedLanguage === 'DE', 'inactive-text': selectedLanguage === 'EN' }">DE</span>
+          <div
+            class="toggle-segment"
+            [ngClass]="{ active: selectedLanguage === 'DE', inactive: selectedLanguage === 'EN' }"
+            (click)="selectedLanguage === 'EN' && toggleLanguage()"
+          >
+            <span
+              class="toggle-text"
+              [ngClass]="{ 'active-text': selectedLanguage === 'DE', 'inactive-text': selectedLanguage === 'EN' }"
+              >DE</span
+            >
           </div>
         </div>
       </div>
+
+      <!-- Navigationslinks -->
       <section class="nav-links-container">
         <div class="internal-links">
-          <a href="#about">{{ "navbar.me" | translate }}</a>
+          <a href="#about">{{ 'navbar.me' | translate }}</a>
           <span></span>
         </div>
         <div class="internal-links">
-          <a href="#skills">{{ "navbar.skills" | translate }}</a>
+          <a href="#skills">{{ 'navbar.skills' | translate }}</a>
           <span></span>
         </div>
         <div class="internal-links">
-          <a href="#projects">{{ "navbar.projects" | translate }}</a>
+          <a href="#projects">{{ 'navbar.projects' | translate }}</a>
           <span></span>
         </div>
       </section>
     </div>
+
+    <!-- Logo (nur über 600px sichtbar) -->
     <div class="logo-container">
-      <img src="assets/images/DefaultLogo.png" alt="">
+      <img src="assets/images/DefaultLogo.png" alt="" />
     </div>
+
+    <!-- Menü-Icon nur unter 600px sichtbar (rechts) -->
+    <div
+      class="menu-icon"
+      [ngClass]="{
+        'menu-responsive-content-default': menuIsClose,
+        'menu-responsive-content-click': !menuIsClose
+      }"
+      (click)="switchMenu()"
+    ></div>
   </div>
 </nav>
+
+
+
+<section
+  *ngIf="dialogVisible && !menuIsClose"
+  class="nav-menu-container"
+  (click)="switchMenu()"
+>
+  <div class="menu-content" (click)="$event.stopPropagation()">
+    <div class="internal-links-menu">
+      <a (click)="scrollToSection('about')">
+        {{ "navbar.me" | translate }}
+      </a>
+      <span></span>
+    </div>
+
+    <div class="internal-links-menu">
+      <a (click)="scrollToSection('skills')">
+        {{ "navbar.skills" | translate }}
+      </a>
+      <span></span>
+    </div>
+
+    <div class="internal-links-menu">
+      <a (click)="scrollToSection('projects')">
+        {{ "navbar.projects" | translate }}
+      </a>
+      <span></span>
+    </div>
+
+    <div class="toggle-container mobile-toggle">
+      <div class="toggle-segment" [ngClass]="{ active: selectedLanguage === 'EN', inactive: selectedLanguage === 'DE' }" (click)="selectedLanguage === 'DE' && toggleLanguage()">
+        <span class="toggle-text" [ngClass]="{ 'active-text': selectedLanguage === 'EN', 'inactive-text': selectedLanguage === 'DE' }">EN</span>
+      </div>
+      <div class="toggle-segment" [ngClass]="{ active: selectedLanguage === 'DE', inactive: selectedLanguage === 'EN' }" (click)="selectedLanguage === 'EN' && toggleLanguage()">
+        <span class="toggle-text" [ngClass]="{ 'active-text': selectedLanguage === 'DE', 'inactive-text': selectedLanguage === 'EN' }">DE</span>
+      </div>
+    </div>
+  </div>
+</section>
