@@ -1,3 +1,21 @@
+@media only screen and (min-width: 300px) {
+    .featured-projects-container {
+        width: 280px;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .featured-projects-container {
+        width: 375px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .featured-projects-container {
+        width: 375px;
+    }
+}
+
 @media only screen and (min-width: 925px) {
     .featured-projects-section {
         width: 100%;
@@ -73,12 +91,6 @@
 @media only screen and (min-width: 1420px) {
     .featured-projects-container {
         width: 880px;
-    }
-}
-
-@media only screen and (min-width: 1500px) {
-    .featured-projects-section {
-        padding: 0;
     }
 }
 

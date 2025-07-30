@@ -27,8 +27,7 @@
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
-  width: 280px;
-  height: 90%;
+  width: 366px;
   border-radius: 30px;
   border: 1px solid #3dcfb6;
   background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
@@ -75,7 +74,7 @@
 
 .description-container {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
   gap: 16px;
   background-image: unset;
 }
@@ -111,7 +110,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 13px;
-  padding: 0 12px;
+  padding: 0 6px;
 }
 
 .technologies-description {
@@ -241,7 +240,7 @@
 .next-project-container-responsive {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  align-self: end;
   padding: 0 16px 15px 0;
 
   span {
@@ -304,7 +303,7 @@
 /* ===================== MEDIA QUERIES ===================== */
 @media only screen and (min-height: 320px) {
     .dialog-image {
-        height: 200px;
+        height:180px;
         width: 90%;
     }
 
@@ -432,4 +431,37 @@
   .preview-project {
     padding-right: 80px;
   }
+}
+
+@media only screen and (max-width: 925px) {
+  .flex-column {
+    align-items: baseline;
+  }
+
+  .featured-projects-dialog-container {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px;
+  }
+
+  .link-buttons-container {
+    justify-content: center;
+  }
+
+  .preview-project {
+    margin-bottom: 32px;
+  }
+
+  .title {
+        padding: 0 0 0 3px;
+      >h1 {
+        font-size: 50px;
+        line-height: 0px;
+        margin-bottom: 20px;
+      }
+      >h2 {
+        font-size: 40px;
+        line-height: 40px;
+      }
+    }
 }

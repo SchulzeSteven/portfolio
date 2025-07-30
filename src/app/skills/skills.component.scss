@@ -265,7 +265,35 @@
   }
 }
 
-// 🔽 Responsive Anpassungen
+
+@media only screen and (min-width: 300px) {
+    .skill-set-container {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    .skill-set-container {
+    width: 365px;
+  }
+
+  .show-skill-container {
+    gap: 13px;
+    width: 365px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+    .skill-set-container {
+      width: 365px;
+    }
+
+    .show-skill-container {
+      gap: 13px;
+      width: 365px;
+    }
+}
+
 @media only screen and (min-width: 925px) {
   .skills-container {
     flex-direction: row;
@@ -277,7 +305,7 @@
   }
 
   .skill-set-container {
-    width: 520px;
+    width: 520px !important;
     gap: 20px;
   }
 

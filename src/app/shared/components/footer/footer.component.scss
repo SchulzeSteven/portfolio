@@ -43,7 +43,7 @@
 .logo-info-container {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 20px;
 }
 
 .logo-container {
@@ -60,6 +60,10 @@
     width: 100%;
     object-fit: contain;
     transition: opacity 300ms ease-out;
+  }
+
+  &:hover img {
+    filter: brightness(0) invert(1);
   }
 }
 

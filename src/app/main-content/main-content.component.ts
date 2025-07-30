@@ -31,10 +31,16 @@ export class MainContentComponent {
   constructor(private renderer: Renderer2) {}
 
   openDialog(project: Project): void {
-    this.selectedProject = project;
-    this.dialogVisible = true;
+  this.selectedProject = project;
+  this.dialogVisible = true;
+
+  if (window.innerWidth > 925) {
     this.renderer.setStyle(document.body, 'overflow', 'hidden');
+  } else {
+    this.renderer.removeStyle(document.body, 'overflow');
   }
+}
+
 
   closeProjects(): void {
     this.dialogVisible = false;
