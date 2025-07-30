@@ -42,7 +42,7 @@ export class FeaturedProjectsComponent {
         tech4: "Firebase"
       },
       linkGitHub: "https://github.com/SchulzeSteven/join",
-      linkLive: "https://steven-schulze.com/",
+      linkLive: "https://steven-schulze.com/join/",
     },
     {
       id: 2,
@@ -79,9 +79,9 @@ export class FeaturedProjectsComponent {
   }
 
   showProjects(selectId: number): void {
-  const project = this.projects.find(p => p.id === selectId);
-  if (project) {
-    this.openDialog.emit(project);
+    const project = this.projects.find(p => p.id === selectId);
+    if (project) {
+      this.openDialog.emit(project);
+    }
   }
-}
 }

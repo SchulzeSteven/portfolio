@@ -22,7 +22,7 @@
         <div class="flex-column name-form email-container" [ngClass]="{ 'hoverd-bottom-email': isInputHoveredMessage }" (mouseenter)="isInputHoveredEmail = true" (mouseleave)="isInputHoveredEmail = false">
           <div class="flex-column input-container">
             <label for="inputEmail"> {{ "contact.email" | translate }} </label>
-            <input id="inputEmail" required #intputEmail="ngModel" name="inputEmail" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" [(ngModel)]="contactData.email" [placeholder]="!intputEmail.valid && intputEmail.touched ? ('contact.errorEmailPlaceholder' | translate) : ('contact.emailPlaceholder' | translate)" type="text"/>
+            <input id="inputEmail" required #inputEmail="ngModel" name="inputEmail" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" [(ngModel)]="contactData.email" [placeholder]="!inputEmail.valid && inputEmail.touched ? ('contact.errorEmailPlaceholder' | translate) : ('contact.emailPlaceholder' | translate)" type="text"/>
           </div>
         </div>
         <div class="flex-column name-form message-container" (mouseenter)="isInputHoveredMessage = true" (mouseleave)="isInputHoveredMessage = false">
@@ -55,7 +55,7 @@
             </p>
           </div>
           <div class="contact-button">
-            <button class="scroll-button" [ngClass]="[ currentLang === 'de' ? 'button-de' : 'button-en', checkboxField.valid && !isTouchDevice ? 'ngForm-valid' : '', checkboxField.valid && isTouchDevice ? 'ngForm-valid-resposive' : '' ]" (mouseenter)="startScroll()" (mouseleave)="stopScroll()">
+            <button type="submit" class="scroll-button" [ngClass]="[ currentLang === 'de' ? 'button-de' : 'button-en', checkboxField.valid && !isTouchDevice ? 'ngForm-valid' : '', checkboxField.valid && isTouchDevice ? 'ngForm-valid-resposive' : '' ]" (mouseenter)="startScroll()" (mouseleave)="stopScroll()">
               <div class="scroll-container">
                 <div class="scroll-text" #scrollText>{{ "contact.hello" | translate }}</div>
               </div>

@@ -124,12 +124,15 @@ export class ContactMeComponent implements OnInit, OnDestroy {
             this.post.options
           )
           .subscribe({
-            next: () => ngForm.resetForm(),
-            error: (error) => console.error(error),
-            complete: () => {
+            next: () => {
               this.sendFormular = true;
-              this.setOverflow(this.sendFormular);
+              this.setOverflow(true);
+              ngForm.resetForm();
             },
+            error: (error) => {
+              console.error("Mail konnte nicht gesendet werden:", error);
+              alert("Fehler beim Senden der Nachricht. Bitte versuch es später erneut.");
+            }
           });
       } else {
         ngForm.resetForm();

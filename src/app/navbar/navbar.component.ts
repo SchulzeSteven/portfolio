@@ -37,13 +37,17 @@ export class NavbarComponent {
     }
   }
 
-  scrollToSection(id: string) {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-    this.switchMenu();
+  scrollToSection(id: string): void {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      
+      const isMobile = window.innerWidth <= 600;
+      if (isMobile && !this.menuIsClose) {
+        this.switchMenu();
+      }
+    }
   }
-}
 
   toggleLanguage() {
     this.selectedLanguage = this.selectedLanguage === 'EN' ? 'DE' : 'EN';
