@@ -161,7 +161,6 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     this.frameId = requestAnimationFrame(() => this.scrollStep(el));
   }
 
-
   stopScroll(): void {
     const el = this.scrollTextRef?.nativeElement;
     if (!el) return;

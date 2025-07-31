@@ -44,7 +44,6 @@ export class MainContentComponent {
   }
 }
 
-
   closeProjects(): void {
     this.dialogVisible = false;
     this.renderer.removeStyle(document.body, 'overflow');

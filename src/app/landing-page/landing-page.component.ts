@@ -83,7 +83,6 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
     );
   }
 
-
   stopScroll(type: 'check' | 'contact') {
     const textEl = this.getTextElement(type);
     const state = this.scrollState[type];

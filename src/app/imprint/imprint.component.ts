@@ -58,7 +58,6 @@ export class ImprintComponent implements OnInit, OnDestroy {
     this.frameId = requestAnimationFrame(() => this.scrollStep(el));
   }
 
-
   stopScroll() {
     const textEl = this.imprintTextRef.nativeElement;
     if (this.frameId) cancelAnimationFrame(this.frameId);
