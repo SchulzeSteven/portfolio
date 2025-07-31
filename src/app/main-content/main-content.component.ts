@@ -61,7 +61,7 @@ export class MainContentComponent {
           tech4: 'Firebase'
         },
         linkGitHub: 'https://github.com/SchulzeSteven/join',
-        linkLive: 'https://steven-schulze.com/'
+        linkLive: 'https://steven-schulze.com/join/'
       },
       {
         id: 2,
@@ -74,9 +74,11 @@ export class MainContentComponent {
           tech3: 'JavaScript'
         },
         linkGitHub: 'https://github.com/SchulzeSteven/El-Pollo-Loco',
-        linkLive: 'https://steven-schulze.com/'
+        linkLive: 'https://steven-schulze.com/El-Pollo-Loco/'
       },
-      {
+
+      // ---- Add for next projects ----
+      /* {
         id: 3,
         nameKey: 'projects.dabubble.name',
         descriptionKey: 'projects.dabubble.description',
@@ -88,7 +90,7 @@ export class MainContentComponent {
         },
         linkGitHub: '//',
         linkLive: ''
-      }
+      } */
     ];
 
     let nextId = currentId + 1;
@@ -99,4 +101,3 @@ export class MainContentComponent {
     this.selectedProject = projects.find(p => p.id === nextId) || null;
   }
 }
-
