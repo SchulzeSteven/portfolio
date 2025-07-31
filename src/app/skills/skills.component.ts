@@ -9,7 +9,10 @@ import * as AOS from 'aos';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './skills.component.html',
-  styleUrl: './skills.component.scss'
+  styleUrls: [
+    './skills.component.scss',
+    './skills.component-media-query.scss',
+  ]
 })
 export class SkillsComponent implements AfterViewInit, OnDestroy {
   /** Reference to the scroll text element */

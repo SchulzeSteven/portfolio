@@ -1,3 +1,4 @@
+/* Layout */
 .skills-wrapper {
   overflow-x: clip;
   width: 100%;
@@ -26,6 +27,7 @@
   }
 }
 
+/* Skill Containers */
 .skill-set-container,
 .show-skill-container {
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -43,8 +45,8 @@
     margin: 0;
     color: #3dcfb6;
     font-family: 'Karla';
-    letter-spacing: 0;
     font-weight: 500;
+    letter-spacing: 0;
   }
 }
 
@@ -84,6 +86,7 @@
   color: #fff;
 }
 
+/* Additional Skills */
 .another-skill-container {
   display: flex;
   flex-direction: column;
@@ -110,6 +113,7 @@
   }
 }
 
+/* Button */
 .contact-button {
   padding: 0 0 24px 32px;
 
@@ -159,6 +163,7 @@
   }
 }
 
+/* Individual Skills */
 .show-skill-container {
   display: flex;
   flex-wrap: wrap;
@@ -194,6 +199,7 @@
   }
 }
 
+/* Tooltip */
 .tooltip-div {
   position: absolute;
   top: -130px;
@@ -247,6 +253,7 @@
   font-family: 'Karla';
 }
 
+/* Wanted Skills */
 .wanted-skills-container {
   display: flex;
   flex-direction: row;
@@ -269,97 +276,5 @@
   > span {
     line-height: 108%;
     font-family: 'Karla';
-  }
-}
-
-/* Breakpoints */
-@media only screen and (min-width: 300px) {
-  .skill-set-container {
-    width: 300px;
-  }
-}
-
-@media screen and (min-width: 450px) {
-  .skill-set-container {
-    width: 365px;
-  }
-
-  .show-skill-container {
-    gap: 13px;
-    width: 365px;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  .skill-set-container {
-    width: 365px;
-  }
-
-  .show-skill-container {
-    gap: 13px;
-    width: 365px;
-  }
-}
-
-@media only screen and (min-width: 925px) {
-  .skills-container {
-    flex-direction: row;
-    align-items: normal;
-    gap: 96px;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 0 96px;
-  }
-
-  .skill-set-container {
-    width: 520px !important;
-    gap: 20px;
-  }
-
-  .skills-descriptions-container {
-    gap: 40px;
-    width: 400px;
-
-    > h1 {
-      font-size: 64px;
-      line-height: 100%;
-      padding: 32px 32px 0 32px;
-    }
-  }
-
-  .skills-descriptions-content {
-    gap: 32px;
-  }
-
-  .another-skill-container {
-    gap: 16px;
-  }
-
-  .show-skill-container {
-    gap: 13px;
-    width: 100%;
-    padding: 48px 0 0 0;
-  }
-
-  .single-skill {
-    height: 116px;
-    width: 104px;
-  }
-}
-
-@media only screen and (min-width: 1280px) {
-  .show-skill-container {
-    gap: 72px;
-    width: 632px;
-  }
-
-  .skills-descriptions-container {
-    width: 520px;
-  }
-}
-
-@media only screen and (max-width: 925px) {
-  .skills-container {
-    padding: 0;
   }
 }
