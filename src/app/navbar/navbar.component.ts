@@ -40,14 +40,18 @@ export class NavbarComponent {
   scrollToSection(id: string): void {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      
+      const yOffset = -80;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
       const isMobile = window.innerWidth <= 600;
       if (isMobile && !this.menuIsClose) {
         this.switchMenu();
       }
     }
   }
+
 
   toggleLanguage() {
     this.selectedLanguage = this.selectedLanguage === 'EN' ? 'DE' : 'EN';

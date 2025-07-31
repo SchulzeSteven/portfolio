@@ -24,37 +24,41 @@ export class AboutMeComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-  const section = this.sectionRef.nativeElement;
-  const image = this.imgRef.nativeElement as HTMLElement;
-  const content = this.contentRef.nativeElement as HTMLElement;
+    const section = this.sectionRef.nativeElement;
+    const image = this.imgRef.nativeElement as HTMLElement;
+    const content = this.contentRef.nativeElement as HTMLElement;
 
-  let previousY = section.getBoundingClientRect().top;
+    this.observeSection(section, image, content);
+  }
 
-  const observer = new IntersectionObserver(
-    entries => {
+  private observeSection(section: HTMLElement, image: HTMLElement, content: HTMLElement): void {
+    let previousY = section.getBoundingClientRect().top;
+
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         const currentY = entry.boundingClientRect.top;
         const scrollingUp = currentY > previousY;
         previousY = currentY;
 
-        if (entry.isIntersecting) {
-          image.classList.add('visible');
-          image.classList.remove('invisible');
-          content.classList.add('visible');
-          content.classList.remove('invisible');
-        } else if (scrollingUp) {
-          image.classList.remove('visible');
-          image.classList.add('invisible');
-          content.classList.remove('visible');
-          content.classList.add('invisible');
-
-          this.hasMoved = false;
-        }
+        this.handleVisibility(entry.isIntersecting, scrollingUp, image, content);
       });
-    },
-    { threshold: 0.3 }
-  );
+    }, { threshold: 0.3 });
 
-  observer.observe(section);
-}
+    observer.observe(section);
+  }
+
+  private handleVisibility(visible: boolean, scrollingUp: boolean, image: HTMLElement, content: HTMLElement): void {
+    if (visible) {
+      image.classList.add('visible');
+      image.classList.remove('invisible');
+      content.classList.add('visible');
+      content.classList.remove('invisible');
+    } else if (scrollingUp) {
+      image.classList.remove('visible');
+      image.classList.add('invisible');
+      content.classList.remove('visible');
+      content.classList.add('invisible');
+      this.hasMoved = false;
+    }
+  }
 }

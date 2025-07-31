@@ -34,30 +34,30 @@ export class ImprintComponent implements OnInit, OnDestroy {
     if (this.frameId) cancelAnimationFrame(this.frameId);
   }
 
-  startScroll() {
-    const textEl = this.imprintTextRef.nativeElement;
+  startScroll(): void {
+    const el = this.imprintTextRef?.nativeElement;
+    if (!el) return;
+
     this.scrollPos = 0;
-    textEl.style.transition = 'none';
-    textEl.style.transform = `translate(calc(-50% + ${this.scrollPos}px), -50%)`;
-
-    const step = () => {
-      this.scrollPos -= this.scrollSpeed;
-      textEl.style.transform = `translate(calc(-50% + ${this.scrollPos}px), -50%)`;
-
-      const totalWidth = this.containerWidth;
-      const textWidth = textEl.offsetWidth;
-
-      if (this.scrollPos + textWidth < -totalWidth / 2) {
-        this.scrollPos = totalWidth + textWidth;
-      }
-
-      this.frameId = requestAnimationFrame(step);
-    };
+    el.style.transition = 'none';
+    el.style.transform = `translate(calc(-50% + ${this.scrollPos}px), -50%)`;
 
     if (!this.frameId) {
-      this.frameId = requestAnimationFrame(step);
+      this.frameId = requestAnimationFrame(() => this.scrollStep(el));
     }
   }
+
+  private scrollStep(el: HTMLElement): void {
+    this.scrollPos -= this.scrollSpeed;
+    el.style.transform = `translate(calc(-50% + ${this.scrollPos}px), -50%)`;
+
+    if (this.scrollPos + el.offsetWidth < -this.containerWidth / 2) {
+      this.scrollPos = this.containerWidth + el.offsetWidth;
+    }
+
+    this.frameId = requestAnimationFrame(() => this.scrollStep(el));
+  }
+
 
   stopScroll() {
     const textEl = this.imprintTextRef.nativeElement;

@@ -142,28 +142,25 @@ export class ContactMeComponent implements OnInit, OnDestroy {
 
   startScroll(): void {
     const el = this.scrollTextRef?.nativeElement;
-    if (!el) return;
+    if (!el || this.frameId) return;
 
-    let pos = this.pos;
     el.style.transition = 'none';
-    el.style.transform = `translate(calc(-50% + ${pos}px), -50%)`;
+    el.style.transform = `translate(calc(-50% + ${this.pos}px), -50%)`;
 
-    const step = () => {
-      pos -= this.scrollSpeed;
-      el.style.transform = `translate(calc(-50% + ${pos}px), -50%)`;
-
-      if (pos + el.offsetWidth < -this.containerWidth / 2) {
-        pos = this.containerWidth + el.offsetWidth;
-      }
-
-      this.pos = pos;
-      this.frameId = requestAnimationFrame(step);
-    };
-
-    if (!this.frameId) {
-      this.frameId = requestAnimationFrame(step);
-    }
+    this.frameId = requestAnimationFrame(() => this.scrollStep(el));
   }
+
+  private scrollStep(el: HTMLElement): void {
+    this.pos -= this.scrollSpeed;
+    el.style.transform = `translate(calc(-50% + ${this.pos}px), -50%)`;
+
+    if (this.pos + el.offsetWidth < -this.containerWidth / 2) {
+      this.pos = this.containerWidth + el.offsetWidth;
+    }
+
+    this.frameId = requestAnimationFrame(() => this.scrollStep(el));
+  }
+
 
   stopScroll(): void {
     const el = this.scrollTextRef?.nativeElement;

@@ -50,7 +50,7 @@
                 {{ "contact.read2" | translate }}
               </p>
             </div>
-            <p *ngIf="checkboxField.invalid && checkboxField.touched">
+            <p [style.visibility]="checkboxField.invalid && checkboxField.touched ? 'visible' : 'hidden'">
               <span> {{ "contact.accept" | translate }} </span>
             </p>
           </div>

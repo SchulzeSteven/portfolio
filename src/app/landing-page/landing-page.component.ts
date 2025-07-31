@@ -55,33 +55,34 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
     this.resetTextPosition('contact');
   }
 
-  startScroll(type: 'check' | 'contact') {
-    const textEl = this.getTextElement(type);
+  startScroll(type: 'check' | 'contact'): void {
+    const el = this.getTextElement(type);
     const state = this.scrollState[type];
 
-    let scrollPos = state.pos;
-    textEl.style.transition = 'none';
-    textEl.style.transform = `translate(calc(-50% + ${scrollPos}px), -50%)`;
-
-    const step = () => {
-      scrollPos -= this.scrollSpeed;
-      textEl.style.transform = `translate(calc(-50% + ${scrollPos}px), -50%)`;
-
-      const totalWidth = this.containerWidth;
-      const textWidth = textEl.offsetWidth;
-
-      if (scrollPos + textWidth < -totalWidth / 2) {
-        scrollPos = totalWidth + textWidth;
-      }
-
-      state.pos = scrollPos;
-      state.frameId = requestAnimationFrame(step);
-    };
+    state.pos = 0;
+    el.style.transition = 'none';
+    el.style.transform = `translate(calc(-50% + ${state.pos}px), -50%)`;
 
     if (!state.frameId) {
-      state.frameId = requestAnimationFrame(step);
+      state.frameId = requestAnimationFrame(() =>
+        this.scrollStep(el, state)
+      );
     }
   }
+
+  private scrollStep(el: HTMLElement, state: { pos: number; frameId: number | null }): void {
+    state.pos -= this.scrollSpeed;
+    el.style.transform = `translate(calc(-50% + ${state.pos}px), -50%)`;
+
+    if (state.pos + el.offsetWidth < -this.containerWidth / 2) {
+      state.pos = this.containerWidth + el.offsetWidth;
+    }
+
+    state.frameId = requestAnimationFrame(() =>
+      this.scrollStep(el, state)
+    );
+  }
+
 
   stopScroll(type: 'check' | 'contact') {
     const textEl = this.getTextElement(type);

@@ -92,7 +92,7 @@ input.ng-invalid {
 
 ::placeholder {
   font: 400 18px 'Karla';
-  color: #ffffffcc;
+  color: #c0c0c0;
 }
 
 .name-form,
@@ -135,6 +135,7 @@ input.ng-invalid {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  min-height: 148px;
 }
 
 .scroll-button {
@@ -301,4 +302,21 @@ input.ng-invalid {
   0% { opacity: 1; }
   50% { opacity: 0.5; }
   100% { opacity: 0; }
+}
+
+input,
+textarea {
+  caret-color: #beb9b9cc;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected {
+  background-color: #1c1c1c !important;
+  box-shadow: 0 0 0px 1000px #1c1c1c inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #1c1c1c inset !important;
+  -webkit-text-fill-color: #ffffffcc !important;
+  caret-color: #ffffffcc !important;
+  transition: background-color 5000s ease-in-out 0s;
 }

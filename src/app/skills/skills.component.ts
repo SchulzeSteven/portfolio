@@ -71,28 +71,28 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
   window.addEventListener('scroll', handleScroll);
 }
 
-
   startScroll(): void {
     const el = this.scrollTextRef.nativeElement;
     let pos = this.pos;
     el.style.transition = 'none';
     el.style.transform = `translate(calc(-50% + ${pos}px), -50%)`;
 
-    const step = () => {
-      pos -= this.scrollSpeed;
-      el.style.transform = `translate(calc(-50% + ${pos}px), -50%)`;
+    const step = () => this.performScroll(el, pos);
+    if (!this.frameId) this.frameId = requestAnimationFrame(step);
+  }
 
-      if (pos + el.offsetWidth < -this.containerWidth / 2) {
-        pos = this.containerWidth + el.offsetWidth;
-      }
+  private performScroll(el: HTMLElement, pos: number): void {
+    pos -= this.scrollSpeed;
+    el.style.transform = `translate(calc(-50% + ${pos}px), -50%)`;
 
-      this.pos = pos;
-      this.frameId = requestAnimationFrame(step);
-    };
-
-    if (!this.frameId) {
-      this.frameId = requestAnimationFrame(step);
+    if (pos + el.offsetWidth < -this.containerWidth / 2) {
+      pos = this.containerWidth + el.offsetWidth;
     }
+
+    this.pos = pos;
+    this.frameId = requestAnimationFrame(() =>
+      this.performScroll(el, pos)
+    );
   }
 
   stopScroll(): void {

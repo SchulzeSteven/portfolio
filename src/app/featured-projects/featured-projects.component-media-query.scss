@@ -8,6 +8,12 @@
     .featured-projects-container {
         width: 375px;
     }
+
+    .headline-container {
+        >h1 {
+            font-size: 56px;
+        }
+    }
 }
 
 @media only screen and (min-width: 800px) {

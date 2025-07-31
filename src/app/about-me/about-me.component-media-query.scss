@@ -106,5 +106,11 @@
 
   .about-me-content {
     max-width: 300px;
+
+    .about-me-div {
+      >h1 {
+            font-size: 45px;
+      }
+    }
   }
 }
