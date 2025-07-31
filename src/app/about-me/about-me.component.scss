@@ -9,6 +9,7 @@
   overflow: hidden;
 }
 
+/* Image Container */
 .about-me-img {
   position: relative;
   width: 300px;
@@ -47,6 +48,7 @@
   }
 }
 
+/* Text Content */
 .about-me-content {
   display: flex;
   flex-direction: column;
@@ -65,6 +67,7 @@
   }
 }
 
+/* Title Box */
 .about-me-div {
   background-color: #3DCFB61A;
   border: 1px solid #3dcfb6;
@@ -97,6 +100,7 @@
   line-height: 120%;
 }
 
+/* Personality Section */
 .personality-container {
   display: flex;
   flex-direction: column;
@@ -128,6 +132,7 @@
   }
 }
 
+/* Scroll/Fade Animations */
 .about-me-img,
 .about-me-content {
   opacity: 0;
@@ -155,6 +160,7 @@
   transform: translateX(90px);
 }
 
+/* Background Shift Animation */
 .backgroundimg-animation {
   animation: backgroundimg 250ms ease-in forwards;
 }
