@@ -24,31 +24,37 @@ export class AboutMeComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const section = this.sectionRef.nativeElement;
-    const image = this.imgRef.nativeElement as HTMLElement;
-    const content = this.contentRef.nativeElement as HTMLElement;
+  const section = this.sectionRef.nativeElement;
+  const image = this.imgRef.nativeElement as HTMLElement;
+  const content = this.contentRef.nativeElement as HTMLElement;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            image.classList.add('visible');
-            image.classList.remove('invisible');
-            content.classList.add('visible');
-            content.classList.remove('invisible');
-          } else {
-            image.classList.remove('visible');
-            image.classList.add('invisible');
-            content.classList.remove('visible');
-            content.classList.add('invisible');
+  let previousY = section.getBoundingClientRect().top;
 
-            this.hasMoved = false;
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        const currentY = entry.boundingClientRect.top;
+        const scrollingUp = currentY > previousY;
+        previousY = currentY;
 
-    observer.observe(section);
-  }
+        if (entry.isIntersecting) {
+          image.classList.add('visible');
+          image.classList.remove('invisible');
+          content.classList.add('visible');
+          content.classList.remove('invisible');
+        } else if (scrollingUp) {
+          image.classList.remove('visible');
+          image.classList.add('invisible');
+          content.classList.remove('visible');
+          content.classList.add('invisible');
+
+          this.hasMoved = false;
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(section);
+}
 }
