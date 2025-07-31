@@ -6,20 +6,22 @@
   background-image: linear-gradient(to top right, #1c1c1c 70%, #08463b);
 }
 
+/* Dialog Overlay */
 .featured-projects-dialog-container {
   position: fixed;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.374) !important;
-  z-index: 999;
   inset: 0;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.374) !important;
+  z-index: 999;
 }
 
 .dialog-open {
   overflow: hidden;
 }
 
+/* Dialog Content */
 .featured-projects-dialog {
   display: flex;
   flex-direction: column-reverse;
@@ -33,6 +35,7 @@
   z-index: 1000;
 }
 
+/* Project Details */
 .left-details-container {
   display: flex;
   flex-direction: column;
@@ -50,7 +53,7 @@
   width: 100%;
 
   h1 {
-    font-family: Karla;
+    font-family: 'Karla';
     font-weight: 700;
     font-size: 128px;
     line-height: 100px;
@@ -125,6 +128,7 @@
   }
 }
 
+/* Preview Image */
 .preview-project {
   display: flex;
   flex-direction: column;
@@ -134,11 +138,11 @@
   width: 100%;
 
   img {
-
     border-radius: 30px;
   }
 }
 
+/* Close Button */
 .dialog-close-container {
   width: 100%;
   display: flex;
@@ -174,6 +178,7 @@
   }
 }
 
+/* Link Buttons */
 .link-buttons-container {
   display: flex;
   gap: 32px;
@@ -236,6 +241,7 @@
   }
 }
 
+/* Next Project Buttons */
 .next-project-container-responsive {
   display: flex;
   align-items: center;
@@ -285,14 +291,15 @@
   }
 }
 
+/* Fade Animations */
 @keyframes fadeOut {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%   { opacity: 1; }
+  50%  { opacity: 0.5; }
   100% { opacity: 0; }
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  50% { opacity: 0.5; }
+  0%   { opacity: 0; }
+  50%  { opacity: 0.5; }
   100% { opacity: 1; }
 }
