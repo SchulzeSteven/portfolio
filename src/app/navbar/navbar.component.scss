@@ -4,13 +4,7 @@
   justify-content: center;
 }
 
-.nav-content {
-  display: flex;
-  gap: 24px;
-  flex-direction: row;
-  align-items: center;
-}
-
+/* Main Navbar Layout */
 .navbar-outer {
   width: 100%;
   display: flex;
@@ -24,9 +18,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 96px;
+  padding: 0 96px;
 }
 
+.nav-content {
+  display: flex;
+  gap: 24px;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Internal Navigation Links */
 .internal-links {
   display: flex;
   flex-direction: column;
@@ -67,6 +69,7 @@
   gap: 24px;
 }
 
+/* Toggle Switch (Language) */
 .navbar-button {
   display: flex;
   align-items: center;
@@ -122,10 +125,9 @@
       font-family: 'Fira Code', monospace;
       font-size: 16px;
       line-height: 120%;
-      letter-spacing: 0px;
+      text-align: center;
       height: 19px;
       width: 20px;
-      text-align: center;
     }
 
     .active-text {
@@ -140,6 +142,7 @@
   }
 }
 
+/* Logo */
 .logo-container {
   position: relative;
   height: 70px;
@@ -158,6 +161,7 @@
   }
 }
 
+/* Mobile Menu Icon */
 .menu-icon {
   display: none;
   height: 36px;
@@ -177,13 +181,14 @@
   background-image: url('/assets/images/menu-click.png');
 }
 
+/* Mobile Navigation Overlay */
 .nav-menu-container {
   position: fixed;
   display: flex;
+  justify-content: center;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.374) !important;
   z-index: 999;
-  inset: 0;
-  justify-content: center;
 }
 
 .menu-content {
@@ -192,12 +197,12 @@
   margin: 85px 0 0 50px;
   border-radius: 30px;
   border: 1px solid #3dcfb6;
+  background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
-  background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
 }
 
 .internal-links-menu {
@@ -206,6 +211,16 @@
   align-items: center;
   justify-content: center;
   gap: 2px;
+
+  > a {
+    font-family: 'Fira Code';
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -3px;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
   > span {
     transition: opacity 300ms ease-out;
@@ -219,16 +234,6 @@
     opacity: 0;
   }
 
-  > a {
-    font-family: 'Fira Code';
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: -3px;
-    color: #FFFFFF;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
   &:hover {
     > a {
       color: #3dcfb6;
@@ -240,6 +245,7 @@
   }
 }
 
+/* Mobile Toggle */
 .toggle-container.mobile-toggle {
   display: flex;
   width: 84px;
@@ -292,7 +298,6 @@
     font-family: 'Fira Code', monospace;
     font-size: 16px;
     line-height: 120%;
-    letter-spacing: 0px;
     height: 19px;
     width: 20px;
     text-align: center;
@@ -309,6 +314,7 @@
   }
 }
 
+/* Language Icon */
 .language-icon {
   display: none;
   height: 46px;
@@ -330,6 +336,7 @@
   }
 }
 
+/* Responsive Rules */
 @media only screen and (max-width: 600px) {
   .logo-container {
     display: none;
@@ -344,16 +351,16 @@
   }
 
   .navbar-button {
-    display: none; // Sprach-Toggle verstecken
+    display: none;
   }
 
   .language-icon {
-    display: block; // Icon anzeigen
+    display: block;
   }
 }
 
 @media only screen and (max-width: 925px) {
   .navbar-container {
-    padding: 0px 8px;
+    padding: 0 8px;
   }
 }

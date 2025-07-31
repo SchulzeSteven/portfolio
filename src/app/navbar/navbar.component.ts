@@ -46,12 +46,6 @@ export class NavbarComponent {
    */
   switchMenu(): void {
     this.menuIsClose = !this.menuIsClose;
-
-    if (!this.menuIsClose) {
-      this.renderer.setStyle(document.body, 'overflow', 'hidden');
-    } else {
-      this.renderer.removeStyle(document.body, 'overflow');
-    }
   }
 
   /**
