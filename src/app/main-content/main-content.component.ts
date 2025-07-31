@@ -1,6 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+
 import { LandingPageComponent } from '../landing-page/landing-page.component';
 import { AboutMeComponent } from '../about-me/about-me.component';
 import { SkillsComponent } from '../skills/skills.component';
@@ -28,27 +29,50 @@ import { ContactMeComponent } from '../contact-me/contact-me.component';
   ]
 })
 export class MainContentComponent {
+  /**
+   * The currently selected project for the dialog preview.
+   * If null, the dialog is not visible.
+   */
   selectedProject: Project | null = null;
+
+  /**
+   * Controls the visibility of the project details dialog.
+   */
   dialogVisible = false;
 
   constructor(private renderer: Renderer2) {}
 
+  /**
+   * Opens the project details dialog with the given project.
+   * Disables body scroll on large screens to avoid background scrolling.
+   *
+   * @param project The project to display in the dialog.
+   */
   openDialog(project: Project): void {
-  this.selectedProject = project;
-  this.dialogVisible = true;
+    this.selectedProject = project;
+    this.dialogVisible = true;
 
-  if (window.innerWidth > 925) {
-    this.renderer.setStyle(document.body, 'overflow', 'hidden');
-  } else {
-    this.renderer.removeStyle(document.body, 'overflow');
+    if (window.innerWidth > 925) {
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    } else {
+      this.renderer.removeStyle(document.body, 'overflow');
+    }
   }
-}
 
+  /**
+   * Closes the project dialog and restores scrolling.
+   */
   closeProjects(): void {
     this.dialogVisible = false;
     this.renderer.removeStyle(document.body, 'overflow');
   }
 
+  /**
+   * Navigates to the next project in the list.
+   * Loops back to the first project when the end is reached.
+   *
+   * @param currentId The ID of the currently displayed project.
+   */
   nextProject(currentId: number): void {
     const projects: Project[] = [
       {
@@ -79,8 +103,9 @@ export class MainContentComponent {
         linkLive: 'https://steven-schulze.com/El-Pollo-Loco/'
       },
 
-      // ---- Add for next projects ----
-      /* {
+      // Uncomment and extend this list to add more projects
+      /*
+      {
         id: 3,
         nameKey: 'projects.dabubble.name',
         descriptionKey: 'projects.dabubble.description',
@@ -92,7 +117,8 @@ export class MainContentComponent {
         },
         linkGitHub: '//',
         linkLive: ''
-      } */
+      }
+      */
     ];
 
     let nextId = currentId + 1;

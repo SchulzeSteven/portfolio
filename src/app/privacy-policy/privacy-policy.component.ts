@@ -11,23 +11,42 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './privacy-policy.component.scss'
 })
 export class PrivacypolicyComponent implements OnInit, OnDestroy {
+  /** Reference to the scrollable privacy policy text element */
   @ViewChild('privacyText') privacyTextRef!: ElementRef<HTMLDivElement>;
 
+  /** Scroll speed in pixels per frame */
   private scrollSpeed = 1.2;
+
+  /** Width used to calculate when to reset the scroll animation */
   private containerWidth = 120;
+
+  /** Current scroll position (used for animation offset) */
   private scrollPos = 0;
+
+  /** ID of the current animation frame for scroll animation */
   private frameId: number | null = null;
 
+  /**
+   * Called when the component is initialized.
+   * Scrolls to top and sets a custom background.
+   */
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.body.style.backgroundImage = 'linear-gradient(to top right, #1c1c1c 70%, #08463b)';
   }
 
+  /**
+   * Called when the component is destroyed.
+   * Cleans up styles and cancels ongoing animations.
+   */
   ngOnDestroy(): void {
     document.body.style.backgroundImage = '';
     if (this.frameId) cancelAnimationFrame(this.frameId);
   }
 
+  /**
+   * Starts the horizontal scroll animation for the text.
+   */
   startScroll(): void {
     const el = this.privacyTextRef.nativeElement;
     this.scrollPos = 0;
@@ -41,6 +60,12 @@ export class PrivacypolicyComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Performs one step of the scroll animation.
+   * Loops the text when it scrolls out of view.
+   * 
+   * @param el HTML element to animate
+   */
   private scrollStep(el: HTMLElement): void {
     this.scrollPos -= this.scrollSpeed;
     el.style.transform = `translate(calc(-50% + ${this.scrollPos}px), -50%)`;
@@ -55,7 +80,10 @@ export class PrivacypolicyComponent implements OnInit, OnDestroy {
     );
   }
 
-  stopScroll() {
+  /**
+   * Stops the scroll animation and resets the text position smoothly.
+   */
+  stopScroll(): void {
     const textEl = this.privacyTextRef.nativeElement;
     if (this.frameId) cancelAnimationFrame(this.frameId);
     this.frameId = null;

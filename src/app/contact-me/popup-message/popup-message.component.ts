@@ -10,9 +10,16 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class PopUpMessageComponent {
 
-  @Output()closeMessage = new EventEmitter<boolean>();
+  /**
+   * Emits a value when the pop-up message is closed.
+   * Typically used to notify the parent component.
+   */
+  @Output() closeMessage = new EventEmitter<boolean>();
 
-  closeDialog(){
-    this.closeMessage.emit(false)
+  /**
+   * Triggers the closing of the dialog by emitting `false`.
+   */
+  closeDialog(): void {
+    this.closeMessage.emit(false);
   }
 }

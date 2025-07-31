@@ -2,14 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
+/**
+ * Interface representing the structure of a project item
+ */
 export interface Project {
   id: number;
-  nameKey: string;
-  descriptionKey: string;
-  namePng: string;
-  technologies: { [key: string]: string };
-  linkGitHub: string;
-  linkLive: string;
+  nameKey: string;         // Translation key for project name
+  descriptionKey: string;  // Translation key for project description
+  namePng: string;         // Filename for the preview image
+  technologies: { [key: string]: string }; // Technologies used
+  linkGitHub: string;      // GitHub repository link
+  linkLive: string;        // Live deployment link
 }
 
 @Component({
@@ -23,12 +26,20 @@ export interface Project {
   ]
 })
 export class FeaturedProjectsComponent {
-
+  /**
+   * Emits the selected project to be shown in the project dialog
+   */
   @Output() openDialog = new EventEmitter<Project>();
 
+  /** Controls animation trigger state */
   animation = false;
+
+  /** Stores the currently selected project number */
   projectNumber!: number;
 
+  /**
+   * List of featured projects displayed in the UI
+   */
   projects: Project[] = [
     {
       id: 1,
@@ -72,12 +83,20 @@ export class FeaturedProjectsComponent {
     }
   ];
 
+  /**
+   * Toggles the preview animation for the project boxes
+   * @param projectNumber Number representing the selected project preview
+   */
   showPreviewProjects(projectNumber: number): void {
-    if (projectNumber === 4) return;
+    if (projectNumber === 4) return; // Reserved or unused project number
     this.animation = !this.animation;
     this.projectNumber = projectNumber;
   }
 
+  /**
+   * Emits a selected project to the parent component to open a dialog
+   * @param selectId ID of the selected project
+   */
   showProjects(selectId: number): void {
     const project = this.projects.find(p => p.id === selectId);
     if (project) {

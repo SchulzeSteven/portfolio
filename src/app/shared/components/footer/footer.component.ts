@@ -10,7 +10,11 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  backToBegin() {
+  /**
+   * Smoothly scrolls the window back to the top of the page.
+   * Typically used when clicking a "Back to top" button.
+   */
+  backToBegin(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

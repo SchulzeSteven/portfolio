@@ -12,27 +12,43 @@ import * as AOS from 'aos';
   styleUrl: './skills.component.scss'
 })
 export class SkillsComponent implements AfterViewInit, OnDestroy {
+  /** Reference to the scroll text element */
   @ViewChild('scrollText') scrollTextRef!: ElementRef<HTMLDivElement>;
+
+  /** Reference to the entire skills section */
   @ViewChild('skillsSection') sectionRef!: ElementRef;
 
+  /** Currently active language */
   currentLang: 'de' | 'en' = 'en';
 
+  /** Animation frame ID for canceling scroll loop */
   private frameId: number | null = null;
+
+  /** Current scroll position */
   private pos = 0;
+
+  /** Speed of scroll animation */
   private scrollSpeed = 1.2;
+
+  /** Width used for scroll reset logic */
   private containerWidth = 120;
 
+  /** Subscription to language change events */
   private langChangeSub!: Subscription;
 
-  constructor(private translate: TranslateService, private viewportScroller: ViewportScroller
+  constructor(
+    private translate: TranslateService,
+    private viewportScroller: ViewportScroller
   ) {
     this.currentLang = this.translate.currentLang as 'de' | 'en' || 'en';
+
     this.langChangeSub = this.translate.onLangChange.subscribe(event => {
       this.currentLang = event.lang as 'de' | 'en';
-      AOS.refreshHard();
+      AOS.refreshHard(); // Refresh scroll animations on language change
     });
   }
 
+  /** List of skills with image names and labels */
   skillSet = [
     { imgName: "HTML", name: "HTML" },
     { imgName: "CSS", name: "CSS" },
@@ -47,33 +63,41 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     { imgName: "Growth_Mindset", name: "Growth Mindset" }
   ];
 
+  /**
+   * Runs after the view is initialized.
+   * Sets up initial scroll state and visibility animation.
+   */
   ngAfterViewInit(): void {
-  this.resetScroll();
-  AOS.refresh();
+    this.resetScroll();
+    AOS.refresh();
 
-  const section = this.sectionRef.nativeElement;
-  const offset = 350;
+    const section = this.sectionRef.nativeElement;
+    const offset = 350;
 
-  const handleScroll = () => {
-    const rect = section.getBoundingClientRect();
-    const inView = rect.top < window.innerHeight - offset && rect.bottom > offset;
+    const handleScroll = () => {
+      const rect = section.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight - offset && rect.bottom > offset;
 
-    if (inView) {
-      section.classList.add('visible');
-      section.classList.remove('invisible');
-    } else {
-      section.classList.add('invisible');
-      section.classList.remove('visible');
-    }
-  };
+      if (inView) {
+        section.classList.add('visible');
+        section.classList.remove('invisible');
+      } else {
+        section.classList.add('invisible');
+        section.classList.remove('visible');
+      }
+    };
 
-  handleScroll();
-  window.addEventListener('scroll', handleScroll);
-}
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+  }
 
+  /**
+   * Starts the continuous scroll animation for the scrollText element
+   */
   startScroll(): void {
     const el = this.scrollTextRef.nativeElement;
     let pos = this.pos;
+
     el.style.transition = 'none';
     el.style.transform = `translate(calc(-50% + ${pos}px), -50%)`;
 
@@ -81,6 +105,11 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     if (!this.frameId) this.frameId = requestAnimationFrame(step);
   }
 
+  /**
+   * Performs one animation frame of the scroll animation
+   * @param el Element to animate
+   * @param pos Current scroll position
+   */
   private performScroll(el: HTMLElement, pos: number): void {
     pos -= this.scrollSpeed;
     el.style.transform = `translate(calc(-50% + ${pos}px), -50%)`;
@@ -95,17 +124,24 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     );
   }
 
+  /**
+   * Stops the scroll animation and resets the text to center
+   */
   stopScroll(): void {
     const el = this.scrollTextRef.nativeElement;
     if (this.frameId) {
       cancelAnimationFrame(this.frameId);
       this.frameId = null;
     }
+
     el.style.transition = 'transform 0.4s ease-out';
     el.style.transform = 'translate(-50%, -50%)';
     this.pos = 0;
   }
 
+  /**
+   * Resets scroll position to centered state without animation
+   */
   private resetScroll(): void {
     const el = this.scrollTextRef.nativeElement;
     this.pos = 0;
@@ -113,11 +149,18 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     el.style.transform = 'translate(-50%, -50%)';
   }
 
+  /**
+   * Cleanup on component destroy: unsubscribe and cancel animations
+   */
   ngOnDestroy(): void {
     if (this.langChangeSub) this.langChangeSub.unsubscribe();
     if (this.frameId) cancelAnimationFrame(this.frameId);
   }
 
+  /**
+   * Smoothly scrolls to the contact section of the page
+   * @param anchor ID of the target element
+   */
   scrollToContact(anchor: string): void {
     const element = document.getElementById(anchor);
     if (element) {

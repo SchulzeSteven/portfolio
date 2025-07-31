@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './shared/components/footer/footer.component';
 
-// AOS importieren
+// Import AOS (Animate On Scroll)
 import * as AOS from 'aos';
 
 @Component({
@@ -14,15 +14,19 @@ import * as AOS from 'aos';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  /** Application title (not actively used here) */
   title = 'portfolio';
 
-  // AOS initialisieren
+  /**
+   * Angular lifecycle hook that runs after component initialization.
+   * Initializes AOS (Animate On Scroll) with custom options.
+   */
   ngOnInit(): void {
     AOS.init({
-      duration: 500,
-      once: false,
-      offset: 350,
-      easing: 'ease-out-back'
+      duration: 500,           // Animation duration in milliseconds
+      once: false,             // Whether animation should happen only once
+      offset: 350,             // Offset from the bottom of the screen
+      easing: 'ease-out-back'  // Animation easing style
     });
   }
 }
