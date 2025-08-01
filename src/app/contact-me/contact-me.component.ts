@@ -142,38 +142,32 @@ export class ContactMeComponent implements OnInit, OnDestroy {
    * @param ngForm The Angular form reference
    */
   checkFormular(ngForm: NgForm): void {
-    if (ngForm.invalid) {
-      // Mark all fields as touched for validation
-      Object.keys(ngForm.controls).forEach((field) => {
-        const control = ngForm.controls[field];
-        control.markAsTouched({ onlySelf: true });
+  Object.values(ngForm.controls).forEach(control => {
+    control.markAsTouched({ onlySelf: true });
+  });
+  if (ngForm.invalid) return;
+  if (!this.mailTest) {
+    this.http
+      .post(
+        this.post.endPoint,
+        this.post.body(this.contactData),
+        this.post.options
+      )
+      .subscribe({
+        next: () => {
+          this.sendFormular = true;
+          this.setOverflow(true);
+          ngForm.resetForm();
+        },
+        error: (error) => {
+          console.error("Mail could not be sent:", error);
+          alert("Failed to send message. Please try again later.");
+        }
       });
-    } else if (ngForm.submitted && ngForm.form.valid) {
-      if (!this.mailTest) {
-        // Send form data to backend
-        this.http
-          .post(
-            this.post.endPoint,
-            this.post.body(this.contactData),
-            this.post.options
-          )
-          .subscribe({
-            next: () => {
-              this.sendFormular = true;
-              this.setOverflow(true);
-              ngForm.resetForm();
-            },
-            error: (error) => {
-              console.error("Mail could not be sent:", error);
-              alert("Failed to send message. Please try again later.");
-            }
-          });
-      } else {
-        // Testing mode: reset form without sending
-        ngForm.resetForm();
-      }
-    }
+  } else {
+    ngForm.resetForm();
   }
+}
 
   /** Starts horizontal scrolling animation of the button text */
   startScroll(): void {
