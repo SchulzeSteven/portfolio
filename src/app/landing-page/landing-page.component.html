@@ -17,7 +17,6 @@
     </div>
     </div>
         <div class="lateral-container">
-      <!-- Nur links und rechts -->
       <div class="left-lateral">
         <div class="arrow-down">
           <span>&darr;</span>
@@ -44,25 +43,21 @@
         <div class="right-seperator"></div>
       </div>
     </div>
-
-    <!-- Marquee außerhalb, am Ende von <main> -->
     <aside class="marquee-container" [class.animate]="marqueeReady">
-  <div class="marquee-track">
-    <div class="adds-content">
-      <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
-        <img src="/assets/images/radio_button_unchecked.png" alt="" />
-        <span>{{ "landing.remote" | translate }}</span>
-        <img src="/assets/images/radio_button_unchecked.png" alt="" />
-        <span>{{ "landing.branch" | translate }}</span>
-        <img src="/assets/images/radio_button_unchecked.png" alt="" />
-        <span>{{ "landing.location" | translate }}</span>
-        <img src="/assets/images/radio_button_unchecked.png" alt="" />
-        <span>{{ "landing.ready" | translate }}</span>
-      </ng-container>
-    </div>
-  </div>
-</aside>
-
-
+      <div class="marquee-track">
+        <div class="adds-content">
+          <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+            <img src="/assets/images/radio_button_unchecked.png" alt="" />
+            <span>{{ "landing.remote" | translate }}</span>
+            <img src="/assets/images/radio_button_unchecked.png" alt="" />
+            <span>{{ "landing.branch" | translate }}</span>
+            <img src="/assets/images/radio_button_unchecked.png" alt="" />
+            <span>{{ "landing.location" | translate }}</span>
+            <img src="/assets/images/radio_button_unchecked.png" alt="" />
+            <span>{{ "landing.ready" | translate }}</span>
+          </ng-container>
+        </div>
+      </div>
+    </aside>
   </main>
     
