@@ -1,195 +1,238 @@
 @media only screen and (min-width: 300px) {
-    .landing-content {
-        margin-bottom: 120px;
+  .landing-content {
+    margin-bottom: 120px;
+  }
+
+  .title-container {
+    margin: 80px 0 0px 0;
+
+    > h2 {
+      font-size: 22px;
     }
 
-    .title-container {
-        margin: 80px 0 0px 0;
-
-        >h2 {
-            font-size: 22px;
-        }
-
-        >h1 {
-            font-size: 50px;
-        }
+    > h1 {
+      font-size: 50px;
     }
+  }
 
-    .adds-content {
-        >span {
-            font-size: 28px;
-        }
+  .adds-content {
+    > span {
+      font-size: 28px;
     }
+  }
 
-    .title-buttons {
-        height: 80px;
-    }
+  .title-buttons {
+    height: 80px;
+  }
 
-    .title-buttons.en {
-        gap: 24px !important;
-        .first-button { width: 120px; }
-        .second-button { width: 100px; }
+  .title-buttons.en {
+    gap: 24px !important;
+    .first-button {
+      width: 120px;
     }
+    .second-button {
+      width: 100px;
+    }
+  }
 
   .title-buttons.de {
-        gap: 8px !important;
-        .first-button { width: 145px; }
-        .second-button { width: 150px; }
-        .scroll-text { font-size: 13px; }
+    gap: 8px !important;
+    .first-button {
+      width: 145px;
     }
-
+    .second-button {
+      width: 150px;
+    }
     .scroll-text {
-        font-size: 14px;
+      font-size: 13px;
     }
+  }
 
-    .marquee-container {
-        top: 190px;
-        rotate: 352deg;
-        height: 45px;
-    }
+  .scroll-text {
+    font-size: 14px;
+  }
 
-    .left-lateral {
-        height: 365px;
-    }
+  .marquee-container {
+    top: 190px;
+    height: 45px;
+    top: 83%;
+    rotate: 350deg;
+  }
 
-    .left-seperator {
-        height: 290px;
-    }
+  .left-lateral {
+    height: 365px;
+  }
 
-    .right-seperator {
-        height: 220px;
-    }
+  .left-seperator {
+    height: 290px;
+  }
+
+  .right-seperator {
+    height: 220px;
+  }
 }
 
 @media only screen and (min-width: 450px) {
-    .title-container {
-        margin: 140px 0 0px 0;
+  .title-container {
+    margin: 140px 0 0px 0;
 
-        >h2 {
-            font-size: 18px;
-        }
-
-        >h1 {
-            font-size: 64px;
-        }
+    > h2 {
+      font-size: 18px;
     }
 
-    .marquee-container {
-        top: 200px;
-        rotate: 354deg;
+    > h1 {
+      font-size: 64px;
     }
+  }
 
-    .landing-content {
-        margin-bottom: 144px;
-    }
+  .landing-content {
+    margin-bottom: 144px;
+  }
 }
 
 @media only screen and (min-width: 700px) {
-    .title-container {
-        margin: 218px 0 0 0;
+  .title-container {
+    margin: 218px 0 0 0;
 
-        >h2 {
-            font-size: 35px;
-        }
-
-        >h1 {
-            font-size: 100px;
-        }
+    > h2 {
+      font-size: 35px;
     }
 
-    .marquee-container {
-        height: 55px;
+    > h1 {
+      font-size: 100px;
+    }
+  }
+
+  .left-lateral {
+    height: 365px;
+  }
+
+  .left-seperator {
+    height: 310px;
+  }
+
+  .marquee-container {
+    position: absolute;
+    top: 87%;
+    left: 0;
+    width: 100vw;
+    height: 55px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(5.3px);
+    z-index: 20;
+    pointer-events: none;
     }
 
-    .title-buttons {
-        height: 48px;
-    }
+  .title-buttons {
+    height: 48px;
+  }
 
-    .title-buttons.en {
-        gap: 48px !important;
-        .first-button { width: 172px; }
-        .second-button { width: 143px; }
+  .title-buttons.en {
+    gap: 48px !important;
+    .first-button {
+      width: 172px;
     }
+    .second-button {
+      width: 143px;
+    }
+  }
 
   .title-buttons.de {
-        gap: 48px !important;
-        .first-button { width: 220px; }
-        .second-button { width: 220px; }
-        .scroll-text { font-size: 18px; }
+    gap: 48px !important;
+    .first-button {
+      width: 220px;
     }
-
+    .second-button {
+      width: 220px;
+    }
     .scroll-text {
-        font-size: 18px;
+      font-size: 18px;
     }
+  }
 
-    .marquee-container {
-        top: 230px;
-    }
-
-    .left-lateral {
-        height: 100%;
-    }
+  .scroll-text {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (min-width: 925px) {
-    .title-container {
-        margin: 160px 0 0 0;
+  .title-container {
+    margin: 160px 0 0 0;
 
-        >h2 {
-            font-size: 40px;
-        }
-
-        >h1 {
-            font-size: 128px;
-        }
+    > h2 {
+      font-size: 40px;
     }
 
-    .lateral-container {
-        align-items: normal;
-        padding: 0 96px 0 96px;
+    > h1 {
+      font-size: 128px;
+    }
+  }
+
+  .left-lateral {
+    height: 380px;
+  }
+
+  .lateral-container {
+    align-items: normal;
+    padding: 0 96px 0 96px;
+  }
+
+  .marquee-container {
+    rotate: 354deg;
+  }
+
+  @keyframes slideText {
+    0% {
+      transform: translateX(0);
     }
 
-    @keyframes slideText {
-        0% {
-            transform: translateX(0);
-        }
-
-        50% {
-            transform: translateX(-200px);
-            visibility: hidden;
-        }
-
-        51% {
-            transform: translateX(200px);
-            visibility: hidden;
-        }
-
-        100% {
-            transform: translateX(0);
-        }
+    50% {
+      transform: translateX(-200px);
+      visibility: hidden;
     }
 
-    .marquee-container {
-        top: 235px;
+    51% {
+      transform: translateX(200px);
+      visibility: hidden;
     }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-    .mail-link {
-        display: block;
-    }
+  .mail-link {
+    display: block;
+  }
 
-    .mail-content {
-        display: none;
+  .mail-content {
+    display: none;
+  }
+
+  .marquee-container {
+    top: 90%;
+  }
+}
+
+@media screen and (min-height: 1080px) and (max-height: 1080px) {
+  .marquee-container {
+    top: 87%;
+  }
+}
+
+@media screen and (min-height: 1366px) and (max-height: 1366px) {
+    .right-seperator {
+        height: 234px;
     }
 }
 
-/* @media only screen and (min-width: 2000px) {
-    .title-container {
-        margin: 240px 0 0 0;
+@media screen and (min-height: 2160px) and (max-height: 2160px) {
+    .marquee-container {
+        top: 94%;
     }
-
-    .landing-content {
-        margin-bottom: 0px;
-    }
-} */
+}
