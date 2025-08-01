@@ -10,7 +10,6 @@
         <p> {{ "contact.intrest" | translate }} <br /><br/> {{ "contact.need" | translate }} <span style="color: #3dcfb6;">{{ "contact.talk" | translate }}</span> </p>
       </div>
     </div>
-
     <form class="flex-column contact-formular-container" (submit)="checkFormular(contactForm)" #contactForm="ngForm">
       <div class="input-container">
         <div class="flex-column name-form-border name-container" [ngClass]="{ 'hovered-bottom-name': isInputHoveredEmail }">
@@ -36,16 +35,13 @@
         <div class="policy-and-submit-content">
           <div class="checkbox-container">
             <div class="checkbox-imgs checkbox-default">
-              <div *ngIf="!buttonChecked" class="default-container">
-                <img class="default" src="assets/images/Checkbox_default.png" alt=""/>
-                <img (click)="checkButtonPolicy()" class="hidden" src="assets/images/Checkbox_default_hover.png" alt=""/>
+              <div class="checkbox-icon" (click)="checkButtonPolicy()">
+                <img class="checkbox-img default" src="assets/images/Checkbox_default.png" alt="" [style.opacity]="!buttonChecked ? '1' : '0'"/>
+                <img class="checkbox-img checked" src="assets/images/Checkbox_Checked.png" alt="" [style.opacity]="buttonChecked ? '1' : '0'"/>
               </div>
-              <div *ngIf="buttonChecked" class="check-container">
-                <img class="hidden-checked" src="assets/images/Checkbox_Checked.png" alt=""/>
-                <img (click)="checkButtonPolicy()" class="hidden-checked-hover" src="assets/images/Checkbox_checked_hover.png" alt=""/>
-              </div>
-              <input required type="checkbox" #checkboxField="ngModel" name="checkbox" [(ngModel)]="buttonChecked"/>
-              <p> {{ "contact.read1" | translate }}
+              <input required type="checkbox" #checkboxField="ngModel" name="checkbox" [(ngModel)]="buttonChecked" />
+              <p>
+                {{ "contact.read1" | translate }}
                 <a routerLink="/privacy-policy">{{ "contact.policy" | translate }}</a>
                 {{ "contact.read2" | translate }}
               </p>
@@ -55,7 +51,7 @@
             </p>
           </div>
           <div class="contact-button">
-            <button type="submit" class="scroll-button" [ngClass]="[ currentLang === 'de' ? 'button-de' : 'button-en', checkboxField.valid && !isTouchDevice ? 'ngForm-valid' : '', checkboxField.valid && isTouchDevice ? 'ngForm-valid-resposive' : '' ]" (mouseenter)="startScroll()" (mouseleave)="stopScroll()">
+            <button type="submit" class="scroll-button" [disabled]="!contactForm.valid" [ngClass]="[ currentLang === 'de' ? 'button-de' : 'button-en', checkboxField.valid && !isTouchDevice ? 'ngForm-valid' : '', checkboxField.valid && isTouchDevice ? 'ngForm-valid-resposive' : '' ]" (mouseenter)="startScroll()" (mouseleave)="stopScroll()">
               <div class="scroll-container">
                 <div class="scroll-text" #scrollText>{{ "contact.hello" | translate }}</div>
               </div>
