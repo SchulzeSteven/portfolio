@@ -195,13 +195,38 @@ input.ng-invalid {
   }
 }
 
-.scroll-button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  border-color: #777;
-  color: #777;
+.scroll-button:disabled,
+.scroll-button:disabled.ngForm-valid,
+.scroll-button:disabled.ngForm-valid-resposive {
+  border-color: #777 !important;
+  color: #777 !important;
+  background: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.4 !important;
+  pointer-events: auto !important;
+  animation: none !important;
 }
 
+.scroll-button:disabled:hover,
+.scroll-button:disabled.ngForm-valid:hover,
+.scroll-button:disabled.ngForm-valid-resposive:hover {
+  border-color: #777 !important;
+  color: #777 !important;
+  background: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.4 !important;
+  animation: none !important;
+}
+
+.scroll-button:disabled .scroll-text,
+.scroll-button:disabled:hover .scroll-text,
+.scroll-button:disabled.ngForm-valid .scroll-text,
+.scroll-button:disabled.ngForm-valid:hover .scroll-text,
+.scroll-button:disabled.ngForm-valid-resposive .scroll-text,
+.scroll-button:disabled.ngForm-valid-resposive:hover .scroll-text {
+  animation: none !important;
+  transform: translate(-50%, -50%) !important;
+}
 
 /* Hovered Scroll Button Animation */
 .ngForm-valid {
