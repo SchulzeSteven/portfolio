@@ -1,12 +1,10 @@
 <main class="landing-content">
-  <app-navbar></app-navbar>
-
-  <div class="title-container">
-    <h2>{{ "landing.branch" | translate }}</h2>
-    <h1>Steven Schulze</h1>
-
-    <div class="title-buttons" [class.de]="currentLanguage === 'de'" [class.en]="currentLanguage === 'en'">
-      <button class="first-button" (mouseenter)="startScroll('check')" (mouseleave)="stopScroll('check')" (click)="scrollTo('projects')">
+    <app-navbar></app-navbar>
+    <div class="title-container">
+      <h2>{{ "landing.branch" | translate }}</h2>
+      <h1>Steven Schulze</h1>
+      <div class="title-buttons" [class.de]="currentLanguage === 'de'" [class.en]="currentLanguage === 'en'">
+      <button class="first-button" (mouseenter)="startScroll('check')" (mouseleave)="stopScroll('check')" (click)="scrollTo('projects')" >
         <div class="scroll-container">
           <div class="scroll-text" #checkText> {{ "landing.work" | translate }} </div>
         </div>
@@ -17,48 +15,52 @@
         </div>
       </button>
     </div>
-  </div>
-
-  <aside class="marquee-container">
-  <div class="marquee-track">
-    <div class="marquee-content" *ngFor="let i of [0, 1, 2]">
-      <img src="/assets/images/radio_button_unchecked.png" alt="" />
-      <span>{{ "landing.remote" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" />
-      <span>{{ "landing.branch" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" />
-      <span>{{ "landing.location" | translate }}</span>
-      <img src="/assets/images/radio_button_unchecked.png" alt="" />
-      <span>{{ "landing.ready" | translate }}</span>
     </div>
-  </div>
-</aside>
-
-  <div class="lateral-container">
-    <div class="left-lateral">
-      <div class="arrow-down">
-        <span>&darr;</span>
+    <div class="lateral-container">
+      <div class="left-lateral">
+        <div class="arrow-down">
+          <span>&darr;</span>
+        </div>
+        <div class="left-seperator"></div>
       </div>
-      <div class="left-seperator"></div>
-    </div>
-
-    <div class="right-lateral">
-      <a class="mail-link" href="mailto:mail@steven-schulze.com">mail&#64;steven-schulze.com</a>
-      <div class="links-imgs">
-        <a class="mail-container" href="mailto:mail@steven-schulze.com">
-          <div class="mail-content"></div>
-          <span></span>
-        </a>
-        <a class="github-container" href="https://github.com/SchulzeSteven" target="_blank">
-          <div class="github-content"></div>
-          <span></span>
-        </a>
-        <a class="linkedin-container" href="https://www.linkedin.com/in/steven-schulze-b80aaa375/" target="_blank">
-          <div class="linkedin-content"></div>
-          <span></span>
-        </a>
+      <aside class="marquee-container" >
+        <div class="adds-content animation-left">
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span>{{ "landing.remote" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span>{{ "landing.branch" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span>{{ "landing.location" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span>{{ "landing.ready" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span aria-hidden="true">{{ "landing.remote" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span aria-hidden="true">{{ "landing.branch" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span aria-hidden="true">{{ "landing.location" | translate }}</span>
+          <img src="/assets/images/radio_button_unchecked.png" alt="" />
+          <span aria-hidden="true">{{ "landing.ready" | translate }}</span>
+        </div>
+      </aside>
+      <div class="right-lateral">
+        <a class="mail-link" href="mailto:mail@steven-schulze.com">mail&#64;steven-schulze.com</a>
+        <div class="links-imgs">
+          <a class="mail-container" href="mailto:mail@steven-schulze.com">
+            <div class="mail-content"></div>
+            <span></span>
+          </a>
+          <a class="github-container" href="https://github.com/SchulzeSteven" target="_blank">
+            <div class="github-content"></div>
+            <span></span>
+          </a>
+          <a class="linkedin-container" href="https://www.linkedin.com/in/steven-schulze-b80aaa375/" target="_blank">
+            <div class="linkedin-content"></div>
+            <span></span>
+          </a>
+        </div>
+        <div class="right-seperator"></div>
       </div>
-      <div class="right-seperator"></div>
     </div>
-  </div>
-</main>
+  </main>
+    
