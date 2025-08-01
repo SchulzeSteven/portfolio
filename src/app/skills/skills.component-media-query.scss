@@ -56,8 +56,20 @@
     gap: 32px;
   }
 
+  .skills-descriptions span {
+    font-size: 18px;
+  }
+
   .another-skill-container {
     gap: 16px;
+
+    >h2 {
+      font-size: 24px;
+    }
+
+    >span {
+      font-size: 18px;
+    }
   }
 
   .show-skill-container {

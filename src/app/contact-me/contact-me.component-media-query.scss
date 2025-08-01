@@ -40,6 +40,10 @@
         max-width: 568px;
     }
 
+    .problem-container p {
+        font-size: 18px;
+    }
+
     .contact-formular-container {
         width: 100%;
         max-width: 616px;
@@ -58,9 +62,10 @@
     }
 }
 
-@media only screen and (max-width: 450px) {
-    .contact-me-section {
-        margin-bottom: 60px;
+@media only screen and (max-width: 925px) {
+    input.ng-invalid.ng-touched::placeholder,
+    input.ng-invalid {
+        font: 400 16px 'Karla' !important;
     }
 
     .intro-container {
@@ -78,18 +83,18 @@
         }
     }
 
+    .checkbox-default p {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .contact-me-section {
+        margin-bottom: 60px;
+    }
+
     .checkbox-default p a {
         padding: 5px 0px 0;
-    }
-
-    input.ng-invalid.ng-touched::placeholder,
-    input.ng-invalid {
-        font: 400 16px 'Karla' !important;
-    }
-
-    ::placeholder {
-        font: 400 16px 'Karla';
-        color: #ffffffcc;
     }
 
     .policy-and-submit-content {
