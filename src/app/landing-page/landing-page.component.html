@@ -16,33 +16,15 @@
       </button>
     </div>
     </div>
-    <div class="lateral-container">
+        <div class="lateral-container">
+      <!-- Nur links und rechts -->
       <div class="left-lateral">
         <div class="arrow-down">
           <span>&darr;</span>
         </div>
         <div class="left-seperator"></div>
       </div>
-      <aside class="marquee-container" >
-        <div class="adds-content animation-left">
-          <img src="/assets/images/radio_button_unchecked.png" alt="" />
-          <span>{{ "landing.remote" | translate }}</span>
-          <img src="/assets/images/radio_button_unchecked.png" alt="" />
-          <span>{{ "landing.branch" | translate }}</span>
-          <img src="/assets/images/radio_button_unchecked.png" alt="" />
-          <span>{{ "landing.location" | translate }}</span>
-          <img src="/assets/images/radio_button_unchecked.png" alt="" />
-          <span>{{ "landing.ready" | translate }}</span>
-          <img src="/assets/images/radio_button_unchecked.png" alt="" />
-          <span aria-hidden="true">{{ "landing.remote" | translate }}</span>
-          <img src="/assets/images/radio_button_unchecked.png" alt="" />
-          <span aria-hidden="true">{{ "landing.branch" | translate }}</span>
-          <img src="/assets/images/radio_button_unchecked.png" alt="" />
-          <span aria-hidden="true">{{ "landing.location" | translate }}</span>
-          <img src="/assets/images/radio_button_unchecked.png" alt="" />
-          <span aria-hidden="true">{{ "landing.ready" | translate }}</span>
-        </div>
-      </aside>
+
       <div class="right-lateral">
         <a class="mail-link" href="mailto:mail@steven-schulze.com">mail&#64;steven-schulze.com</a>
         <div class="links-imgs">
@@ -62,5 +44,25 @@
         <div class="right-seperator"></div>
       </div>
     </div>
+
+    <!-- Marquee außerhalb, am Ende von <main> -->
+    <aside class="marquee-container" [class.animate]="marqueeReady">
+  <div class="marquee-track">
+    <div class="adds-content">
+      <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+        <img src="/assets/images/radio_button_unchecked.png" alt="" />
+        <span>{{ "landing.remote" | translate }}</span>
+        <img src="/assets/images/radio_button_unchecked.png" alt="" />
+        <span>{{ "landing.branch" | translate }}</span>
+        <img src="/assets/images/radio_button_unchecked.png" alt="" />
+        <span>{{ "landing.location" | translate }}</span>
+        <img src="/assets/images/radio_button_unchecked.png" alt="" />
+        <span>{{ "landing.ready" | translate }}</span>
+      </ng-container>
+    </div>
+  </div>
+</aside>
+
+
   </main>
     

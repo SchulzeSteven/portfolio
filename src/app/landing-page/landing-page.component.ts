@@ -33,6 +33,8 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
   /** Width used to determine when to reset scroll */
   private containerWidth = 120;
 
+  marqueeReady = false;
+
   /**
    * Stores individual scroll positions and animation frame IDs
    * for each scrollable text element
@@ -77,7 +79,13 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
   ngAfterViewInit(): void {
     this.resetTextPosition('check');
     this.resetTextPosition('contact');
+
+    // Verzögerung, bis Angular + Translations vollständig gerendert sind
+    setTimeout(() => {
+      this.marqueeReady = true;
+    }, 50); // ggf. 100ms, falls nötig
   }
+
 
   /**
    * Starts scroll animation for the given text element
