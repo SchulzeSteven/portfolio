@@ -156,24 +156,31 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy, OnInit {
       : this.contactTextRef.nativeElement;
   }
 
-  /**
-   * Smoothly scrolls to the specified anchor element
-   * @param anchor ID of the target element
-   */
-  scrollTo(anchor: string): void {
-    const element = document.getElementById(anchor);
-    if (element) {
-      const offset = anchor === 'contact' ? -110 : 0;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const position = elementRect - bodyRect + offset;
+ /**
+ * Smoothly scrolls to the specified anchor element with section-specific offset.
+ * @param anchor ID of the target element (e.g. "projects", "contact")
+ */
+scrollTo(anchor: string): void {
+  const element = document.getElementById(anchor);
+  if (element) {
+    let offset = 0;
 
-      window.scrollTo({
-        top: position,
-        behavior: 'smooth'
-      });
+    if (anchor === 'contact') {
+      offset = -110;
+    } else if (anchor === 'projects') {
+      offset = -80;
     }
+
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = element.getBoundingClientRect().top;
+    const position = elementRect - bodyRect + offset;
+
+    window.scrollTo({
+      top: position,
+      behavior: 'smooth'
+    });
   }
+}
 
   /**
    * Cleans up active animations and subscriptions
