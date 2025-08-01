@@ -1,4 +1,13 @@
+.imprint-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1440px;
+  width: 100%;
+}
+
 .imprint-section {
+  flex: 1 0 auto;
   padding: 0 16px;
   max-width: 1440px;
   width: 100%;
@@ -141,7 +150,7 @@
 /* Media Queries */
 @media only screen and (min-width: 925px) {
   .imprint-section {
-    padding: 0 96px;
+    padding: 0 103px 0 89px;
   }
 
   .imprint-content {

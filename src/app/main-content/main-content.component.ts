@@ -8,6 +8,7 @@ import { SkillsComponent } from '../skills/skills.component';
 import { FeaturedProjectsComponent, Project } from '../featured-projects/featured-projects.component';
 import { ReferencesComponent } from '../references/references.component';
 import { ContactMeComponent } from '../contact-me/contact-me.component';
+import { FooterComponent } from "../shared/components/footer/footer.component";
 
 @Component({
   selector: 'app-main-content',
@@ -20,8 +21,9 @@ import { ContactMeComponent } from '../contact-me/contact-me.component';
     SkillsComponent,
     FeaturedProjectsComponent,
     ReferencesComponent,
-    ContactMeComponent
-  ],
+    ContactMeComponent,
+    FooterComponent
+],
   templateUrl: './main-content.component.html',
   styleUrls: [
     './main-content.component.scss',

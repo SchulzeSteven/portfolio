@@ -6,35 +6,49 @@ import {
   ViewChild
 } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { FooterComponent } from "../shared/components/footer/footer.component";
 
 @Component({
   selector: 'app-imprint',
   standalone: true,
-  imports: [NavbarComponent, RouterLink, TranslatePipe],
+  imports: [NavbarComponent, RouterLink, TranslatePipe, FooterComponent],
   templateUrl: './imprint.component.html',
   styleUrl: './imprint.component.scss'
 })
 export class ImprintComponent implements OnInit, OnDestroy {
-  /** Reference to the scrolling text container element */
+  /**
+   * Reference to the scrollable text element for the back button.
+   */
   @ViewChild('imprintText') imprintTextRef!: ElementRef<HTMLDivElement>;
 
-  /** Speed of the scroll animation */
+  /**
+   * Reference to the imprint container element (used to detect backdrop clicks).
+   */
+  @ViewChild('imprintContainer') imprintContainerRef!: ElementRef<HTMLElement>;
+
+  /** Speed of the horizontal text scroll animation. */
   private scrollSpeed = 1.2;
 
-  /** Width of the scroll container for reset calculation */
+  /** Container width used for scroll reset calculation. */
   private containerWidth = 120;
 
-  /** Current scroll position */
+  /** Current scroll position of the text animation. */
   private scrollPos = 0;
 
-  /** Animation frame ID to manage requestAnimationFrame lifecycle */
+  /** ID of the active animation frame. Used to cancel the animation if needed. */
   private frameId: number | null = null;
 
   /**
-   * Lifecycle hook that runs when the component is initialized.
-   * Scrolls to the top and sets a custom background gradient.
+   * Injects Angular Router.
+   * @param router Angular Router instance.
+   */
+  constructor(private router: Router) {}
+
+  /**
+   * Angular lifecycle hook called on component initialization.
+   * Scrolls to the top of the page and sets a background gradient.
    */
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -42,8 +56,8 @@ export class ImprintComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Lifecycle hook that runs when the component is destroyed.
-   * Cleans up background and scroll animation.
+   * Angular lifecycle hook called when the component is destroyed.
+   * Cleans up styles and stops the scroll animation.
    */
   ngOnDestroy(): void {
     document.body.style.backgroundImage = '';
@@ -51,8 +65,7 @@ export class ImprintComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Starts the continuous horizontal scroll animation
-   * for the imprint text element.
+   * Starts the scroll animation of the back button text.
    */
   startScroll(): void {
     const el = this.imprintTextRef?.nativeElement;
@@ -68,9 +81,8 @@ export class ImprintComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Executes one step of the scrolling animation.
-   * Resets the position when the text moves out of view.
-   * @param el HTML element to animate
+   * Performs a single step of the scroll animation and loops the text.
+   * @param el The HTML element being animated.
    */
   private scrollStep(el: HTMLElement): void {
     this.scrollPos -= this.scrollSpeed;
@@ -84,7 +96,7 @@ export class ImprintComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Stops the scroll animation and resets the element position smoothly.
+   * Stops the scroll animation and resets the text position.
    */
   stopScroll(): void {
     const textEl = this.imprintTextRef.nativeElement;
@@ -94,5 +106,16 @@ export class ImprintComponent implements OnInit, OnDestroy {
     textEl.style.transition = 'transform 0.4s ease-out';
     textEl.style.transform = 'translate(-50%, -50%)';
     this.scrollPos = 0;
+  }
+
+  /**
+   * Detects clicks outside the imprint container to navigate back.
+   * @param event Mouse click event.
+   */
+  onBackdropClick(event: MouseEvent): void {
+    const container = this.imprintContainerRef?.nativeElement;
+    if (container && !container.contains(event.target as Node)) {
+      this.router.navigate(['/']);
+    }
   }
 }
