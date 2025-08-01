@@ -145,6 +145,10 @@
 
 /* Media Queries */
 @media only screen and (min-width: 925px) {
+  .footer-container {
+    align-items: end;
+  }
+
   .footer-section-mobile {
     margin: 0;
   }
@@ -166,11 +170,19 @@
 }
 
 @media only screen and (max-width: 925px) {
+  .link-container {
+    justify-content: end;
+  }
+
   .links-content a {
     font-size: 16px;
   }
 
   .info-content p {
+    font-size: 16px;
+  }
+
+  .copyright-container span {
     font-size: 16px;
   }
 }
