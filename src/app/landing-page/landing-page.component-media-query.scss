@@ -7,11 +7,17 @@
         margin: 80px 0 0px 0;
 
         >h2 {
-            font-size: 18px;
+            font-size: 22px;
         }
 
         >h1 {
-            font-size: 45px;
+            font-size: 50px;
+        }
+    }
+
+    .adds-content {
+        >span {
+            font-size: 28px;
         }
     }
 
@@ -38,11 +44,20 @@
 
     .marquee-container {
         top: 190px;
-        rotate: 351deg;
+        rotate: 352deg;
+        height: 45px;
     }
 
     .left-lateral {
-        height: 260px;
+        height: 365px;
+    }
+
+    .left-seperator {
+        height: 290px;
+    }
+
+    .right-seperator {
+        height: 220px;
     }
 }
 
@@ -80,6 +95,10 @@
         >h1 {
             font-size: 100px;
         }
+    }
+
+    .marquee-container {
+        height: 55px;
     }
 
     .title-buttons {
@@ -128,10 +147,6 @@
     .lateral-container {
         align-items: normal;
         padding: 0 96px 0 96px;
-    }
-
-    .right-seperator {
-        height: 186px;
     }
 
     @keyframes slideText {
