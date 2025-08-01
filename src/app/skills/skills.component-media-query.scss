@@ -30,7 +30,7 @@
   .skills-container {
     flex-direction: row;
     align-items: normal;
-    gap: 96px;
+    gap: 75px;
     justify-content: center;
     box-sizing: border-box;
     padding: 0 96px;
@@ -69,6 +69,12 @@
   .single-skill {
     height: 116px;
     width: 104px;
+  }
+}
+
+@media only screen and (min-width: 1040px) {
+  .skills-container {
+    gap: 96px;
   }
 }
 

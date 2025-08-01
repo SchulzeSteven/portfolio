@@ -7,7 +7,6 @@
     .link-buttons-container {
         gap: 24px;
         padding: 0;
-        width: unset;
     }
 
     .link-buttons {
@@ -24,6 +23,7 @@
         height: 48px;
     }
 }
+
 
 @media only screen and (min-width: 925px) {
   .featured-projects-dialog {
@@ -164,5 +164,21 @@
         font-size: 40px;
         line-height: 40px;
       }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .dialog-image {
+        height:130px !important;
+        width: 60% !important;
+    }
+
+    .preview-project {
+      margin-bottom: 0px;
+      gap: 0;
+    }
+
+    .left-details-container {
+      gap: 16px;
     }
 }

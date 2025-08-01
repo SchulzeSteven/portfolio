@@ -63,6 +63,10 @@
         top: 200px;
         rotate: 354deg;
     }
+
+    .landing-content {
+        margin-bottom: 144px;
+    }
 }
 
 @media only screen and (min-width: 700px) {
@@ -109,11 +113,6 @@
 }
 
 @media only screen and (min-width: 925px) {
-
-    .landing-content {
-        height: 100vh;
-    }
-
     .title-container {
         margin: 160px 0 0 0;
 
@@ -170,7 +169,7 @@
     }
 }
 
-@media only screen and (min-width: 2000px) {
+/* @media only screen and (min-width: 2000px) {
     .title-container {
         margin: 240px 0 0 0;
     }
@@ -178,4 +177,4 @@
     .landing-content {
         margin-bottom: 0px;
     }
-}
+} */
