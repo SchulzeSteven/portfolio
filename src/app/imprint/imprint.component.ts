@@ -8,7 +8,7 @@ import {
 import { NavbarComponent } from '../navbar/navbar.component';
 import { RouterLink, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { FooterComponent } from "../shared/components/footer/footer.component";
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-imprint',

@@ -8,7 +8,7 @@ import { SkillsComponent } from '../skills/skills.component';
 import { FeaturedProjectsComponent, Project } from '../featured-projects/featured-projects.component';
 import { ReferencesComponent } from '../references/references.component';
 import { ContactMeComponent } from '../contact-me/contact-me.component';
-import { FooterComponent } from "../shared/components/footer/footer.component";
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-main-content',
