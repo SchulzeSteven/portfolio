@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
-<section data-aos="fade-left" class="privacypolicy-section">
-  <div class="privacypolicy-container">
-    <div class="title-container">
+<section data-aos="fade-left" class="privacypolicy-section" (click)="onBackdropClick($event)">>
+  <div class="privacypolicy-container" #privacyContainer (click)="$event.stopPropagation()">
+    <div class="title-container">>
       <h1>{{ "privacypolicy.title" | translate }}</h1>
     </div>
     <div class="container-1">

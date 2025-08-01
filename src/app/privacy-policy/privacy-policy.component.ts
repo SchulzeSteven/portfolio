@@ -1,6 +1,12 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -13,6 +19,9 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class PrivacypolicyComponent implements OnInit, OnDestroy {
   /** Reference to the scrollable privacy policy text element */
   @ViewChild('privacyText') privacyTextRef!: ElementRef<HTMLDivElement>;
+
+  /** Reference to the container element to detect outside clicks */
+  @ViewChild('privacyContainer') privacyContainerRef!: ElementRef<HTMLElement>;
 
   /** Scroll speed in pixels per frame */
   private scrollSpeed = 1.2;
@@ -91,4 +100,17 @@ export class PrivacypolicyComponent implements OnInit, OnDestroy {
     textEl.style.transform = 'translate(-50%, -50%)';
     this.scrollPos = 0;
   }
+
+  /**
+   * Closes the privacy policy view if clicked outside the container
+   * @param event MouseEvent
+   */
+  onBackdropClick(event: MouseEvent): void {
+    const container = this.privacyContainerRef?.nativeElement;
+    if (container && !container.contains(event.target as Node)) {
+      this.router.navigate(['/']);
+    }
+  }
+
+  constructor(private router: Router) {}
 }
