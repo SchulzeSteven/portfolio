@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-
-// Import AOS (Animate On Scroll)
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import * as AOS from 'aos';
 
 @Component({
@@ -12,9 +10,11 @@ import * as AOS from 'aos';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   /** Application title (not actively used here) */
   title = 'portfolio';
+
+  constructor(private router: Router) {}
 
   /**
    * Angular lifecycle hook that runs after component initialization.
@@ -22,10 +22,33 @@ export class AppComponent implements OnInit {
    */
   ngOnInit(): void {
     AOS.init({
-      duration: 500,           // Animation duration in milliseconds
-      once: false,             // Whether animation should happen only once
-      offset: 350,             // Offset from the bottom of the screen
-      easing: 'ease-out-back'  // Animation easing style
+      duration: 500,
+      once: false,
+      offset: 350,
+      easing: 'ease-out-back'
+    });
+  }
+
+  /**
+   * Handles fragment navigation after route changes.
+   * Ensures scrolling to specific sections like #about, #skills etc.
+   */
+  ngAfterViewInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const fragment = this.router.parseUrl(this.router.url).fragment;
+        if (fragment) {
+          // Warte kurz, bis DOM vollständig gerendert ist
+          setTimeout(() => {
+            const el = document.getElementById(fragment);
+            if (el) {
+              const yOffset = -80; // Offset für feste Navbar
+              const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          }, 50);
+        }
+      }
     });
   }
 }

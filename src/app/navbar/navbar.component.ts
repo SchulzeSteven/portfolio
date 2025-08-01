@@ -1,6 +1,8 @@
-import { Component, Renderer2 } from '@angular/core'; // Renderer2 added for DOM manipulation
+import { Component, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common'; // Used for potential URL manipulation
 
 @Component({
   selector: 'app-navbar',
@@ -24,9 +26,10 @@ export class NavbarComponent {
 
   constructor(
     public translate: TranslateService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private router: Router,
+    private location: Location
   ) {
-    // Load language from localStorage or default to 'en'
     const savedLang = localStorage.getItem('lang');
     const defaultLang = savedLang ?? 'en';
 
@@ -35,43 +38,59 @@ export class NavbarComponent {
   }
 
   /**
-   * Toggles the appearance of the language icon (e.g., filter effect)
+   * Toggles the visual filter (e.g. color inversion) on the language icon.
    */
   toggleIconFilter(): void {
     this.isIconInverted = !this.isIconInverted;
   }
 
   /**
-   * Opens or closes the mobile navigation menu and locks/unlocks page scroll
+   * Toggles the mobile navigation menu state between open and closed.
    */
   switchMenu(): void {
     this.menuIsClose = !this.menuIsClose;
   }
 
   /**
-   * Smoothly scrolls to a specific section of the page by ID.
-   * On mobile, closes the menu after navigation.
-   * 
-   * @param id The HTML element ID to scroll to.
+   * Smoothly scrolls to a section by ID.
+   * If the current route is 'privacy' or 'imprint', it navigates back to the home page first,
+   * then scrolls to the section without displaying a URL fragment.
+   *
+   * @param id - The HTML element ID to scroll to (e.g. "about", "skills")
    */
   scrollToSection(id: string): void {
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -80; // offset for fixed navbar
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    const isMobile = window.innerWidth <= 600;
 
-      window.scrollTo({ top: y, behavior: 'smooth' });
+    /**
+     * Scrolls to the section and closes the mobile menu if open.
+     */
+    const scrollAndCleanUrl = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        const yOffset = -80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
 
-      const isMobile = window.innerWidth <= 600;
-      if (isMobile && !this.menuIsClose) {
+      if (!this.menuIsClose && isMobile) {
         this.switchMenu();
       }
+    };
+
+    if (this.router.url.includes('privacy') || this.router.url.includes('imprint')) {
+      this.router.navigateByUrl('/').then(() => {
+        setTimeout(() => {
+          scrollAndCleanUrl();
+        }, 50);
+      });
+    } else {
+      scrollAndCleanUrl();
     }
   }
 
   /**
    * Toggles the language between English and German,
-   * updates TranslateService and saves the preference in localStorage.
+   * updates the TranslateService and stores the preference in localStorage.
    */
   toggleLanguage(): void {
     this.selectedLanguage = this.selectedLanguage === 'EN' ? 'DE' : 'EN';
