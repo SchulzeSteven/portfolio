@@ -12,7 +12,6 @@ import {
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
-import { PopUpMessageComponent } from './popup-message/popup-message.component';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -24,7 +23,6 @@ import * as AOS from 'aos';
   imports: [
     FormsModule,
     CommonModule,
-    PopUpMessageComponent,
     TranslatePipe,
     RouterLink
   ],
@@ -34,6 +32,7 @@ import * as AOS from 'aos';
 export class ContactMeComponent implements OnInit, OnDestroy {
   /** Emits true/false when the contact form dialog is closed */
   @Output() dialogClosed: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() openPopup = new EventEmitter<void>();
 
   /** Reference to the scrolling text element */
   @ViewChild('scrollText') scrollTextRef!: ElementRef<HTMLDivElement>;
@@ -168,6 +167,17 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     ngForm.resetForm();
   }
 }
+
+onSubmit(form: NgForm) {
+    // Nutze deine existierende Validierung weiter
+    this.checkFormular(form);
+
+    // Wenn Angular-Form valide ist UND Checkbox angehakt, dann Popup öffnen
+    // (Passe die Bedingung an, falls dein checkFormular() bereits alles setzt)
+    if (form?.valid && this.buttonChecked) {
+      this.openPopup.emit();
+    }
+  }
 
   /** Starts horizontal scrolling animation of the button text */
   startScroll(): void {

@@ -4,7 +4,7 @@
   <app-skills></app-skills>
   <app-featured-projects (openDialog)="openDialog($event)"></app-featured-projects>
   <app-references></app-references>
-  <app-contact-me></app-contact-me>
+  <app-contact-me (openPopup)="onOpenPopup()"></app-contact-me>
 </section>
 
 <div *ngIf="dialogVisible && selectedProject" class="featured-projects-dialog-container" (click)="closeProjects()" role="dialog" aria-modal="true" tabindex="-1">
@@ -72,5 +72,9 @@
     </div>
   </div>
 </div>
-
+<app-pop-up-message
+*ngIf="popupVisible"
+  (closeMessage)="onClosePopup()"
+  class="pop-up-dialog-container">
+</app-pop-up-message>
 <app-footer></app-footer>

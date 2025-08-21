@@ -22,4 +22,20 @@ export class PopUpMessageComponent {
   closeDialog(): void {
     this.closeMessage.emit(false);
   }
+
+  /**
+   * Closes the popup when the user clicks on the backdrop (outside the dialog).
+   *
+   * This handler only emits when the click originated on the backdrop itself,
+   * not on any child element (e.g., the dialog content), by comparing the
+   * event's `target` and `currentTarget`.
+   *
+   * @param {MouseEvent} event - The mouse click event dispatched on the backdrop.
+   * @returns {void}
+   */
+  onBackdropClick(event: MouseEvent): void {
+    if (event.target === event.currentTarget) {
+      this.closeMessage.emit();
+    }
+  }
 }

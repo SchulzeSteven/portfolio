@@ -9,6 +9,7 @@ import { FeaturedProjectsComponent, Project } from '../featured-projects/feature
 import { ReferencesComponent } from '../references/references.component';
 import { ContactMeComponent } from '../contact-me/contact-me.component';
 import { FooterComponent } from "../footer/footer.component";
+import { PopUpMessageComponent } from '../contact-me/popup-message/popup-message.component';
 
 @Component({
   selector: 'app-main-content',
@@ -22,7 +23,8 @@ import { FooterComponent } from "../footer/footer.component";
     FeaturedProjectsComponent,
     ReferencesComponent,
     ContactMeComponent,
-    FooterComponent
+    FooterComponent,
+    PopUpMessageComponent
 ],
   templateUrl: './main-content.component.html',
   styleUrls: [
@@ -31,6 +33,9 @@ import { FooterComponent } from "../footer/footer.component";
   ]
 })
 export class MainContentComponent {
+
+  popupVisible = false;
+
   /**
    * The currently selected project for the dialog preview.
    * If null, the dialog is not visible.
@@ -129,5 +134,42 @@ export class MainContentComponent {
     }
 
     this.selectedProject = projects.find(p => p.id === nextId) || null;
+  }
+
+  /**
+   * Opens the global popup overlay and locks vertical page scrolling.
+   *
+   * Adds the `dialog-open` class to both `<body>` and `<html>` so that global CSS
+   * can disable vertical scrolling (e.g., `overflow-y: hidden`) and, if desired,
+   * re-enable horizontal scrolling (e.g., `overflow-x: unset`).
+   *
+   * Side effects:
+   * - Sets `popupVisible` to `true`.
+   * - Modifies DOM classes on the `<body>` and `<html>` elements.
+   *
+   * @returns {void}
+   */
+  onOpenPopup(): void {
+    this.popupVisible = true;
+    document.body.classList.add('dialog-open');
+    document.documentElement.classList.add('dialog-open');
+  }
+
+  /**
+   * Closes the global popup overlay and restores page scrolling.
+   *
+   * Removes the `dialog-open` class from both `<body>` and `<html>`, allowing the
+   * page to scroll again according to your global styles.
+   *
+   * Side effects:
+   * - Sets `popupVisible` to `false`.
+   * - Modifies DOM classes on the `<body>` and `<html>` elements.
+   *
+   * @returns {void}
+   */
+  onClosePopup(): void {
+    this.popupVisible = false;
+    document.body.classList.remove('dialog-open');
+    document.documentElement.classList.remove('dialog-open');
   }
 }

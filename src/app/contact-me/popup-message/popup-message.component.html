@@ -1,9 +1,9 @@
-<section class="pop-up-section">
-  <div class="pop-up-content">
-    <h1> {{ "popup.headline" | translate }} </h1>
-    <p> {{ "popup.content1" | translate }} <br /><br /> {{ "popup.content2" | translate }} </p>
+<section class="pop-up-section" (click)="onBackdropClick($event)">
+  <div class="pop-up-content" (click)="$event.stopPropagation()">
+    <h1>{{ "popup.headline" | translate }}</h1>
+    <p>{{ "popup.content1" | translate }}<br /><br />{{ "popup.content2" | translate }}</p>
     <button (click)="closeDialog()" class="close-button">
-      <span> {{ "popup.close" | translate }} </span>
+      <span>{{ "popup.close" | translate }}</span>
     </button>
   </div>
 </section>

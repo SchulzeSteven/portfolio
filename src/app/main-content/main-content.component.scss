@@ -303,3 +303,10 @@
   50%  { opacity: 0.5; }
   100% { opacity: 1; }
 }
+
+body.dialog-open {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  touch-action: none;
+  overscroll-behavior: contain;
+}

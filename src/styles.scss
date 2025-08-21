@@ -78,6 +78,17 @@ app-privacypolicy {
     align-items: center;
 }
 
+html.dialog-open,
+body.dialog-open {
+  overflow-x: unset !important;
+}
+
+body.dialog-open {
+  overflow-y: hidden !important;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
 @font-face {
   font-family: 'Fira Code';
   src: url('assets/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');

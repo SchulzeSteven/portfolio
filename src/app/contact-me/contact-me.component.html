@@ -85,7 +85,7 @@
             checkboxField.valid && !isTouchDevice ? 'ngForm-valid' : '',
             checkboxField.valid && isTouchDevice ? 'ngForm-valid-resposive' : ''
           ]"
-          (click)="checkFormular(contactForm)"
+          (click)="onSubmit(contactForm)"
           (mouseenter)="startScroll()"
           (mouseleave)="stopScroll()"
         >
@@ -97,9 +97,9 @@
     </div>
   </div>
 </form>
-<app-pop-up-message
+<!-- <app-pop-up-message
   (closeMessage)="logCloseDialog($event)"
   *ngIf="sendFormular"
   class="pop-up-dialog-container"
   [ngClass]="{ fadeout: animate }">
-</app-pop-up-message>
+</app-pop-up-message> -->

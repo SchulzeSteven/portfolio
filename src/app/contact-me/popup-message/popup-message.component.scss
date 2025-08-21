@@ -1,102 +1,107 @@
+:host {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  z-index: 11000;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+:host::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+/* === Dialog-Container === */
 .pop-up-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 96px 0 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
 }
 
 .pop-up-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
-    text-align: center;
-    border: 1px solid #3DCFB6;
-    border-radius: 30px;
-    padding: 30px 10px 30px 10px;
-    width: 100%;
-    max-width: 900px;
-    gap: 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: min(900px, 100%);
+  max-width: 900px;
+  padding: 30px 10px;
+  gap: 28px;
+  background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+  border: 1px solid #3DCFB6;
+  border-radius: 30px;
+  max-height: min(80vh, 720px);
+  overflow: auto;
 
-    >h1 {
-        margin: 0;
-        font-size: 29px;
-        color: #3dcfb6;
-        font-family: 'Karla';
-        line-height: 100%;
-        letter-spacing: 0;
-    }
+  > h1 {
+    margin: 0;
+    font-size: 29px;
+    color: #3dcfb6;
+    font-family: 'Karla';
+    line-height: 100%;
+    letter-spacing: 0;
+  }
 
-    >p {
-        margin: 0;
-        font-size: 19px;
-        color: #fff;
-        font-family: 'Karla';
-        line-height: 100%;
-        letter-spacing: 0;
-    }
+  > p {
+    margin: 0;
+    font-size: 19px;
+    color: #fff;
+    font-family: 'Karla';
+    line-height: 130%;
+    letter-spacing: 0;
+  }
 }
 
+/* Button */
 .close-button {
-    font-family: "Karla";
-    background-color: transparent;
-    border: 1px solid #FFFFFF;
-    border-radius: 100px;
-    padding: 13px 24px 13px 24px;
-    transition: color 300ms ease-out, border-color 300ms ease-out;
-    overflow: hidden;
+  font-family: "Karla";
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  border-radius: 100px;
+  padding: 13px 24px;
+  transition: color 300ms ease-out, border-color 300ms ease-out;
+  overflow: hidden;
 
-    >span {
-        color: #FFFFFF;
-        display: inline-block;
-        font-size: 24px;
+  > span {
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 24px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-color: #3DCFB6;
+
+    > span {
+      color: #3DCFB6;
+      animation: slideTextSkill 2500ms linear forwards infinite;
     }
-
-    &:hover {
-        cursor: pointer;
-        border-color: #3DCFB6;
-
-        >span {
-            color: #3DCFB6;
-            animation: slideTextSkill 2500ms linear forwards infinite;
-        }
-    }
+  }
 }
 
 @keyframes slideTextSkill {
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(-160%);
-        visibility: hidden;
-    }
-
-    51% {
-        transform: translateX(160%);
-        visibility: hidden;
-    }
-
-    60% {
-        transform: translateX(130%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(-160%); visibility: hidden; }
+  51%  { transform: translateX(160%);  visibility: hidden; }
+  60%  { transform: translateX(130%); }
+  100% { transform: translateX(0); }
 }
 
+/* Typo-Scaling nur für Überschrift/Paragraph, nicht den Overlay */
 @media only screen and (min-width: 600px) {
-    .pop-up-content {
-        >h1 {
-            font-size: 64px
-        }
-
-        >p {
-            font-size: 20px;
-        }
-    }
+  .pop-up-content {
+    > h1 { font-size: 64px; }
+    > p  { font-size: 20px; }
+  }
 }
