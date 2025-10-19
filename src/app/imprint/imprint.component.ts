@@ -56,16 +56,20 @@ export class ImprintComponent implements OnInit, OnDestroy {
    * @returns void
    */
   ngOnInit(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll instantly on mobile, smooth on desktop
+    const isMobile = window.innerWidth <= 768;
+    window.scrollTo({ top: 0, behavior: isMobile ? 'auto' : 'smooth' });
+
+    // Apply background gradient
     document.body.style.backgroundImage = 'linear-gradient(to top right, #1c1c1c 70%, #08463b)';
 
-    // Disable AOS only on mobile devices (≤ 768px width)
-    if (window.innerWidth <= 768) {
+    // Disable fade-right animation only on mobile
+    if (isMobile) {
       const section = document.querySelector('.imprint-section');
       section?.removeAttribute('data-aos');
     }
   }
-
+  
   /**
    * Angular lifecycle hook called when the component is destroyed.
    * Cleans up styles and stops the scroll animation.

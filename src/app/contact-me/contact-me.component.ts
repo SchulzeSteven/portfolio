@@ -70,7 +70,7 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     private translate: TranslateService
   ) {
     // Set initial language
-    this.currentLang = this.translate.currentLang as 'de' | 'en' || 'en';
+    this.currentLang = (this.translate.currentLang as 'de' | 'en') || 'en';
 
     // Subscribe to language changes and refresh AOS animations
     this.langChangeSub = this.translate.onLangChange.subscribe((event) => {
@@ -84,10 +84,8 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     endPoint: 'https://steven-schulze.com/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
-      headers: {
-        'Content-Type': 'text/plain',
-        responseType: 'text',
-      },
+      headers: { 'Content-Type': 'application/json' }, // korrekt: JSON senden
+      responseType: 'text' as const                    // korrekt: nicht in headers
     },
   };
 
@@ -103,6 +101,16 @@ export class ContactMeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.langChangeSub) this.langChangeSub.unsubscribe();
     if (this.frameId) cancelAnimationFrame(this.frameId);
+  }
+
+  /**
+   * Helper: determine current language ('de' | 'en') from localStorage or TranslateService
+   */
+  private getCurrentLang(): 'de' | 'en' {
+    const ls = (localStorage.getItem('lang') || '').toLowerCase();
+    if (ls === 'de' || ls === 'en') return ls as 'de' | 'en';
+    const t = (this.translate.currentLang || 'en').toLowerCase();
+    return t === 'de' ? 'de' : 'en';
   }
 
   /**
@@ -141,39 +149,41 @@ export class ContactMeComponent implements OnInit, OnDestroy {
    * @param ngForm The Angular form reference
    */
   checkFormular(ngForm: NgForm): void {
-  Object.values(ngForm.controls).forEach(control => {
-    control.markAsTouched({ onlySelf: true });
-  });
-  if (ngForm.invalid) return;
-  if (!this.mailTest) {
-    this.http
-      .post(
-        this.post.endPoint,
-        this.post.body(this.contactData),
-        this.post.options
-      )
-      .subscribe({
-        next: () => {
-          this.sendFormular = true;
-          this.setOverflow(true);
-          ngForm.resetForm();
-        },
-        error: (error) => {
-          console.error("Mail could not be sent:", error);
-          alert("Failed to send message. Please try again later.");
-        }
-      });
-  } else {
-    ngForm.resetForm();
-  }
-}
+    Object.values(ngForm.controls).forEach(control => {
+      control.markAsTouched({ onlySelf: true });
+    });
+    if (ngForm.invalid) return;
 
-onSubmit(form: NgForm) {
-    // Nutze deine existierende Validierung weiter
+    if (!this.mailTest) {
+      // Sprache anhängen (wird in PHP genutzt für DE/EN-Betreff & Texte)
+      const payload = {
+        ...this.contactData,
+        lang: this.getCurrentLang()
+      };
+
+      this.http
+        .post(this.post.endPoint, this.post.body(payload), this.post.options)
+        .subscribe({
+          next: () => {
+            this.sendFormular = true;
+            this.setOverflow(true);
+            ngForm.resetForm();
+          },
+          error: (error) => {
+            console.error('Mail could not be sent:', error);
+            alert('Failed to send message. Please try again later.');
+          }
+        });
+    } else {
+      ngForm.resetForm();
+    }
+  }
+
+  onSubmit(form: NgForm) {
+    // Bestehende Validierung weiter nutzen
     this.checkFormular(form);
 
-    // Wenn Angular-Form valide ist UND Checkbox angehakt, dann Popup öffnen
-    // (Passe die Bedingung an, falls dein checkFormular() bereits alles setzt)
+    // Wenn Form valide ist UND Checkbox angehakt, dann Popup öffnen
     if (form?.valid && this.buttonChecked) {
       this.openPopup.emit();
     }
