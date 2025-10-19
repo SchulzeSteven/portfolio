@@ -23,62 +23,49 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  text-align: center;
   gap: 18px;
-  border: 1px solid #3DCFB6;
-  border-radius: 30px;
-  background-color: #3DCFB61A;
-  padding: 40px 0;
+  padding: 40px 0px;
 }
 
 /* Imprint Content */
 .imprint-content {
-  > h1 {
+  h1 {
     font-size: 50px;
     color: #3dcfb6;
     font-family: 'Karla';
     font-weight: 700;
     line-height: 100%;
     margin: 0 0 16px;
+    text-align: center;
   }
 
-  > p {
+  h2 {
     color: #fff;
     font-family: 'Karla';
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 120%;
-    margin: 0 0 24px;
+    font-weight: 600;
+    margin: 40px 0 12px;
   }
-}
 
-/* Separator Line */
-.seperator {
-  background-color: #08463b;
-  width: 100%;
-  height: 1px;
-  margin: 24px 0;
-}
-
-/* Contact Info */
-.contact-content {
-  > h2 {
-    font-size: 50px;
+  p {
     color: #3dcfb6;
     font-family: 'Karla';
-    font-weight: 700;
-    line-height: 100%;
-    margin: 0 0 16px;
+    font-size: 18px;
+    line-height: 120%;
+    margin-bottom: 20px;
   }
 
-  > p {
-    color: #fff;
-    font-family: 'Karla';
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 120%;
-    margin: 0 0 12px;
-  }
+  .legal-list li {
+      color: #3dcfb6;
+      font-family: 'Karla';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+      margin-bottom: 10px;
+
+      &::marker {
+        color: #3dcfb6;
+      }
+    }
 }
 
 /* Back Button */
@@ -157,20 +144,6 @@
     > h1 {
       font-size: 60px;
     }
-
-    > p {
-      font-size: 24px;
-    }
-  }
-
-  .contact-content {
-    > h2 {
-      font-size: 60px;
-    }
-
-    > p {
-      font-size: 24px;
-    }
   }
 }
 
@@ -178,20 +151,6 @@
   .imprint-content {
     > h1 {
       font-size: 42px;
-    }
-
-    > p {
-      font-size: 18px;
-    }
-  }
-
-  .contact-content {
-    > h2 {
-      font-size: 42px;
-    }
-
-    > p {
-      font-size: 18px;
     }
   }
 }

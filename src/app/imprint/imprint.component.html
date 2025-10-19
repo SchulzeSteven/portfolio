@@ -3,31 +3,40 @@
 
   <section data-aos="fade-right" class="imprint-section">
     <div class="imprint-container" #imprintContainer (click)="$event.stopPropagation()">
-      <div>
         <div class="imprint-content">
           <h1>{{ "imprint.titel" | translate }}</h1>
-          <p>
-            Steven Schulze<br />
-            Johannisthaler Chaussee 372,<br />
-            12351 Berlin
-          </p>
+          <h2><u>{{ "imprint.imprint" | translate }}</u></h2>
+          <ul class="legal-list">
+            <li>Steven Schulze</li>
+            <li>Johannisthaler Chaussee 372</li>
+            <li>12351 Berlin</li>
+          </ul>
+          <h2><u>{{ "imprint.explore" | translate }}</u></h2>
+          <p>Email: [mail&#64;steven-schulze.com]</p>
+          <h2><u>{{ "imprint.terms" | translate }}</u></h2>
+          <p [innerHTML]="'imprint.termsText' | translate | safeHtml"></p>
+          <h2><u>{{ "imprint.owner" | translate }}</u></h2>
+          <p [innerHTML]="'imprint.ownerText' | translate | safeHtml"></p>
+          <h2><u>{{ "imprint.rights" | translate }}</u></h2>
+          <p [innerHTML]="'imprint.rightsText' | translate | safeHtml"></p>
+          <h2><u>{{ "imprint.use" | translate }}</u></h2>
+          <p [innerHTML]="'imprint.useText' | translate | safeHtml"></p>
+          <h2><u>{{ "imprint.disclaimer" | translate }}</u></h2>
+          <p [innerHTML]="'imprint.disclaimerText' | translate | safeHtml"></p>
+          <h2><u>{{ "imprint.indemnity" | translate }}</u></h2>
+          <p [innerHTML]="'imprint.indemnityText' | translate | safeHtml"></p>
         </div>
-        <div class="seperator"></div>
-        <div class="contact-content">
-          <h2>{{ "imprint.contact" | translate }}</h2>
-          <p>
-            {{ "imprint.phone" | translate }}: +49 17630573720<br />
-            E-Mail: mail&#64;steven-schulze.com
-          </p>
-        </div>
-      </div>
       <div class="return-container">
         <a routerLink="/">
-          <button class="back-button" (mouseenter)="startScroll()" (mouseleave)="stopScroll()">
-            <div class="scroll-container">
-              <div class="scroll-text" #imprintText>{{ "imprint.back_button" | translate }}</div>
-            </div>
-          </button>
+          <button class="back-button"
+        (mouseenter)="startScroll()"
+        (mouseleave)="stopScroll()"
+        (click)="navigateHome()">
+  <div class="scroll-container">
+    <div class="scroll-text" #imprintText>{{ "imprint.back_button" | translate }}</div>
+  </div>
+</button>
+
         </a>
       </div>
     </div>

@@ -4,12 +4,22 @@
       <img src="assets/images/logo-icon.png" alt="Language Icon" [class.inverted]="isIconInverted"/>
     </div>
     <div class="nav-content">
-      <div class="navbar-button">
-        <div class="toggle-container">
-          <div class="toggle-segment" [ngClass]="{ active: selectedLanguage === 'EN', inactive: selectedLanguage === 'DE' }" (click)="selectedLanguage === 'DE' && toggleLanguage()">
+      <div class="navbar-button" (click)="$event.stopPropagation()">
+        <div class="toggle-container" (click)="$event.stopPropagation()" (mousedown)="$event.stopPropagation()" (mouseup)="$event.stopPropagation()">
+          <div
+            class="toggle-segment"
+            [ngClass]="{ active: selectedLanguage === 'EN', inactive: selectedLanguage === 'DE' }"
+            (click)="$event.stopPropagation(); selectedLanguage === 'DE' && toggleLanguage()"
+            (mousedown)="$event.stopPropagation()"
+            (mouseup)="$event.stopPropagation()">
             <span class="toggle-text" [ngClass]="{ 'active-text': selectedLanguage === 'EN', 'inactive-text': selectedLanguage === 'DE' }">EN</span>
           </div>
-          <div class="toggle-segment" [ngClass]="{ active: selectedLanguage === 'DE', inactive: selectedLanguage === 'EN' }" (click)="selectedLanguage === 'EN' && toggleLanguage()">
+          <div
+            class="toggle-segment"
+            [ngClass]="{ active: selectedLanguage === 'DE', inactive: selectedLanguage === 'EN' }"
+            (click)="$event.stopPropagation(); selectedLanguage === 'EN' && toggleLanguage()"
+            (mousedown)="$event.stopPropagation()"
+            (mouseup)="$event.stopPropagation()">
             <span class="toggle-text" [ngClass]="{ 'active-text': selectedLanguage === 'DE', 'inactive-text': selectedLanguage === 'EN' }">DE</span>
           </div>
         </div>

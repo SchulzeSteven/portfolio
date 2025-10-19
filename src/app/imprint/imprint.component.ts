@@ -9,11 +9,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { RouterLink, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FooterComponent } from "../footer/footer.component";
+import { SafeHtmlPipe } from '../pipes/safe-html.pipe';
 
 @Component({
   selector: 'app-imprint',
   standalone: true,
-  imports: [NavbarComponent, RouterLink, TranslatePipe, FooterComponent],
+  imports: [NavbarComponent, RouterLink, TranslatePipe, FooterComponent, SafeHtmlPipe],
   templateUrl: './imprint.component.html',
   styleUrl: './imprint.component.scss'
 })
@@ -115,7 +116,30 @@ export class ImprintComponent implements OnInit, OnDestroy {
   onBackdropClick(event: MouseEvent): void {
     const container = this.imprintContainerRef?.nativeElement;
     if (container && !container.contains(event.target as Node)) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/']).then(() => {
+        // Nach dem Schließen wieder ganz nach oben scrollen
+        window.scrollTo({ top: 0, behavior: 'instant' }); // oder 'smooth' für sanftes Scrollen
+      });
     }
   }
+
+  /**
+   * Closes the imprint overlay and resets the page view.
+   * Instantly scrolls the window (and document fallbacks) back to the very top
+   * — ensuring the user starts at the top of the main page without animation.
+   * @returns void
+   */
+  navigateHome(): void {
+    const imprintSection = document.querySelector('.imprint-section');
+    if (imprintSection) {
+      imprintSection.classList.remove('visible');
+    }
+    document.body.classList.remove('dialog-open');
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+
+
+
 }
