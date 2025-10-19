@@ -48,12 +48,22 @@ export class ImprintComponent implements OnInit, OnDestroy {
   constructor(private router: Router) {}
 
   /**
-   * Angular lifecycle hook called on component initialization.
-   * Scrolls to the top of the page and sets a background gradient.
+   * Angular lifecycle hook called once during component initialization.
+   * - Scrolls smoothly to the top of the page.
+   * - Sets a gradient background specific to the Imprint view.
+   * - Removes AOS animations (e.g. fade-right) only on mobile devices
+   *   to show the content instantly without animation.
+   * @returns void
    */
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.body.style.backgroundImage = 'linear-gradient(to top right, #1c1c1c 70%, #08463b)';
+
+    // Disable AOS only on mobile devices (≤ 768px width)
+    if (window.innerWidth <= 768) {
+      const section = document.querySelector('.imprint-section');
+      section?.removeAttribute('data-aos');
+    }
   }
 
   /**
@@ -114,14 +124,19 @@ export class ImprintComponent implements OnInit, OnDestroy {
    * @param event Mouse click event.
    */
   onBackdropClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
     const container = this.imprintContainerRef?.nativeElement;
-    if (container && !container.contains(event.target as Node)) {
+    const inNavbar = !!target.closest('app-navbar');
+    const inFooter = !!target.closest('app-footer');
+    if (inNavbar || inFooter) return;
+
+    if (container && !container.contains(target)) {
       this.router.navigate(['/']).then(() => {
-        // Nach dem Schließen wieder ganz nach oben scrollen
-        window.scrollTo({ top: 0, behavior: 'instant' }); // oder 'smooth' für sanftes Scrollen
+        window.scrollTo({ top: 0, behavior: 'instant' });
       });
     }
   }
+
 
   /**
    * Closes the imprint overlay and resets the page view.
@@ -139,7 +154,4 @@ export class ImprintComponent implements OnInit, OnDestroy {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   }
-
-
-
 }

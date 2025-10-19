@@ -29,14 +29,13 @@
       <div class="return-container">
         <a routerLink="/">
           <button class="back-button"
-        (mouseenter)="startScroll()"
-        (mouseleave)="stopScroll()"
-        (click)="navigateHome()">
-  <div class="scroll-container">
-    <div class="scroll-text" #imprintText>{{ "imprint.back_button" | translate }}</div>
-  </div>
-</button>
-
+            (mouseenter)="startScroll()"
+            (mouseleave)="stopScroll()"
+            (click)="navigateHome()">
+            <div class="scroll-container">
+              <div class="scroll-text" #imprintText>{{ "imprint.back_button" | translate }}</div>
+            </div>
+          </button>
         </a>
       </div>
     </div>
